@@ -64,11 +64,11 @@ spec:
       - 44
       - 109
     resources: {}
-	  # empty braces makes this an empty map
-      #requests:
-      #  cpu: 1
-      #  memory: 1024Mi
-      #limits:
-      #  memory: 4096Mi
+    # empty braces makes this an empty map
+    #requests:
+    #  cpu: 1
+    #  memory: 1024Mi
+    #limits:
+    #  memory: 4096Mi
     securityContext:
       privileged: true
