@@ -64,7 +64,7 @@ spec:
       - 44
       - 109
     resources: {}
-		# empty braces makes this an empty map
+	  # empty braces makes this an empty map
       #requests:
       #  cpu: 1
       #  memory: 1024Mi
