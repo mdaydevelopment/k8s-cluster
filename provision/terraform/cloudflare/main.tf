@@ -14,6 +14,16 @@ terraform {
       version = "0.7.1"
     }
   }
+
+  backend "s3" {
+    bucket                      = "terraform-state"
+    key                         = "provision/terraform/cloudflare/terraform.tfstate"
+    region                      = "us-east-1"
+    endpoint                    = "http://192.168.86.2:9000"
+    skip_credentials_validation = true
+    skip_region_validation      = true
+    force_path_style            = true
+  }
 }
 
 data "sops_file" "cloudflare_secrets" {
