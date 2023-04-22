@@ -23,7 +23,7 @@ spec:
       tag: latest
     env:
       TZ: "America/Chicago"
-      ADVERTISE_IP: "http://192.168.1.82:32400/"
+      ADVERTISE_IP: "http://192.168.86.42:32400/"
       ALLOWED_NETWORKS: "10.0.0.0/8, 192.168.0.0/16"
     service:
       main:
