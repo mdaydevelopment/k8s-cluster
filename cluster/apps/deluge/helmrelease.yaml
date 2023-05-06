@@ -1,0 +1,82 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: deluge
+  namespace: deluge
+spec:
+  interval: 1m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: deluge
+      version: 5.4.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  values:
+    image:
+      repository: linuxserver/deluge
+      tag: 2.1.1
+    env:
+      TZ: "America/Chicago"
+      PUID: "568"
+      PGID: "568"
+      UMASK: "022"
+      DELUGE_LOGLEVEL: "error"
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+          cert-manager.io/cluster-issuer: "letsencrypt-dns01"
+          nginx.ingress.kubernetes.io/proxy-body-size: "500m"
+          nginx.ingress.kubernetes.io/proxy-connect-timeout: "300"
+          nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
+          nginx.ingress.kubernetes.io/proxy-read-timeout: "300"
+        hosts:
+        - host: "deluge.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "deluge.${SECRET_DOMAIN}"
+          secretName: deluge-tls
+    persistence:
+      config:
+        enabled: true
+        storageClass: freenas-iscsi-csi
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        mountPath: /config
+        retain: true
+      downloads:
+        enabled: true
+        type: hostPath
+        hostPath: /mnt/scratch/downloads
+        hostPathType: Directory
+        mountPath: /downloads
+    nodeSelector:
+      additional-storage: "true"
+      kubernetes.io/hostname: k8s002
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2048Mi
+    service:
+      torrent:
+        enabled: true
+        nameOverride: torrent
+        type: LoadBalancer
+        ports:
+          primary:
+            enabled: true
+            port: 33165
+            protocol: TCP
+            targetPort: 33165
+        loadBalancerIP: 192.168.86.40
