@@ -59,7 +59,7 @@ spec:
         hostPathType: Directory
         mountPath: /downloads
     nodeSelector:
-      additional-storage: "true"
+      #additional-storage: "true"
       kubernetes.io/hostname: k8s002
     podSecurityContext:
       fsGroup: 568
