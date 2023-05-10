@@ -80,4 +80,9 @@ spec:
             port: 33165
             protocol: TCP
             targetPort: 33165
+          daemon:
+            enabled: true
+            port: 58846
+            protocol: TCP
+            targetPort: 58846
         loadBalancerIP: 192.168.86.43
