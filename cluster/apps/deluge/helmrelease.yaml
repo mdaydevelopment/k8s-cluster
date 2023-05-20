@@ -24,7 +24,7 @@ spec:
       PUID: "568"
       PGID: "568"
       UMASK: "022"
-      DELUGE_LOGLEVEL: "error"
+      DELUGE_LOGLEVEL: "debug"
     ingress:
       main:
         enabled: true
