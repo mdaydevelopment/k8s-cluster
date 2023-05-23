@@ -2,23 +2,22 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: jackett
-  namespace: jackett
+  name: radarr
+  namespace: radarr
 spec:
   interval: 1m
   chart:
     spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts/
-      chart: jackett
-      version: 11.7.2
+      chart: radarr
+      version: 5.4.1
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home-charts
         namespace: flux-system
   values:
     image:
-      repository: linuxserver/jackett
-      tag: 0.21.14
+      repository: linuxserver/radarr
+      tag: 4.4.4
     env:
       TZ: "America/Chicago"
       PUID: "568"
@@ -36,14 +35,14 @@ spec:
           hajimari.io/icon: "weather-sunset"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-        - host: "jackett.${SECRET_DOMAIN}"
+        - host: "radarr.${SECRET_DOMAIN}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "jackett.${SECRET_DOMAIN}"
-          secretName: jackett-tls
+          - "radarr.${SECRET_DOMAIN}"
+          secretName: radarr-tls
     persistence:
       config:
         enabled: true
@@ -52,12 +51,20 @@ spec:
         size: 10Gi
         mountPath: /config
         retain: true
-      downloads:
+      scratch:
         enabled: true
         type: hostPath
-        hostPath: /mnt/scratch/downloads
+        hostPath: /mnt/scratch
         hostPathType: Directory
-        mountPath: /downloads
+        mountPath: /scratch
+      movies:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: 192.168.86.2
+            path: /mnt/tank/media/movies
+        mountPath: /movies
     nodeSelector:
       #additional-storage: "true"
       kubernetes.io/hostname: k8s002
@@ -69,13 +76,13 @@ spec:
         cpu: 500m
         memory: 2048Mi
     service:
-      jackett:
+      radarr:
         enabled: true
-        nameOverride: jackett
+        nameOverride: torrent
         type: LoadBalancer
         ports:
           primary:
             enabled: true
-            port: 9117
+            port: 7878
             protocol: TCP
-            targetPort: 9117
+            targetPort: 7878
