@@ -20,8 +20,8 @@ spec:
       tag: 4.4.4
     env:
       TZ: "America/Chicago"
-      PUID: "568"
-      PGID: "568"
+      PUID: "1002"
+      PGID: "1002"
       UMASK: "022"
     ingress:
       main:
@@ -69,7 +69,7 @@ spec:
       #additional-storage: "true"
       kubernetes.io/hostname: k8s002
     podSecurityContext:
-      fsGroup: 568
+      fsGroup: 1002
       fsGroupChangePolicy: "OnRootMismatch"
     resources:
       requests:

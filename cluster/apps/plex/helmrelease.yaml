@@ -55,9 +55,9 @@ spec:
             path: /mnt/tank/media
         mountPath: /mnt/tank/media
     podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
+      runAsUser: 1002
+      runAsGroup: 1002
+      fsGroup: 1002
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
       - 44
