@@ -51,12 +51,18 @@ spec:
         size: 10Gi
         mountPath: /config
         retain: true
-      scratch:
+      downloads:
         enabled: true
         type: hostPath
-        hostPath: /mnt/scratch
+        hostPath: /mnt/scratch/downloads
         hostPathType: Directory
-        mountPath: /scratch
+        mountPath: /downloads
+      nzbget:
+        enabled: true
+        type: hostPath
+        hostPath: /mnt/scratch/nzbget
+        hostPathType: Directory
+        mountPath: /nzbget
       tank:
         enabled: true
         type: custom

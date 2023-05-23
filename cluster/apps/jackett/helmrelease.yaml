@@ -52,15 +52,6 @@ spec:
         size: 10Gi
         mountPath: /config
         retain: true
-      downloads:
-        enabled: true
-        type: hostPath
-        hostPath: /mnt/scratch/downloads
-        hostPathType: Directory
-        mountPath: /downloads
-    nodeSelector:
-      #additional-storage: "true"
-      kubernetes.io/hostname: k8s002
     podSecurityContext:
       fsGroup: 1002
       fsGroupChangePolicy: "OnRootMismatch"
