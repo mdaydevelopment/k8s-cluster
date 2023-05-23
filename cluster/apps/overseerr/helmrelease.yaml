@@ -1,0 +1,72 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: overseerr
+  namespace: overseerr
+spec:
+  interval: 1m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: overseerr
+      version: 5.4.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  values:
+    image:
+      repository: linuxserver/overseerr
+      tag: latest
+    env:
+      TZ: "America/Chicago"
+      PUID: "1002"
+      PGID: "1002"
+      UMASK: "000"
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+          external-dns/is-public: "true"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "weather-sunset"
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+        - host: "overseerr.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "overseerr.${SECRET_DOMAIN}"
+          secretName: overseerr-tls
+    persistence:
+      config:
+        enabled: true
+        storageClass: freenas-iscsi-csi
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        mountPath: /config
+        retain: true
+    podSecurityContext:
+      fsGroup: 1002
+      fsGroupChangePolicy: "OnRootMismatch"
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2048Mi
+    service:
+      overseerr:
+        enabled: true
+        nameOverride: overseerr
+        type: LoadBalancer
+        ports:
+          primary:
+            enabled: true
+            port: 5055
+            protocol: TCP
+            targetPort: 5055

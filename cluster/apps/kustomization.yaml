@@ -9,6 +9,7 @@ resources:
   - kube-system
   - networking
   - nzbget
+  - overseerr
   - plex
   - radarr
   - sonarr
