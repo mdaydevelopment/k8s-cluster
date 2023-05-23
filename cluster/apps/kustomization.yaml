@@ -11,4 +11,5 @@ resources:
   - nzbget
   - plex
   - radarr
+  - sonarr
   - system-upgrade
