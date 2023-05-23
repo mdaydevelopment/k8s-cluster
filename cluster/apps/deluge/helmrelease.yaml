@@ -80,6 +80,11 @@ spec:
             port: 33165
             protocol: TCP
             targetPort: 33165
+          incoming_udp:
+            enabled: true
+            port: 33165
+            protocol: UDP
+            targetPort: 33165
           daemon:
             enabled: true
             port: 58846
