@@ -80,7 +80,7 @@ spec:
             port: 33165
             protocol: TCP
             targetPort: 33165
-          incoming_udp:
+          incoming-udp:
             enabled: true
             port: 33165
             protocol: UDP
