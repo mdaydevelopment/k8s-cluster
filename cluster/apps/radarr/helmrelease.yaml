@@ -57,14 +57,14 @@ spec:
         hostPath: /mnt/scratch
         hostPathType: Directory
         mountPath: /scratch
-      movies:
+      tank:
         enabled: true
         type: custom
         volumeSpec:
           nfs:
             server: 192.168.86.2
-            path: /mnt/tank/media/movies
-        mountPath: /movies
+            path: /mnt/tank/media
+        mountPath: /mnt/tank/media
     nodeSelector:
       #additional-storage: "true"
       kubernetes.io/hostname: k8s002
