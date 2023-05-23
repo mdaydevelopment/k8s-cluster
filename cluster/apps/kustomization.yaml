@@ -5,6 +5,7 @@ resources:
   - default
   - deluge
   - flux-system
+  - jackett
   - kube-system
   - networking
   - nzbget

@@ -1,0 +1,81 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jackett
+  namespace: jackett
+spec:
+  interval: 1m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: jackett
+      version: 11.7.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  values:
+    image:
+      repository: linuxserver/jackett
+      #tag: 21.1.20230119
+    env:
+      TZ: "America/Chicago"
+      PUID: "568"
+      PGID: "568"
+      UMASK: "022"
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+          external-dns/is-public: "true"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "weather-sunset"
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+        - host: "jackett.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "jackett.${SECRET_DOMAIN}"
+          secretName: jackett-tls
+    persistence:
+      config:
+        enabled: true
+        storageClass: freenas-iscsi-csi
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        mountPath: /config
+        retain: true
+      downloads:
+        enabled: true
+        type: hostPath
+        hostPath: /mnt/scratch/downloads
+        hostPathType: Directory
+        mountPath: /downloads
+    nodeSelector:
+      #additional-storage: "true"
+      kubernetes.io/hostname: k8s002
+    podSecurityContext:
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2048Mi
+    service:
+      nzbget:
+        enabled: true
+        nameOverride: jackett
+        type: LoadBalancer
+        ports:
+          primary:
+            enabled: true
+            port: 9117
+            protocol: TCP
+            targetPort: 9117
