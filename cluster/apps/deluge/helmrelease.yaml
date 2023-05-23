@@ -23,7 +23,7 @@ spec:
       TZ: "America/Chicago"
       PUID: "1002"
       PGID: "1002"
-      UMASK: "022"
+      UMASK: "000"
       DELUGE_LOGLEVEL: "debug"
     ingress:
       main:
