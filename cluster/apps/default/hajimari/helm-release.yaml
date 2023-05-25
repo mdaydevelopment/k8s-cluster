@@ -109,6 +109,8 @@ spec:
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns/is-public: "true"
+          # if cloudflare-proxied is not set to false for local A name,
+          # external-dns will fail cloudflare validation
           external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
           hajimari.io/enable: "true"
           hajimari.io/icon: "weather-sunset"
