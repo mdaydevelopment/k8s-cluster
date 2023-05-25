@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: linuxserver/nzbget
-      tag: 21.1.20230119
+      tag: latest
     env:
       TZ: "America/Chicago"
       PUID: "1002"

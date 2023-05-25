@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: linuxserver/deluge
-      tag: 2.1.1
+      tag: latest
     env:
       TZ: "America/Chicago"
       PUID: "1002"

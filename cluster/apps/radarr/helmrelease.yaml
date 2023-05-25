@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: linuxserver/radarr
-      tag: 4.4.4
+      tag: latest
     env:
       TZ: "America/Chicago"
       PUID: "1002"
