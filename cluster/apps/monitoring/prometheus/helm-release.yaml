@@ -46,4 +46,6 @@ spec:
         accessModes:
           - ReadWriteOnce
         size: 10Gi
+			plugins:
+				- grafana-oncall-app
 
