@@ -20,7 +20,7 @@ spec:
       repository: ghcr.io/onedr0p/plex
       # Pinned to 1.25.4 due to HDR tone mapping issue with Dolby Vision
       # tag: v1.25.4.5468-989df2310
-      tag: latest
+      tag: rolling
     env:
       TZ: "America/Chicago"
       ADVERTISE_IP: "http://192.168.86.42:32400/"
