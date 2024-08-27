@@ -16,8 +16,7 @@ spec:
         namespace: flux-system
   values:
     image:
-      # repository: ghcr.io/k8s-at-home/plex
-      repository: linuxserver/plex
+      repository: ghcr.io/k8s-at-home/plex
       # Pinned to 1.25.4 due to HDR tone mapping issue with Dolby Vision
       # tag: v1.25.4.5468-989df2310
       tag: latest
