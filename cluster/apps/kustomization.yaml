@@ -12,6 +12,7 @@ resources:
   - nzbget
   - overseerr
   - plex
+  - prowlarr
   - radarr
   - sonarr
   - system-upgrade
