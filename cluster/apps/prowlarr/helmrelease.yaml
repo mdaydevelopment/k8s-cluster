@@ -48,7 +48,7 @@ spec:
         enabled: true
         storageClass: freenas-iscsi-csi
         accessMode: ReadWriteOnce
-        size: 10Gi
+        size: 1Gi
         mountPath: /config
         retain: true
     podSecurityContext:
