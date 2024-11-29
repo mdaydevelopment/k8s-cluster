@@ -1,0 +1,94 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: lidarr
+  namespace: lidarr
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: lidarr
+      version: 14.2.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  values:
+    image:
+      repository: linuxserver/lidarr
+      tag: latest
+    env:
+      TZ: "America/Chicago"
+      PUID: "1002"
+      PGID: "1002"
+      UMASK: "000"
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+          external-dns/is-public: "true"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "weather-sunset"
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+        - host: "lidarr.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "lidarr.${SECRET_DOMAIN}"
+          secretName: lidarr-tls
+    persistence:
+      config:
+        enabled: true
+        storageClass: freenas-iscsi-csi
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        mountPath: /config
+        retain: true
+      downloads:
+        enabled: true
+        type: hostPath
+        hostPath: /mnt/scratch/downloads
+        hostPathType: Directory
+        mountPath: /downloads
+      nzbget:
+        enabled: true
+        type: hostPath
+        hostPath: /mnt/scratch/nzbget
+        hostPathType: Directory
+        mountPath: /nzbget
+      tank:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: 192.168.86.2
+            path: /mnt/tank/media/movies
+        mountPath: /movies
+    nodeSelector:
+      #additional-storage: "true"
+      kubernetes.io/hostname: k8s002
+    podSecurityContext:
+      fsGroup: 1002
+      fsGroupChangePolicy: "OnRootMismatch"
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2048Mi
+    service:
+      lidarr:
+        enabled: true
+        nameOverride: torrent
+        type: LoadBalancer
+        ports:
+          primary:
+            enabled: true
+            port: 8686
+            protocol: TCP
+            targetPort: 8686
