@@ -9,6 +9,7 @@ resources:
   - kube-system
   - lidarr
   - monitoring
+  - mylar
   - networking
   - nzbget
   - overseerr
