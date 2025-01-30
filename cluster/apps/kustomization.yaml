@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - default
   - deluge
+  - emqx
   - flux-system
   - jackett
   - kube-system
