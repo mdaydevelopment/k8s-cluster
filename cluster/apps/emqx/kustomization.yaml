@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - helm-release.yaml
-  - server.yaml
+  - emqx.yaml
