@@ -10,7 +10,7 @@ spec:
   serviceAccountName: system-upgrade
   concurrency: 1
   # renovate: datasource=github-releases depName=k3s-io/k3s
-  channel: https://update.k3s.io/v1-release/channels/v1.31
+  channel: https://update.k3s.io/v1-release/channels/stable
   nodeSelector:
     matchExpressions:
       - key: node-role.kubernetes.io/master
