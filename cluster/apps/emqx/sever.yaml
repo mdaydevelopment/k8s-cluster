@@ -1,0 +1,87 @@
+apiVersion: apps.emqx.io/v2beta1
+kind: EMQX
+metadata:
+  name: emqx
+  namespace: emqx
+spec:
+  image: emqx:5
+  coreTemplate:
+    spec:
+      replicas: 1
+      volumeClaimTemplates:
+        storageClassName: freenas-iscsi-csi
+        resources:
+          requests:
+            storage: 5Gi
+        accessModes:
+          - ReadWriteOnce
+  listenersServiceTemplate:
+    spec:
+      type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: emqx-dashboard
+  namespace: emqx
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+    external-dns/is-public: "true"
+    hajimari.io/enable: "true"
+    hajimari.io/icon: weather-sunset
+    nginx.ingress.kubernetes.io/whitelist-source-range: 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16
+spec:
+  rules:
+  - host: &dashhost emqx-dashboard.xor86.io
+    http:
+      paths:
+      - backend:
+          service:
+            name: emqx-dashboard
+            port:
+              name: dashboard
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - *dashhost
+    secretName: emqx-dashboard-tls
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: emqx-exporter
+  namespace: emqx
+  labels:
+    app: emqx-exporter
+spec:
+  selector:
+    matchLabels:
+      # the label is the same as the label of emqx exporter svc
+      app: emqx-exporter
+  endpoints:
+    - port: metrics
+      interval: 5s
+      path: /metrics
+      relabelings:
+        - action: replace
+          # user-defined cluster name, requires unique
+          replacement: emqx5
+          targetLabel: cluster
+        - action: replace
+          # fix value, don't modify
+          replacement: exporter
+          targetLabel: from
+        - action: replace
+          # fix value, don't modify
+          sourceLabels: ['pod']
+          regex: '(.*)-.*-.*'
+          replacement: $1
+          targetLabel: "instance"
+        - action: labeldrop
+          # fix value, don't modify
+          regex: 'pod'
+  namespaceSelector:
+    matchNames:
+      - emqx
