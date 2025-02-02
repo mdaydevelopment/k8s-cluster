@@ -20,4 +20,4 @@ resources:
   - radarr
   - sonarr
   - system-upgrade
-  # - zigbee2mqtt
+  - zigbee2mqtt
