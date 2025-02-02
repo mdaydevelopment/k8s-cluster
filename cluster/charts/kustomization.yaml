@@ -13,6 +13,7 @@ resources:
   - k8s-gateway.yaml
   - metallb.yaml
   - metrics-server.yaml
+  - nfd.yaml
   - prometheus-community.yaml
   - stakater.yaml
   - weaveworks-kured.yaml

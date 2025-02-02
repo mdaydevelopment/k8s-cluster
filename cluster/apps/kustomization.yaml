@@ -12,6 +12,7 @@ resources:
   - monitoring
   - mylar
   - networking
+  - node-feature-discovery
   - nzbget
   - overseerr
   - plex
@@ -19,3 +20,4 @@ resources:
   - radarr
   - sonarr
   - system-upgrade
+  # - zigbee2mqtt
