@@ -106,9 +106,7 @@ spec:
           - host: &host "zigbee.${SECRET_DOMAIN}"
             paths:
               - path: /
-                service:
-                  identifier: app
-                  port: http
+              pathType: Prefix
         tls:
           - hosts:
               - *host
