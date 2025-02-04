@@ -40,7 +40,7 @@ spec:
 		enable_api: true
 
 	minio:
-	  enabled: true
+	  enabled: false
 
 	deploymentMode: SingleBinary
 
