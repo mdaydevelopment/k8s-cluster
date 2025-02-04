@@ -54,5 +54,6 @@ spec:
       size: 5Gi
 
     configuration:
+      enabled: true
       trusted_proxies:
         - 10.42.0.0/16
