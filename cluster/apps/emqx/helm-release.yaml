@@ -9,6 +9,9 @@ spec:
   chart:
     spec:
       chart: emqx-operator
+      # when updating this chart, emxq manifests must be commented out of
+      # kustomization.yaml until the new version comes online or flux/kustomizations
+      # will fail
       version: 2.2.27
       sourceRef:
         kind: HelmRepository
