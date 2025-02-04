@@ -73,7 +73,7 @@ spec:
                     key: user_1_password
               ZIGBEE2MQTT_CONFIG_PERMIT_JOIN: "true"
               # This is going to have to change to whatever the device actually is.
-              ZIGBEE2MQTT_CONFIG_SERIAL_PORT: &device /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_786edbaa2414ef11903375b8bf9df066-if00-port0
+              ZIGBEE2MQTT_CONFIG_SERIAL_PORT: &device /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_9c3a01775f51ef11a4eb378ccc32aab1-if00-port0
               # This may differ depending on what your adapter is, check the docs
               ZIGBEE2MQTT_CONFIG_SERIAL_ADAPTER: "zstack"
               # ZIGBEE2MQTT_CONFIG_DEVICES: devices.yaml
