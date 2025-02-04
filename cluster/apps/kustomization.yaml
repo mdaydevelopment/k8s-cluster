@@ -6,6 +6,7 @@ resources:
   - deluge
   - emqx
   - flux-system
+  - home-assistant
   - jackett
   - kube-system
   - lidarr
