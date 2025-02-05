@@ -26,8 +26,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    startupProbe:
-      initialDelaySeconds: 5
     ingress:
       enabled: true
       ingressClassName: "nginx"
@@ -56,11 +54,4 @@ spec:
       size: 5Gi
     env:
       TZ: "America/Chicago"
-    configuration:
-      enabled: true
-      forceInit: true
-      use_x_forwarded_for: true
-      trusted_proxies:
-        - 10.0.0.0/8
-        - 10.42.0.0/16
-        - ::1
+
