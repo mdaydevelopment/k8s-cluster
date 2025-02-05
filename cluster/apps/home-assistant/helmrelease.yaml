@@ -52,7 +52,8 @@ spec:
       storageClass: freenas-iscsi-csi
       retain: true
       size: 5Gi
-
+    env:
+      TZ: "America/Chicago"
     configuration:
       enabled: true
       trusted_proxies:
