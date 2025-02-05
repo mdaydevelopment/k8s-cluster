@@ -57,3 +57,4 @@ spec:
       enabled: true
       trusted_proxies:
         - 10.42.0.0/16
+        - 192.168.86.0/23
