@@ -26,6 +26,10 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    readinessProbe:
+      periodSeconds: 5
+    livenessProbe:
+      periodSeconds: 5
     ingress:
       enabled: true
       ingressClassName: "nginx"
