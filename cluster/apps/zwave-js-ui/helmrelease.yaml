@@ -40,7 +40,7 @@ spec:
               tag: latest
               pullPolicy: IfNotPresent
             env:
-			  PORT: &port 8091
+              PORT: &port 8091
               TZ: "America/Chicago"
             securityContext:
               privileged: true
@@ -56,8 +56,8 @@ spec:
         ports:
           http:
             port: *port
-		  websocket:
-			port: 3000
+          websocket:
+            port: 3000
     ingress:
       app:
         enabled: true
