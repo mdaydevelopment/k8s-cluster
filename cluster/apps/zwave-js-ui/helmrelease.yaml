@@ -88,7 +88,7 @@ spec:
         retain: true
         size: 5Gi
         globalMounts:
-          - path: /user/src/app/store
+          - path: /usr/src/app/store
       usb:
         enabled: true
         type: hostPath
