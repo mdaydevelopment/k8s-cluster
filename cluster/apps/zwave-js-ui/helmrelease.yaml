@@ -30,7 +30,7 @@ spec:
       nodeSelector:
         feature.node.kubernetes.io/usb-02_1a86_55d4.present: "true"
     controllers:
-      zigbee2mqtt:
+      zwave-js-ui:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
