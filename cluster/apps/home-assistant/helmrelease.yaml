@@ -54,4 +54,7 @@ spec:
       size: 5Gi
     env:
       TZ: "America/Chicago"
+    service:
+      type: LoadBalancer
+      port: 8080
 
