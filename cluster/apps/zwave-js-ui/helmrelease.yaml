@@ -96,4 +96,5 @@ spec:
         hostPath: &device /dev/serial/by-id/usb-1a86_USB_Single_Serial_58E3037630-if00
         hostPathType: CharDevice
         globalMounts:
-          - path: *device
+          - path: /dev/zwave
+
