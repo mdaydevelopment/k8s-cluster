@@ -1,3 +1,10 @@
+# Flux supported k3s cluster
+
+This is the repo behind my personal homelab. It was copied from a template by [onedr0p](https://github.com/onedr0p) when I first stood up my cluster but both have evolved independently over time. The readme below is from original repo and will no longer work to stand up this cluster, but I've left it for now because it's still a useful collection of resources. If you're interested in starting a similar project of your own, I strongly suggest you start with the current version of [onedr0p](https://github.com/onedr0p)'s template here:
+
+<https://github.com/onedr0p/cluster-template>
+
+
 # Template for deploying k3s backed by Flux
 
 Highly opinionated template for deploying a single [k3s](https://k3s.io) cluster with [Ansible](https://www.ansible.com) and [Terraform](https://www.terraform.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
