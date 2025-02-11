@@ -10,7 +10,7 @@ resources:
   - jackett
   - kube-system
   - lidarr
-  #- monitoring
+  - monitoring
   - mylar
   - networking
   - node-feature-discovery
