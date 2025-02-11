@@ -46,4 +46,10 @@ spec:
         accessModes:
           - ReadWriteOnce
         size: 10Gi
-
+      sidecar:
+        datasources:
+          defaultDataSourcesEnabled: true
+        additionalDataSources:
+          - name: Loki
+            type: loki
+            url: http://loki-headless.monitoring.svc.cluster.local:3100

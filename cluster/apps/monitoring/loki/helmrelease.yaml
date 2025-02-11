@@ -42,8 +42,6 @@ spec:
           region: us-east-1
           secretAccessKey: ${MINIO_SECRET_ACCESS_KEY}
           accessKeyId: ${MINIO_ACCESS_KEY_ID}
-
-
       pattern_ingester:
           enabled: true
       limits_config:
