@@ -18,4 +18,3 @@ resources:
   - pajikos.yaml
   - prometheus-community.yaml
   - stakater.yaml
-  - weaveworks-kured.yaml
