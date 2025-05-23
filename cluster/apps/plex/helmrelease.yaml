@@ -21,7 +21,7 @@ spec:
       repository: lscr.io/linuxserver/plex
       # Pinned to 1.25.4 due to HDR tone mapping issue with Dolby Vision
       # tag: v1.25.4.5468-989df2310
-      tag: rolling
+      # tag: rolling
       tag: latest
     env:
       TZ: "America/Chicago"
