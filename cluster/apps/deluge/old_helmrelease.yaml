@@ -6,29 +6,25 @@ metadata:
   namespace: deluge
 spec:
   interval: 1m
-  chartRef:
-    kind: OCIRepository
-    name: app-template
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: deluge
+      version: 5.4.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
   values:
-    controllers:
-      deluge:
-        containers:
-          app:
-            image:
-              repository: linuxserver/deluge
-              tag: latest
-            env:
-              TZ: "America/Chicago"
-              PUID: "1002"
-              PGID: "1002"
-              UMASK: "000"
-              DELUGE_LOGLEVEL: "debug"
-            resources:
-              requests:
-                cpu: 500m
-                memory: 2048Mi
-              limits:
-                memory: 16Gi
+    image:
+      repository: linuxserver/deluge
+      tag: latest
+    env:
+      TZ: "America/Chicago"
+      PUID: "1002"
+      PGID: "1002"
+      UMASK: "000"
+      DELUGE_LOGLEVEL: "debug"
     ingress:
       main:
         enabled: true
@@ -58,6 +54,11 @@ spec:
         mountPath: /config
         retain: true
       downloads:
+        #enabled: true
+        #type: hostPath
+        #hostPath: /mnt/scratch/downloads
+        #hostPathType: Directory
+        #mountPath: /downloads
         enabled: true
         type: custom
         volumeSpec:
@@ -73,13 +74,16 @@ spec:
             server: 192.168.86.2
             path: /mnt/tank/media/
         mountPath: /tank/media
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
+    #nodeSelector:
+      #additional-storage: "true"
+      #kubernetes.io/hostname: k8s002
+    podSecurityContext:
+      fsGroup: 1002
+      fsGroupChangePolicy: "OnRootMismatch"
+    resources:
+      requests:
+        cpu: 500m
+        memory: 2048Mi
     service:
       torrent:
         enabled: true
