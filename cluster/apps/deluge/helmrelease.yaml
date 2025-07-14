@@ -54,14 +54,29 @@ spec:
         mountPath: /config
         retain: true
       downloads:
+        #enabled: true
+        #type: hostPath
+        #hostPath: /mnt/scratch/downloads
+        #hostPathType: Directory
+        #mountPath: /downloads
         enabled: true
-        type: hostPath
-        hostPath: /mnt/scratch/downloads
-        hostPathType: Directory
+        type: custom
+        volumeSpec:
+          nfs:
+            server: 192.168.86.5
+            path: /srv/scratch/downloads
         mountPath: /downloads
-    nodeSelector:
+      tank:
+        enabled: true
+        type: custom
+        volumeSpec:
+          nfs:
+            server: 192.168.86.2
+            path: /mnt/tank/media/
+        mountPath: /tank/media
+    #nodeSelector:
       #additional-storage: "true"
-      kubernetes.io/hostname: k8s002
+      #kubernetes.io/hostname: k8s002
     podSecurityContext:
       fsGroup: 1002
       fsGroupChangePolicy: "OnRootMismatch"
