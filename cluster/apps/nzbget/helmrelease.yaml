@@ -54,13 +54,12 @@ spec:
         retain: true
       downloads:
         enabled: true
-        type: hostPath
-        hostPath: /mnt/scratch/nzbget
-        hostPathType: Directory
+        type: custom
+        volumeSpec:
+          nfs:
+            server: 192.168.86.5
+            path: /srv/scratch/nzbget
         mountPath: /nzbget
-    nodeSelector:
-      #additional-storage: "true"
-      kubernetes.io/hostname: k8s002
     podSecurityContext:
       fsGroup: 1002
       fsGroupChangePolicy: "OnRootMismatch"
