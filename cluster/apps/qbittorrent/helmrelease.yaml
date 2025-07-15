@@ -67,6 +67,7 @@ spec:
       app:
         forceRename: *app
         primary: true
+        loadBalancerIP: 192.168.86.43
         ports:
           http:
             port: *port
