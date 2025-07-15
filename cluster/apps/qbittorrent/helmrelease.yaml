@@ -101,7 +101,7 @@ spec:
           secretName: qbittorrent-tls
     persistence:
       config:
-        existingClaim: qbittorrent
+        existingClaim: qbittorrent-config
         namespace: qbittorrent
       downloads:
         type: nfs
