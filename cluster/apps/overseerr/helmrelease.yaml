@@ -21,8 +21,8 @@ spec:
       tag: latest
     env:
       TZ: "America/Chicago"
-      PUID: "1002"
-      PGID: "1002"
+      PUID: "1000"
+      PGID: "1000"
       UMASK: "000"
     ingress:
       main:
@@ -52,7 +52,7 @@ spec:
         mountPath: /config
         retain: true
     podSecurityContext:
-      fsGroup: 1002
+      fsGroup: 1000
       fsGroupChangePolicy: "OnRootMismatch"
     resources:
       requests:
