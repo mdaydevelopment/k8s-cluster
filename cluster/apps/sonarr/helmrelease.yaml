@@ -58,7 +58,7 @@ spec:
           nfs:
             server: 192.168.86.5
             path: /srv/scratch/downloads
-        mountPath: /downloads
+        mountPath: /n/pi3-scratch/downloads
       nzbget:
         enabled: true
         type: custom
@@ -66,7 +66,7 @@ spec:
           nfs:
             server: 192.168.86.5
             path: /srv/scratch/nzbget
-        mountPath: /nzbget
+        mountPath: /n/pi3-scratch/nzbget
       tank:
         enabled: true
         type: custom

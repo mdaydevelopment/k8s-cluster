@@ -59,7 +59,7 @@ spec:
           nfs:
             server: 192.168.86.5
             path: /srv/scratch/nzbget
-        mountPath: /nzbget
+        mountPath: /n/pi3-scratch/nzbget
     podSecurityContext:
       fsGroup: 1000
       fsGroupChangePolicy: "OnRootMismatch"
