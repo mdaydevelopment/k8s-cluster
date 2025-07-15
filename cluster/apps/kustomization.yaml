@@ -11,7 +11,7 @@ resources:
   - kube-system
   - lidarr
   - monitoring
-  - mylar
+  - mylar3
   - networking
   - node-feature-discovery
   - nzbget
