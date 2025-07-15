@@ -71,13 +71,13 @@ spec:
         server: 192.168.86.5
         path: /srv/scratch/downloads
         globalMounts:
-          - path: /n/pi3-scratch/downloads
+          - path: /downloads
       tank:
         type: nfs
         server: 192.168.86.2
-        path: /mnt/tank/media
+        path: /mnt/tank/media/
         globalMounts:
-          - path: /n/nas/media
+          - path: /tank/media
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
