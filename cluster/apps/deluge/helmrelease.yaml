@@ -55,6 +55,10 @@ spec:
             pathType: Prefix
             service:
               identifier: webui
+          - path: /daemon
+            pathType: Prefix
+            service:
+              identifier: daemon
         tls:
         - hosts:
           - "deluge.${SECRET_DOMAIN}"
@@ -106,8 +110,13 @@ spec:
             port: 8112
             protocol: TCP
             targetPort: 8112
-          daemon:
+      daemon:
+        enabled: true
+        type: LoadBalancer
+        ports:
+          primary:
             enabled: true
             port: 58846
             protocol: TCP
             targetPort: 58846
+
