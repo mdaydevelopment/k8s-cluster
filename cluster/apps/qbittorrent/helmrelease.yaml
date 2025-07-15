@@ -102,7 +102,6 @@ spec:
     persistence:
       config:
         existingClaim: qbittorrent-config
-        namespace: qbittorrent
       downloads:
         type: nfs
         server: 192.168.86.5
