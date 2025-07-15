@@ -39,7 +39,7 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx"
+        className: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
@@ -52,34 +52,27 @@ spec:
           paths:
           - path: /
             pathType: Prefix
+            service:
+              identifier: webui
         tls:
         - hosts:
           - "deluge.${SECRET_DOMAIN}"
           secretName: deluge-tls
     persistence:
       config:
-        enabled: true
-        storageClass: freenas-iscsi-csi
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        mountPath: /config
-        retain: true
+        existingClaim: deluge-config
       downloads:
-        enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.5
-            path: /srv/scratch/downloads
-        mountPath: /downloads
+        type: nfs
+        server: 192.168.86.5
+        path: /srv/scratch/downloads
+        globalMounts:
+          - path: /downloads
       tank:
-        enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.2
-            path: /mnt/tank/media/
-        mountPath: /tank/media
+        type: nfs
+        server: 192.168.86.2
+        path: /mnt/tank/media/
+        globalMounts:
+          - path: /tank/media
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
@@ -90,28 +83,18 @@ spec:
     service:
       torrent:
         enabled: true
-        nameOverride: torrent
         type: LoadBalancer
         ports:
           primary:
             enabled: true
-            #port: 33165
             port: 6881
             protocol: TCP
-            #targetPort: 33165
             targetPort: 6881
           incoming-udp:
             enabled: true
-            #port: 33165
             port: 6881
             protocol: UDP
-            #targetPort: 33165
             targetPort: 6881
-          daemon:
-            enabled: true
-            port: 58846
-            protocol: TCP
-            targetPort: 58846
         loadBalancerIP: 192.168.86.43
       webui:
         enabled: true
@@ -122,3 +105,8 @@ spec:
             port: 8112
             protocol: TCP
             targetPort: 8112
+          daemon:
+            enabled: true
+            port: 58846
+            protocol: TCP
+            targetPort: 58846
