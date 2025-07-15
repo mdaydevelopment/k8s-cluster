@@ -2,33 +2,84 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: deluge
-  namespace: deluge
+  name: &app qbittorrent
+  namespace: qbittorrent
 spec:
-  interval: 1m
-  chart:
-    spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts/
-      chart: deluge
-      version: 5.4.1
-      sourceRef:
-        kind: HelmRepository
-        name: k8s-at-home-charts
-        namespace: flux-system
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
   values:
-    image:
-      repository: linuxserver/deluge
-      tag: latest
-    env:
-      TZ: "America/Chicago"
-      PUID: "1002"
-      PGID: "1002"
-      UMASK: "000"
-      DELUGE_LOGLEVEL: "debug"
+    controllers:
+      qbittorrent:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/home-operations/qbittorrent
+              tag: 5.1.2@sha256:a724f86a39fa637fc4ff81165585d7273dc9dcd9ca59818a34e9fa9c467dd26c
+            env:
+              TZ: America/Chicago
+              QBT_WEBUI_PORT: &port 80
+              QBT_TORRENTING_PORT: &torrentPort 50413
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /api/v2/app/version
+                    port: *port
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 10
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                memory: 32Gi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+    service:
+      app:
+        forceRename: *app
+        primary: true
+        ports:
+          http:
+            port: *port
+      bittorrent:
+        type: LoadBalancer
+        loadBalancerIP: 192.168.86.43
+        ports:
+          bittorrent-tcp:
+            port: *torrentPort
+            protocol: TCP
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx"
+        className: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
@@ -37,85 +88,32 @@ spec:
           hajimari.io/icon: "weather-sunset"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-        - host: "deluge.${SECRET_DOMAIN}"
+        - host: "qbittorrent.${SECRET_DOMAIN}"
           paths:
           - path: /
             pathType: Prefix
+            service:
+              identifier: app
         tls:
         - hosts:
-          - "deluge.${SECRET_DOMAIN}"
-          secretName: deluge-tls
+          - "qbittorrent.${SECRET_DOMAIN}"
+          secretName: qbittorrent-tls
     persistence:
       config:
-        enabled: true
-        storageClass: freenas-iscsi-csi
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        mountPath: /config
-        retain: true
+        existingClaim: qbittorrent
       downloads:
-        #enabled: true
-        #type: hostPath
-        #hostPath: /mnt/scratch/downloads
-        #hostPathType: Directory
-        #mountPath: /downloads
-        enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.5
-            path: /srv/scratch/downloads
-        mountPath: /downloads
+        type: nfs
+        server: 192.168.86.5
+        path: /srv/scratch/downloads
+        globalMounts:
+          - path: /media/Downloads/qbittorrent
+            subPath: Downloads/qbittorrent
       tank:
-        enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.2
-            path: /mnt/tank/media/
-        mountPath: /tank/media
-    #nodeSelector:
-      #additional-storage: "true"
-      #kubernetes.io/hostname: k8s002
-    podSecurityContext:
-      fsGroup: 1002
-      fsGroupChangePolicy: "OnRootMismatch"
-    resources:
-      requests:
-        cpu: 500m
-        memory: 2048Mi
-    service:
-      torrent:
-        enabled: true
-        nameOverride: torrent
-        type: LoadBalancer
-        ports:
-          primary:
-            enabled: true
-            #port: 33165
-            port: 6881
-            protocol: TCP
-            #targetPort: 33165
-            targetPort: 6881
-          incoming-udp:
-            enabled: true
-            #port: 33165
-            port: 6881
-            protocol: UDP
-            #targetPort: 33165
-            targetPort: 6881
-          daemon:
-            enabled: true
-            port: 58846
-            protocol: TCP
-            targetPort: 58846
-        loadBalancerIP: 192.168.86.43
-      webui:
-        enabled: true
-        type: LoadBalancer
-        ports:
-          primary:
-            enabled: true
-            port: 8112
-            protocol: TCP
-            targetPort: 8112
+        type: nfs
+        server: 192.168.86.2
+        path: /mnt/tank/media/
+        globalMounts:
+          - path: /media/tank/media
+            subPath: tank/media
+      tmp:
+        type: emptyDir
