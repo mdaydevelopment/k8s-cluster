@@ -10,7 +10,7 @@ resources:
   - jackett
   - kube-system
   - lidarr
-  - monitoring
+  #- monitoring
   - mylar3
   - networking
   - node-feature-discovery
@@ -21,6 +21,6 @@ resources:
   - qbittorrent
   - radarr
   - sonarr
-  - system-upgrade
+  #- system-upgrade
   - zigbee2mqtt
   - zwave-js-ui
