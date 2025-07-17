@@ -1,0 +1,43 @@
+---
+clusterName: home-talos # Configures the cluster's name.
+endpoint: https://192.168.86.20:6443 # Endpoint is the canonical controlplane endpoint, which can be an IP address or a DNS hostname.
+nodes:
+  - hostname: chonker
+    controlPlane: true
+    ipAddress: 192.168.86.21
+    installDisk: /dev/sda
+  - hostname: smolboi
+    controlPlane: true
+    ipAddress: 192.168.86.22
+    installDisk: /dev/sda
+  - hostname: dapperhat
+    controlPlane: true
+    ipAddress: 192.168.86.23
+    installDisk: /dev/sda
+  - hostname: stargazer
+    controlPlane: false
+    ipAddress: 192.168.86.24
+    installDisk: /dev/sda
+talosVersion: v1.10.5
+allowSchedulingOnControlPlanes: true
+controlPlane:
+  schematic:
+    customization:
+      systemExtensions:
+        officialExtensions:
+          - siderolabs/iscsi-tools
+  networkInterfaces:
+    - interface: eno1
+      dhcp: true
+      vip:
+        ip: 192.168.86.20
+worker:
+  schematic:
+    customization:
+      systemExtensions:
+        officialExtensions:
+          - siderolabs/iscsi-tools
+  networkInterfaces:
+    - interface: eno1
+      dhcp: true
+
