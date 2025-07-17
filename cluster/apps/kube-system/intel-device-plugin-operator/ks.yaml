@@ -19,8 +19,7 @@ spec:
   retryInterval: 2m
   sourceRef:
     kind: GitRepository
-    name: flux-system
-    namespace: flux-system
+    name: flux-cluster
   targetNamespace: *namespace
   timeout: 5m
 ---
@@ -55,7 +54,6 @@ spec:
   retryInterval: 2m
   sourceRef:
     kind: GitRepository
-    name: flux-system
-    namespace: flux-system
+    name: flux-cluster
   targetNamespace: *namespace
   timeout: 5m
