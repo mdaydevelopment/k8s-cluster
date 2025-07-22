@@ -19,14 +19,15 @@ spec:
       retries: 5
   values:
     controllers:
-      echo-server:
+      main:
+        type: statefulset
+        replicas: 3
+        strategy: RollingUpdate
         containers:
-          app:
+          main:
             image:
               repository: docker.io/jmalloc/echo-server
               tag: 0.3.3
-            replicas: 3
-            strategy: RollingUpdate
     service:
       main:
         ports:
