@@ -11,22 +11,22 @@ spec:
     name: app-template
     namespace: flux-system
   install:
-    createNamespace: true
     remediation:
-      retries: 5
+      retries: -1
   upgrade:
+    cleanupOnFail: true
     remediation:
-      retries: 5
+      retries: 3
   values:
     controllers:
       main:
         containers:
-          main:
+          app:
             image:
               repository: docker.io/jmalloc/echo-server
               tag: 0.3.3
     service:
-      main:
+      app:
         ports:
           http:
             port: &port 8080
