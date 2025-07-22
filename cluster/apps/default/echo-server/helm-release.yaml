@@ -20,9 +20,6 @@ spec:
   values:
     controllers:
       main:
-        type: statefulset
-        replicas: 3
-        strategy: RollingUpdate
         containers:
           main:
             image:
