@@ -17,7 +17,10 @@ nodes:
   - hostname: stargazer
     controlPlane: false
     ipAddress: 192.168.86.24
-    installDisk: /dev/sda
+    installDisk: /dev/nvme0n1
+    networkInterfaces:
+      - interface: enp86s0
+        dhcp: true
 talosVersion: v1.10.5
 allowSchedulingOnControlPlanes: true
 controlPlane:
@@ -37,7 +40,5 @@ worker:
       systemExtensions:
         officialExtensions:
           - siderolabs/iscsi-tools
-  networkInterfaces:
-    - interface: eno1
-      dhcp: true
+
 
