@@ -18,12 +18,15 @@ spec:
     remediation:
       retries: 5
   values:
-    controller:
-      replicas: 3
-      strategy: RollingUpdate
-    image:
-      repository: docker.io/jmalloc/echo-server
-      tag: 0.3.3
+    controllers:
+      echo-server:
+        containers:
+          app:
+            image:
+              repository: docker.io/jmalloc/echo-server
+              tag: 0.3.3
+            replicas: 3
+            strategy: RollingUpdate
     service:
       main:
         ports:
