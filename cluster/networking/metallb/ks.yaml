@@ -42,3 +42,15 @@ spec:
     kind: GitRepository
     name: flux-cluster
   timeout: 5m
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-settings
+      - kind: Secret
+        name: cluster-secrets
+    substitute:
+      quote: '"' # double quote var
