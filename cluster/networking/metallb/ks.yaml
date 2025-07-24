@@ -14,7 +14,7 @@ spec:
       name: *app
       namespace: networking
   interval: 1h
-  path: ./cluster/apps/networking/metallb/system
+  path: ./cluster/networking/metallb/system
   prune: true
   retryInterval: 2m
   sourceRef:
@@ -40,7 +40,7 @@ spec:
       name: *app
       namespace: kube-system
   interval: 1h
-  path: ./cluster/apps/networking/metallb/config
+  path: ./cluster/networking/metallb/config
   prune: true
   retryInterval: 2m
   sourceRef:

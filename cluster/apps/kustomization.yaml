@@ -12,7 +12,7 @@ resources:
   - lidarr
   #- monitoring
   - mylar3
-  - networking
+  #- networking
   - node-feature-discovery
   - nzbget
   - overseerr
