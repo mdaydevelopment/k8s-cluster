@@ -6,7 +6,7 @@ resources:
   - deluge
   - emqx
   - flux-system
-  - home-assistant
+  #- home-assistant
   - jackett
   - kube-system
   - lidarr
@@ -14,7 +14,7 @@ resources:
   - mylar3
   #- networking
   - node-feature-discovery
-  - nzbget
+  #- nzbget
   - overseerr
   - plex
   - prowlarr
