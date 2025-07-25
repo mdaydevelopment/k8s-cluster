@@ -7,6 +7,7 @@ metadata:
 spec:
   ipAddressPools:
     - default-pool
+    - reserved-pool
 ---
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
@@ -15,5 +16,15 @@ metadata:
   namespace: networking
 spec:
   addresses:
-    - "${METALLB_LB_RANGE}"
+    - "${METALLB_LB_DYNAMIC_RANGE}"
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: reserved-pool
+  namespace: networking
+spec:
+  addresses:
+    - "${METALLB_LB_RESERVED_RANGE}"
+  autoAssign: false
 
