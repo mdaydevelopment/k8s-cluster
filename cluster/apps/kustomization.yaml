@@ -12,13 +12,12 @@ resources:
   - lidarr
   #- monitoring
   - mylar3
-  #- networking
   - node-feature-discovery
   #- nzbget
-  - overseerr
+  #- overseerr
   - plex
   - prowlarr
-  - qbittorrent
+  #- qbittorrent
   - radarr
   - sonarr
   #- system-upgrade
