@@ -34,7 +34,7 @@ spec:
     persistence:
       config:
         enabled: true
-        existingClaim: deluge-config
+        existingClaim: plex-config
       #dri:
       #  enabled: true
       #  type: hostPath
