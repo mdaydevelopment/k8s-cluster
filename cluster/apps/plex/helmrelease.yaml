@@ -33,12 +33,7 @@ spec:
         enabled: false
     persistence:
       config:
-        enabled: true
-        storageClass: freenas-iscsi-csi
-        accessMode: ReadWriteOnce
-        size: 1000Gi
-        mountPath: /config
-        retain: true
+        existingClaim: deluge-config
       #dri:
       #  enabled: true
       #  type: hostPath
