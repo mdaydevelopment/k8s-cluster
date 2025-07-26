@@ -33,8 +33,8 @@ spec:
         enabled: false
     persistence:
       config:
+        enabled: true
         existingClaim: deluge-config
-        mountPath: /config
       #dri:
       #  enabled: true
       #  type: hostPath
