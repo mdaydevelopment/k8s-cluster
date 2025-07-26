@@ -39,12 +39,12 @@ spec:
         size: 1000Gi
         mountPath: /config
         retain: true
-      dri:
-        enabled: true
-        type: hostPath
-        hostPath: /dev/dri
-        hostPathType: Directory
-        mountPath: /dev/dri
+      #dri:
+      #  enabled: true
+      #  type: hostPath
+      #  hostPath: /dev/dri
+      #  hostPathType: Directory
+      #  mountPath: /dev/dri
       tank:
         enabled: true
         type: custom
@@ -62,7 +62,6 @@ spec:
       - 44
       - 109
     resources: {}
-    # empty braces makes this an empty map
     #requests:
     #  cpu: 1
     #  memory: 1024Mi
