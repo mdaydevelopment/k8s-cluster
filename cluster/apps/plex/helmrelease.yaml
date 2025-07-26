@@ -63,5 +63,5 @@ spec:
     #  memory: 1024Mi
     #limits:
     #  memory: 4096Mi
-    securityContext:
-      privileged: true
+    #securityContext:
+    #  privileged: true
