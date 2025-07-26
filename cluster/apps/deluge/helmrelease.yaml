@@ -66,6 +66,8 @@ spec:
     persistence:
       config:
         existingClaim: deluge-config
+        globalMounts:
+          - path: /config
       downloads:
         type: nfs
         server: 192.168.86.5
