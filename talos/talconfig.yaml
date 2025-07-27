@@ -29,6 +29,24 @@ controlPlane:
       systemExtensions:
         officialExtensions:
           - siderolabs/iscsi-tools
+          - siderolabs/intel-ucode
+          - siderolabs/i915
+      extraKernelArgs:
+        - -init_on_alloc                      # Less security, faster puter
+        - -init_on_free                       # Less security, faster puter
+        - -selinux                            # Less security, faster puter
+        - apparmor=0                          # Less security, faster puter
+        - i915.enable_guc=3                   # Meteor Lake CPU / iGPU
+        - init_on_alloc=0                     # Less security, faster puter
+        - init_on_free=0                      # Less security, faster puter
+        - mitigations=off                     # Less security, faster puter
+        - security=none                       # Less security, faster puter
+        - sysctl.kernel.kexec_load_disabled=1 # Meteor Lake CPU / iGPU
+        - talos.auditd.disabled=1             # Less security, faster puter
+      udev:
+        rules:
+          - # Intel GPU
+            SUBSYSTEM=="drm", KERNEL=="renderD*", GROUP="44", MODE="0660"
   networkInterfaces:
     - interface: eno1
       dhcp: true
@@ -40,6 +58,7 @@ worker:
       systemExtensions:
         officialExtensions:
           - siderolabs/iscsi-tools
+          - siderolabs/intel-ucode
           - siderolabs/i915
       extraKernelArgs:
         - -init_on_alloc                      # Less security, faster puter
@@ -49,8 +68,6 @@ worker:
         - i915.enable_guc=3                   # Meteor Lake CPU / iGPU
         - init_on_alloc=0                     # Less security, faster puter
         - init_on_free=0                      # Less security, faster puter
-        - intel_iommu=on                      # PCI Passthrough
-        - iommu=pt                            # PCI Passthrough
         - mitigations=off                     # Less security, faster puter
         - security=none                       # Less security, faster puter
         - sysctl.kernel.kexec_load_disabled=1 # Meteor Lake CPU / iGPU
@@ -59,5 +76,4 @@ worker:
         rules:
           - # Intel GPU
             SUBSYSTEM=="drm", KERNEL=="renderD*", GROUP="44", MODE="0660"
-  nodeLabels:
-    intel.feature.node.kubernetes.io/gpu: "true"
+
