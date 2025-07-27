@@ -18,6 +18,9 @@ spec:
     image:
       repository: lscr.io/linuxserver/plex
       tag: latest
+    nodeSelector:
+      matchLabels:
+        gpu.intel.com/device-id.0300-7d51.present: true
     env:
       TZ: "America/Chicago"
       ADVERTISE_IP: "http://192.168.86.42:32400/"
@@ -57,7 +60,9 @@ spec:
       supplementalGroups:
       - 44
       - 109
-    resources: {}
+    resources:
+      limits:
+        gpu.intel.com/i915: 1
     #requests:
     #  cpu: 1
     #  memory: 1024Mi
