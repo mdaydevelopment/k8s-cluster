@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - default
   - deluge
-  - emqx/ks.yaml
+  #- emqx/ks.yaml
   - flux-system
   #- home-assistant
   - jackett
