@@ -14,7 +14,7 @@ resources:
   - mylar3
   - node-feature-discovery
   - nzbget
-  #- overseerr
+  - overseerr
   - plex
   - prowlarr
   #- qbittorrent
