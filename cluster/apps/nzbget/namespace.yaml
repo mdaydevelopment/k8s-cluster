@@ -5,3 +5,4 @@ metadata:
   name: nzbget
   labels:
     kustomize.toolkit.fluxcd.io/prune: disabled
+

@@ -37,12 +37,6 @@ spec:
       config:
         enabled: true
         existingClaim: plex-config
-      #dri:
-      #  enabled: true
-      #  type: hostPath
-      #  hostPath: /dev/dri
-      #  hostPathType: Directory
-      #  mountPath: /dev/dri
       tank:
         enabled: true
         type: custom
@@ -62,10 +56,4 @@ spec:
     resources:
       limits:
         gpu.intel.com/i915: 1
-    #requests:
-    #  cpu: 1
-    #  memory: 1024Mi
-    #limits:
-    #  memory: 4096Mi
-    #securityContext:
-    #  privileged: true
+

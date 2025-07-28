@@ -47,11 +47,7 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: freenas-iscsi-csi
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        mountPath: /config
-        retain: true
+        existingClaim: nzbget-config
       downloads:
         enabled: true
         type: custom

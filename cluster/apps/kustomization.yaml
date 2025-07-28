@@ -13,7 +13,7 @@ resources:
   #- monitoring
   - mylar3
   - node-feature-discovery
-  #- nzbget
+  - nzbget
   #- overseerr
   - plex
   - prowlarr
