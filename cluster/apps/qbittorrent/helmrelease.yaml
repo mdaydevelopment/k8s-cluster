@@ -90,7 +90,7 @@ spec:
           hajimari.io/icon: "weather-sunset"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-        - host: "qbittorrent.${SECRET_DOMAIN}"
+        - host: "qb.${SECRET_DOMAIN}"
           paths:
           - path: /
             pathType: Prefix
@@ -98,7 +98,7 @@ spec:
               identifier: app
         tls:
         - hosts:
-          - "qbittorrent.${SECRET_DOMAIN}"
+          - "qb.${SECRET_DOMAIN}"
           secretName: qbittorrent-tls
     configMaps:
       config:
