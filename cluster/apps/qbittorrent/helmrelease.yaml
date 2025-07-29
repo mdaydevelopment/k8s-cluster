@@ -67,7 +67,7 @@ spec:
       app:
         forceRename: *app
         primary: true
-        type: LoadBalancer
+        #type: LoadBalancer
         ports:
           http:
             port: *port
