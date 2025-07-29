@@ -72,6 +72,8 @@ spec:
         ports:
           http:
             port: *port
+        annotations:
+          metallb.io/allow-shared-ip: "qbittorrent"
       bittorrent:
         type: LoadBalancer
         loadBalancerIP: 192.168.86.63
@@ -79,6 +81,8 @@ spec:
           bittorrent-tcp:
             port: *torrentPort
             protocol: TCP
+        annotations:
+          metallb.io/allow-shared-ip: "qbittorrent"
     ingress:
       main:
         enabled: true
