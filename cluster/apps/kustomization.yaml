@@ -3,23 +3,23 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - default
-  - deluge
+  #- deluge
   - emqx/ks.yaml
   - flux-system
   #- home-assistant
-  - jackett
+  #- jackett
   - kube-system
-  - lidarr
+  #- lidarr
   #- monitoring
-  - mylar3
+  #- mylar3
   - node-feature-discovery
-  - nzbget
+  #- nzbget
   - overseerr
   - plex
   - prowlarr
-  - qbittorrent
-  - radarr
-  - sonarr
+  #- qbittorrent
+  #- radarr
+  #- sonarr
   #- system-upgrade
   #- zigbee2mqtt
   #- zwave-js-ui
