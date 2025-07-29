@@ -67,13 +67,13 @@ spec:
       app:
         forceRename: *app
         primary: true
-        loadBalancerIP: 192.168.86.43
+        loadBalancerIP: 192.168.86.63
         ports:
           http:
             port: *port
       bittorrent:
         type: LoadBalancer
-        loadBalancerIP: 192.168.86.43
+        loadBalancerIP: 192.168.86.63
         ports:
           bittorrent-tcp:
             port: *torrentPort
@@ -100,22 +100,33 @@ spec:
         - hosts:
           - "qbittorrent.${SECRET_DOMAIN}"
           secretName: qbittorrent-tls
+    configMaps:
+      config:
+        data:
+          .qbt.toml: |
+            [qbittorrent]
+            addr = "http://localhost:80"
     persistence:
       config:
         existingClaim: qbittorrent-config
+      config-file:
+        type: configMap
+        name: qbittorrent
+        globalMounts:
+          - path: /config/.qbt.toml
+            subPath: .qbt.toml
+            readOnly: true
       downloads:
         type: nfs
         server: 192.168.86.5
-        path: /srv/scratch/downloads
+        path: /srv/scratch/downloads/qbittorrent
         globalMounts:
           - path: /media/Downloads/qbittorrent
-            subPath: Downloads/qbittorrent
       tank:
         type: nfs
         server: 192.168.86.2
         path: /mnt/tank/media/
         globalMounts:
           - path: /media/tank/media
-            subPath: tank/media
       tmp:
         type: emptyDir
