@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: nzbget-config
   namespace: nzbget
+labels:
+    kustomize.toolkit.fluxcd.io/prune: disabled
 spec:
   storageClassName: freenas-iscsi-csi
   accessModes:
