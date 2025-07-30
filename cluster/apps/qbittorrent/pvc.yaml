@@ -4,6 +4,8 @@ kind: PersistentVolumeClaim
 metadata:
   name: qbittorrent-config
   namespace: qbittorrent
+labels:
+    kustomize.toolkit.fluxcd.io/prune: disabled
 spec:
   storageClassName: freenas-iscsi-csi
   accessModes:
