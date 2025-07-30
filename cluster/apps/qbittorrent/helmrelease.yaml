@@ -119,14 +119,14 @@ spec:
       downloads:
         type: nfs
         server: 192.168.86.5
-        path: /srv/scratch/downloads/qbittorrent
+        path: /srv/scratch/downloads
         globalMounts:
-          - path: /media/Downloads/qbittorrent
+          - path: /scratch/downloads
       tank:
         type: nfs
         server: 192.168.86.2
         path: /mnt/tank/media/
         globalMounts:
-          - path: /media/tank/media
+          - path: /tank/media
       tmp:
         type: emptyDir
