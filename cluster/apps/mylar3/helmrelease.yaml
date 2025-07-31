@@ -58,15 +58,15 @@ spec:
           nfs:
             server: 192.168.86.5
             path: /srv/scratch
-        mountPath: /media/scratch
-      tank:
+        mountPath: /downloads
+      comics:
         enabled: true
         type: custom
         volumeSpec:
           nfs:
             server: 192.168.86.2
-            path: /mnt/tank/media
-        mountPath: /media/tank
+            path: /mnt/tank/media/comics
+        mountPath: /comics
     podSecurityContext:
       fsGroup: 1000
       fsGroupChangePolicy: "OnRootMismatch"
