@@ -66,18 +66,21 @@ spec:
     persistence:
       config:
         existingClaim: deluge-config
-      downloads:
+      scratch:
+        enabled: true
         type: nfs
         server: 192.168.86.5
-        path: /srv/scratch/downloads
+        path: /srv/scratch
         globalMounts:
-          - path: /downloads
+          - path: /media/scratch/deluge
+            subPath: deluge
       tank:
+        enabled: true
         type: nfs
         server: 192.168.86.2
         path: /mnt/tank/media/
         globalMounts:
-          - path: /tank/media
+          - path: /media/tank
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true

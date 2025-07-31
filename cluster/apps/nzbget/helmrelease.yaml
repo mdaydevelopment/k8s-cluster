@@ -47,14 +47,15 @@ spec:
       config:
         enabled: true
         existingClaim: nzbget-config
-      downloads:
+      scratch:
         enabled: true
         type: custom
         volumeSpec:
           nfs:
             server: 192.168.86.5
-            path: /srv/scratch/nzbget
-        mountPath: /nzbget
+            path: /srv/scratch
+        mountPath: /media/scratch/nzbget
+        subPath: nzbget
     podSecurityContext:
       fsGroup: 1000
       fsGroupChangePolicy: "OnRootMismatch"

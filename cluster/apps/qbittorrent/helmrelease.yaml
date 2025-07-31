@@ -116,17 +116,20 @@ spec:
           - path: /config/.qbt.toml
             subPath: .qbt.toml
             readOnly: true
-      downloads:
+      scratch:
+        enabled: true
         type: nfs
         server: 192.168.86.5
-        path: /srv/scratch/downloads
+        path: /srv/scratch
         globalMounts:
-          - path: /scratch/downloads
+          - path: /media/scratch/qbittorrent
+            subPath: qbittorrent
       tank:
+        enabled: true
         type: nfs
         server: 192.168.86.2
         path: /mnt/tank/media/
         globalMounts:
-          - path: /tank/media
+          - path: /media/tank
       tmp:
         type: emptyDir

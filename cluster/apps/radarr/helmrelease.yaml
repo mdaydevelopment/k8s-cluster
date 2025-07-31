@@ -51,22 +51,14 @@ spec:
         size: 10Gi
         mountPath: /config
         retain: true
-      downloads:
+      scratch:
         enabled: true
         type: custom
         volumeSpec:
           nfs:
             server: 192.168.86.5
-            path: /srv/scratch/downloads
-        mountPath: /media/downloads
-      nzbget:
-        enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.5
-            path: /srv/scratch/nzbget
-        mountPath: /media/nzbget
+            path: /srv/scratch
+        mountPath: /media/scratch
       tank:
         enabled: true
         type: custom
@@ -74,7 +66,7 @@ spec:
           nfs:
             server: 192.168.86.2
             path: /mnt/tank/media
-        mountPath: /media
+        mountPath: /media/tank
     podSecurityContext:
       fsGroup: 1000
       fsGroupChangePolicy: "OnRootMismatch"
