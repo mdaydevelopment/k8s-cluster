@@ -92,29 +92,37 @@ spec:
       torrent:
         enabled: true
         type: LoadBalancer
+        loadBalancerIP: 192.168.86.61
         ports:
           primary:
             enabled: true
             port: 51493
             protocol: TCP
             targetPort: 51493
-        loadBalancerIP: 192.168.86.61
+        annotations:
+          metallb.io/allow-shared-ip: "deluge-share-key"
       webui:
         enabled: true
         type: LoadBalancer
+        loadBalancerIP: 192.168.86.61
         ports:
           primary:
             enabled: true
             port: 8112
             protocol: TCP
             targetPort: 8112
+        annotations:
+          metallb.io/allow-shared-ip: "deluge-share-key"
       daemon:
         enabled: true
         type: LoadBalancer
+        loadBalancerIP: 192.168.86.61
         ports:
           primary:
             enabled: true
             port: 58846
             protocol: TCP
             targetPort: 58846
+        annotations:
+          metallb.io/allow-shared-ip: "deluge-share-key"
 
