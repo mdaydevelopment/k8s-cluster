@@ -8,7 +8,6 @@ spec:
   interval: 1m
   chart:
     spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: nzbget
       version: 12.4.2
       sourceRef:
@@ -68,6 +67,7 @@ spec:
         enabled: true
         nameOverride: nzbget
         type: LoadBalancer
+        loadBalancerIP: 192.168.86.64
         ports:
           primary:
             enabled: true
