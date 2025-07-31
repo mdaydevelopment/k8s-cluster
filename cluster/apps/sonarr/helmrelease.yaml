@@ -77,7 +77,6 @@ spec:
     service:
       sonarr:
         enabled: true
-        nameOverride: torrent
         type: LoadBalancer
         loadBalancerIP: 192.168.86.65
         ports:

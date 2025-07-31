@@ -77,7 +77,6 @@ spec:
     service:
       radarr:
         enabled: true
-        nameOverride: torrent
         type: LoadBalancer
         loadBalancerIP: 192.168.86.66
         ports:
