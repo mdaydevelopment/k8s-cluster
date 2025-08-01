@@ -67,10 +67,13 @@ spec:
       app:
         forceRename: *app
         primary: true
-        #type: LoadBalancer
+        type: LoadBalancer
+        loadBalancerIP: 192.168.86.63
         ports:
           http:
             port: *port
+        annotations:
+          metallb.io/allow-shared-ip: "qb-share-key"
       bittorrent:
         type: LoadBalancer
         loadBalancerIP: 192.168.86.63
@@ -78,6 +81,8 @@ spec:
           bittorrent-tcp:
             port: *torrentPort
             protocol: TCP
+        annotations:
+          metallb.io/allow-shared-ip: "qb-share-key"
     ingress:
       main:
         enabled: true
