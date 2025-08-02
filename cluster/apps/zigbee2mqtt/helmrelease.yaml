@@ -112,14 +112,7 @@ spec:
             secretName: z2m-tls
     persistence:
       config:
-        type: persistentVolumeClaim
-        accessMode: ReadWriteOnce
-        enabled: true
-        storageClass: freenas-iscsi-csi
-        retain: true
-        size: 5Gi
-        globalMounts:
-          - path: /config
+        existingClaim: zigbee2mqtt-config
       usb:
         enabled: true
         type: hostPath

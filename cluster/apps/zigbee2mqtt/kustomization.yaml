@@ -5,4 +5,5 @@ resources:
   - namespace.yaml
   - helmrelease.yaml
   - emqx-secret.yaml
+  - pvc.yaml
 
