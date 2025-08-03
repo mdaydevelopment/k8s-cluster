@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: zwave-js-ui-config
+  namespace: zwave-js-ui
+labels:
+    kustomize.toolkit.fluxcd.io/prune: disabled
+spec:
+  storageClassName: freenas-iscsi-csi
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
