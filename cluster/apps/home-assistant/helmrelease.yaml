@@ -45,12 +45,8 @@ spec:
         - *host
         secretName: ha-tls
     persistence:
-      type: persistentVolumeClaim
-      accessMode: ReadWriteOnce
-      enabled: true
-      storageClass: freenas-iscsi-csi
-      retain: true
-      size: 5Gi
+      config:
+        existingClaim: home-assistant-config
     env:
       TZ: "America/Chicago"
     service:
