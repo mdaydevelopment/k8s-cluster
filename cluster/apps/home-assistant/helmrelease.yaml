@@ -1,32 +1,56 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: &app home-assistant
-  namespace: home-assistant
+  name: home-assistant
 spec:
-  interval: 1m
-  chart:
-    spec:
-      chart: home-assistant
-      version: 0.3.13
-      #version: 0.2.102
-      sourceRef:
-        kind: HelmRepository
-        name: pajikos
-        namespace: flux-system
-  maxHistory: 2
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
   install:
-    createNamespace: true
     remediation:
-      retries: 3
+      retries: -1
   upgrade:
     cleanupOnFail: true
     remediation:
-      strategy: rollback
       retries: 3
-  uninstall:
-    keepHistory: false
   values:
+    controllers:
+      home-assistant:
+        containers:
+          app:
+            image:
+              repository: ghcr.io/home-operations/home-assistant
+              tag: 2025.7.1@sha256:5ed76e1de666b3522dcbef5d23e41283c925dd707dbcaa2fc0ecef981c0bc881
+            env:
+              TZ: America/New_York
+              #HASS_HTTP_TRUSTED_PROXY_1: 192.168.42.0/24
+              #HASS_HTTP_TRUSTED_PROXY_2: 10.42.0.0/16
+            #envFrom:
+            #  - secretRef:
+            #      name: home-assistant-secret
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 10m
+              limits:
+                memory: 2Gi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+    service:
+      app:
+        ports:
+          http:
+            port: 8123
     ingress:
       enabled: true
       ingressClassName: "nginx"
@@ -48,9 +72,18 @@ spec:
     persistence:
       config:
         existingClaim: home-assistant-config
-    env:
-      TZ: "America/Chicago"
-    service:
-      type: LoadBalancer
-      port: 8080
-
+        globalMounts:
+          - path: /config
+      tmpfs:
+        type: emptyDir
+        advancedMounts:
+          home-assistant:
+            app:
+              - path: /config/logs
+                subPath: logs
+              - path: /config/tts
+                subPath: tts
+              - path: /tmp
+                subPath: tmp
+              - path: /config/.venv
+                subPath: .venv
