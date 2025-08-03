@@ -77,7 +77,7 @@ spec:
             secretName: zwjs-tls
     persistence:
       config:
-        existingClaim: zigbee2mqtt-config
+        existingClaim: zwave-js-ui-config
         globalMounts:
           - path: /usr/src/app/store
       usb:
