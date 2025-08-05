@@ -1,29 +1,73 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: plex
   namespace: plex
 spec:
-  interval: 1m
-  chart:
-    spec:
-      chart: plex
-      version: 6.4.3
-      sourceRef:
-        kind: HelmRepository
-        name: k8s-at-home-charts
-        namespace: flux-system
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
   values:
-    image:
-      repository: lscr.io/linuxserver/plex
-      tag: latest
-    nodeSelector:
-      gpu.intel.com/device-id.0300-7d51.present: "true"
-    env:
-      TZ: "America/Chicago"
-      ADVERTISE_IP: "http://192.168.86.42:32400/"
-      ALLOWED_NETWORKS: "10.0.0.0/8, 192.168.0.0/16"
+    controllers:
+      plex:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        containers:
+          app:
+            image:
+              repository: ghcr.io/home-operations/plex
+              tag: rolling
+            nodeSelector:
+              gpu.intel.com/device-id.0300-7d51.present: "true"
+            env:
+              TZ: "America/Chicago"
+              ADVERTISE_IP: "http://192.168.86.62:32400/"
+              ALLOWED_NETWORKS: "10.0.0.0/8, 192.168.0.0/16"
+            probes:
+              liveness: &probes
+                enabled: true
+                custom: true
+                spec:
+                  httpGet:
+                    path: /identity
+                    port: &port 32400
+                  initialDelaySeconds: 0
+                  periodSeconds: 10
+                  timeoutSeconds: 1
+                  failureThreshold: 3
+              readiness: *probes
+              startup:
+                enabled: true
+                spec:
+                  failureThreshold: 30
+                  periodSeconds: 10
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                gpu.intel.com/i915: 1
+                memory: 16Gi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        supplementalGroups: [44]
     service:
       main:
         type: LoadBalancer
@@ -56,15 +100,3 @@ spec:
                 subPath: transcode
               - path: /tmp
                 subPath: tmp
-    podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-      fsGroup: 1000
-      fsGroupChangePolicy: "OnRootMismatch"
-      supplementalGroups:
-      - 44
-      - 109
-    resources:
-      limits:
-        gpu.intel.com/i915: 1
-
