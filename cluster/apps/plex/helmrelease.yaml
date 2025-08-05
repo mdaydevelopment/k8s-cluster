@@ -45,6 +45,17 @@ spec:
             server: 192.168.86.2
             path: /mnt/tank/media
         mountPath: /mnt/tank/media
+      tmpfs:
+        type: emptyDir
+        advancedMounts:
+          plex:
+            app:
+              - path: /config/Library/Application Support/Plex Media Server/Logs
+                subPath: logs
+              - path: /transcode
+                subPath: transcode
+              - path: /tmp
+                subPath: tmp
     podSecurityContext:
       runAsUser: 1000
       runAsGroup: 1000
