@@ -88,5 +88,5 @@ spec:
                 subPath: tts
               - path: /tmp
                 subPath: tmp
-              - path: /config/.venv
-                subPath: .venv
+              #- path: /config/.venv
+              #  subPath: .venv
