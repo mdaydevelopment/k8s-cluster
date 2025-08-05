@@ -12,5 +12,13 @@ spec:
       - "604800"
     imagePullPolicy: IfNotPresent
     name: ubuntu
+    volumeMounts:
+    - mountPath: /home/ubuntu/scratch
+      name: scratch
   restartPolicy: Always
+  volumes:
+  - name: scratch
+    nfs:
+      server: 192.168.86.5
+      path: /srv/scratch
 
