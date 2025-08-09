@@ -59,8 +59,7 @@ spec:
         server: 192.168.86.5
         path: /srv/scratch
         globalMounts:
-          - path: /media/scratch/deluge
-            subPath: deluge
+          - path: /media/scratch
       tank:
         enabled: true
         type: nfs
