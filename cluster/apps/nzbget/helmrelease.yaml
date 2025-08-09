@@ -54,7 +54,7 @@ spec:
           nfs:
             server: 192.168.86.5
             path: /srv/scratch
-        mountPath: /media/scratch/nzbget
+        mountPath: /data/scratch/nzbget
         subPath: nzbget
     podSecurityContext:
       fsGroup: 1000

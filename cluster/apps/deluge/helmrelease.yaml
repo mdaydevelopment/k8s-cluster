@@ -72,7 +72,7 @@ spec:
         server: 192.168.86.5
         path: /srv/scratch
         globalMounts:
-          - path: /media/scratch/deluge
+          - path: /data/scratch/deluge
             subPath: deluge
       tank:
         enabled: true
@@ -80,7 +80,7 @@ spec:
         server: 192.168.86.2
         path: /mnt/tank/media
         globalMounts:
-          - path: /media/tank
+          - path: /data/tank/media
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true

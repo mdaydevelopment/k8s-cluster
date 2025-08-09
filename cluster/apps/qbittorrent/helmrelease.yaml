@@ -127,7 +127,7 @@ spec:
         server: 192.168.86.5
         path: /srv/scratch
         globalMounts:
-          - path: /media/scratch/qbittorrent
+          - path: /data/scratch/qbittorrent
             subPath: qbittorrent
       tank:
         enabled: true
@@ -135,6 +135,6 @@ spec:
         server: 192.168.86.2
         path: /mnt/tank/media
         globalMounts:
-          - path: /media/tank
+          - path: /data/tank/media
       tmp:
         type: emptyDir
