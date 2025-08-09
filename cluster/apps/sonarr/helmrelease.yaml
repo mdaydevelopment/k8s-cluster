@@ -6,27 +6,34 @@ metadata:
   namespace: sonarr
 spec:
   interval: 1m
-  chart:
-    spec:
-      chart: sonarr
-      version: 16.3.2
-      sourceRef:
-        kind: HelmRepository
-        name: k8s-at-home-charts
-        namespace: flux-system
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
   values:
-    image:
-      repository: linuxserver/sonarr
-      tag: latest
-    env:
-      TZ: "America/Chicago"
-      PUID: "1000"
-      PGID: "1000"
-      UMASK: "000"
+
+    controllers:
+      sonarr:
+        containers:
+          app:
+            image:
+              repository: linuxserver/sonarr
+              tag: latest
+            env:
+              TZ: "America/Chicago"
+              PUID: "1000"
+              PGID: "1000"
+              UMASK: "000"
+            resources:
+              requests:
+                cpu: 500m
+                memory: 2048Mi
+              limits:
+                memory: 16Gi
     ingress:
       main:
         enabled: true
-        ingressClassName: "nginx"
+        className: "nginx"
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
           external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
@@ -45,35 +52,29 @@ spec:
           secretName: sonarr-tls
     persistence:
       config:
-        enabled: true
-        storageClass: freenas-iscsi-csi
-        accessMode: ReadWriteOnce
-        size: 10Gi
-        mountPath: /config
-        retain: true
+        existingClaim: sonarr-config
       scratch:
         enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.5
-            path: /srv/scratch
-        mountPath: /media/scratch
+        type: nfs
+        server: 192.168.86.5
+        path: /srv/scratch
+        globalMounts:
+          - path: /media/scratch/deluge
+            subPath: deluge
       tank:
         enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.2
-            path: /mnt/tank/media
-        mountPath: /media/tank
-    podSecurityContext:
-      fsGroup: 1000
-      fsGroupChangePolicy: "OnRootMismatch"
-    resources:
-      requests:
-        cpu: 500m
-        memory: 2048Mi
+        type: nfs
+        server: 192.168.86.2
+        path: /mnt/tank/media
+        globalMounts:
+          - path: /media/tank
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
     service:
       sonarr:
         enabled: true
