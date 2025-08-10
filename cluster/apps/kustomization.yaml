@@ -20,6 +20,7 @@ resources:
   - qbittorrent
   - radarr
   #- readarr
+  - recyclarr
   - sonarr
   #- system-upgrade
   - zigbee2mqtt
