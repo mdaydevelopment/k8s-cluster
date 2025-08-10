@@ -1,7 +1,7 @@
 ---
 sonarr:
   sonarr:
-    base_url: "http://sonarr.${SECRET_DOMAIN}"
+    base_url: "https://sonarr.${SECRET_DOMAIN}"
     api_key: "${SONARR_API_KEY}"
     delete_old_custom_formats: true
     replace_existing_custom_formats: true
@@ -23,7 +23,7 @@ sonarr:
 
 radarr:
   radarr:
-    base_url: "http://radarr.${SECRET_DOMAIN}"
+    base_url: "https://radarr.${SECRET_DOMAIN}"
     api_key: "${RADARR_API_KEY}"
     delete_old_custom_formats: true
     replace_existing_custom_formats: true
