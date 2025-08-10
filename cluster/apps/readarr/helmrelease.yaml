@@ -17,7 +17,7 @@ spec:
           app:
             image:
               repository: linuxserver/readarr
-              tag: latest
+              tag: nightly
             env:
               TZ: "America/Chicago"
               PUID: "1000"
