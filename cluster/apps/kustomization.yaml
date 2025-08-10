@@ -23,5 +23,6 @@ resources:
   - recyclarr
   - sonarr
   #- system-upgrade
+  - tautulli
   - zigbee2mqtt
   - zwave-js-ui
