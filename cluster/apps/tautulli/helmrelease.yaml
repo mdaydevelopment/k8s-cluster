@@ -16,8 +16,8 @@ spec:
         containers:
           app:
             image:
-              repository: ghcr.io/tautulli/tautulli
-              tag: latest
+              repository: ghcr.io/home-operations/tautulli
+              tag: rolling
             env:
               TZ: "America/Chicago"
               TAUTULLI_HTTP_BASE_URL: "https://tautulli.${SECRET_DOMAIN}"
