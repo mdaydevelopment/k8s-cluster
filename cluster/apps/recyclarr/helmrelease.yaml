@@ -57,7 +57,7 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
     persistence:
       config:
-        existingClaim: recyclarr
+        existingClaim: recyclarr-config
       config-file:
         type: configMap
         name: recyclarr-configmap
