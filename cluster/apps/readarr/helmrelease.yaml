@@ -16,8 +16,8 @@ spec:
         containers:
           app:
             image:
-              repository: linuxserver/readarr
-              tag: amd64-nightly
+              repository: lscr.io/linuxserver/readarr
+              tag: nightly
             env:
               TZ: "America/Chicago"
               PUID: "1000"
