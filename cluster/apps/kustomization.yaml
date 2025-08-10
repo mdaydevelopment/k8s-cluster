@@ -19,7 +19,7 @@ resources:
   - prowlarr
   - qbittorrent
   - radarr
-  - readarr
+  #- readarr
   - sonarr
   #- system-upgrade
   - zigbee2mqtt

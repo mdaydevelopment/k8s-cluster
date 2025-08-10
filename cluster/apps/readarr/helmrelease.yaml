@@ -16,8 +16,7 @@ spec:
         containers:
           app:
             image:
-              platform: amd64
-              repository: lscr.io/linuxserver/readarr
+              repository: linuxserver/readarr
               tag: nightly
             env:
               TZ: "America/Chicago"
