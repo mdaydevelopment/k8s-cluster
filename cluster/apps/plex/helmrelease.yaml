@@ -73,7 +73,7 @@ spec:
         type: LoadBalancer
         ports:
           http:
-            port: *port
+            port: 32400
         loadBalancerIP: 192.168.86.62
     ingress:
       main:
