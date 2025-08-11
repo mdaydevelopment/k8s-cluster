@@ -84,12 +84,11 @@ spec:
         existingClaim: plex-config
       tank:
         enabled: true
-        type: custom
-        volumeSpec:
-          nfs:
-            server: 192.168.86.2
-            path: /mnt/tank/media
-        mountPath: /mnt/tank/media
+        type: nfs
+        server: 192.168.86.2
+        path: /mnt/tank/media
+        globalMounts:
+          - path: /mnt/tank/media
       tmpfs:
         type: emptyDir
         advancedMounts:
