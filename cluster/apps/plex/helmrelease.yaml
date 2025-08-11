@@ -29,24 +29,24 @@ spec:
               TZ: "America/Chicago"
               ADVERTISE_IP: "http://192.168.86.62:32400/"
               ALLOWED_NETWORKS: "10.0.0.0/8, 192.168.0.0/16"
-            probes:
-              liveness: &probes
-                enabled: true
-                custom: true
-                spec:
-                  httpGet:
-                    path: /identity
-                    port: &port 32400
-                  initialDelaySeconds: 0
-                  periodSeconds: 10
-                  timeoutSeconds: 1
-                  failureThreshold: 3
-              readiness: *probes
-              startup:
-                enabled: true
-                spec:
-                  failureThreshold: 30
-                  periodSeconds: 10
+            #probes:
+            #  liveness: &probes
+            #    enabled: true
+            #    custom: true
+            #    spec:
+            #      httpGet:
+            #        path: /identity
+            #        port: &port 32400
+            #      initialDelaySeconds: 0
+            #      periodSeconds: 10
+            #      timeoutSeconds: 1
+            #      failureThreshold: 3
+            #  readiness: *probes
+            #  startup:
+            #    enabled: true
+            #    spec:
+            #      failureThreshold: 30
+            #      periodSeconds: 10
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
