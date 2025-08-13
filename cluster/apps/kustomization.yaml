@@ -10,6 +10,7 @@ resources:
   - hajimari
   - home-assistant
   - jackett
+  - kapowarr
   - kube-system
   - lidarr
   #- monitoring
