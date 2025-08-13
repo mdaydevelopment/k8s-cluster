@@ -71,13 +71,13 @@ spec:
         globalMounts:
           - path: /data/tank/media/comics
             subPath: comics
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        #runAsUser: 1000
-        #runAsGroup: 1000
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
+    #defaultPodOptions:
+    #  securityContext:
+    #    runAsNonRoot: true
+    #    runAsUser: 1000
+    #    runAsGroup: 1000
+    #    fsGroup: 1000
+    #    fsGroupChangePolicy: OnRootMismatch
     service:
       kapowarr:
         ports:
