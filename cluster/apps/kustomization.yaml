@@ -6,6 +6,7 @@ resources:
   - deluge
   - emqx/ks.yaml
   - flux-system
+  - fusion
   - home-assistant
   - jackett
   - kube-system

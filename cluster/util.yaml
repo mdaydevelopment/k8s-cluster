@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: util
+  namespace: recyclarr
+spec:
+  containers:
+  - image: ghcr.io/recyclarr/recyclarr
+    command:
+      - "sleep"
+      - "604800"
+    imagePullPolicy: IfNotPresent
+    name: util
+    volumeMounts:
+    - mountPath: /scratch
+      name: scratch
+    - mountPath: /config/recyclarr.yml
+      name: config-file
+      subPath: recyclarr.yml
+      readOnly: true
+  restartPolicy: Always
+  volumes:
+  - name: scratch
+    nfs:
+      server: 192.168.86.5
+      path: /srv/scratch
+  - name: config-file
+    configMap:
+      name: recyclarr-configmap
+
