@@ -48,7 +48,7 @@ spec:
         tls:
         - hosts:
           - "kapowarr.${SECRET_DOMAIN}"
-          secretName: sonarr-tls
+          secretName: kapowarr-tls
     persistence:
       db:
         enabled: true
@@ -79,12 +79,9 @@ spec:
         fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
     service:
-      sonarr:
-        enabled: true
-        type: LoadBalancer
+      kapowarr:
         ports:
           primary:
-            enabled: true
             port: 5656
             protocol: TCP
             targetPort: 5656
