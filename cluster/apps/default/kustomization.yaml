@@ -4,5 +4,4 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - echo-server
-  - hajimari
   - homer

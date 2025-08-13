@@ -7,12 +7,12 @@ resources:
   - emqx/ks.yaml
   - flux-system
   - fusion
+  - hajimari
   - home-assistant
   - jackett
   - kube-system
   - lidarr
   #- monitoring
-  #- mylar3
   - node-feature-discovery
   - nzbget
   - overseerr
@@ -20,7 +20,6 @@ resources:
   - prowlarr
   - qbittorrent
   - radarr
-  #- readarr
   - recyclarr
   - sonarr
   #- system-upgrade
