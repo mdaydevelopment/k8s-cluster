@@ -9,6 +9,7 @@ resources:
   - fusion
   - hajimari
   - home-assistant
+  - homebox
   - jackett
   - kapowarr
   - kube-system
