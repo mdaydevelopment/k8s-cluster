@@ -38,7 +38,7 @@ spec:
           external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
           external-dns/is-public: "true"
           hajimari.io/enable: "true"
-          hajimari.io/icon: "weather-sunset"
+          hajimari.io/icon: "mdi:television"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
         - host: "sonarr.${SECRET_DOMAIN}"
