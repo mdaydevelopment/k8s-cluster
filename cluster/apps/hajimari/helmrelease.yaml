@@ -59,13 +59,32 @@ spec:
           apps:
             - name: TrueNAS
               url: 'https://192.168.86.2'
-              icon: 'mdi:test-tube'
+              icon: 'mdi:nas'
             - name: Pi-hole
               url: 'https://192.168.86.3/admin'
-              icon: 'mdi:test-tube'
+              icon: 'mdi:pi-hole'
             - name: Plex
               url: 'https://app.plex.tv'
-              icon: 'mdi:test-tube'
+              icon: 'mdi:plex'
+      globalBookmarks:
+        - group: Dev
+          bookmarks:
+            - name: Github
+              url: 'https://github.com/mdaydevelopment/k8s-cluster'
+            - name: Gitlab
+              url: 'https://gitlab.com'
+        - group: Communicate
+          bookmarks:
+            - name: Gmail
+              url: 'http://gmail.com'
+            - name: Outlook
+              url: 'https://outlook.office.com/mail'
+        - group: Office
+          bookmarks:
+            - name: Sheets
+              url: 'https://docs.google.com/spreadsheets'
+            - name: Docs
+              url: 'https://docs.google.com/document'
     ingress:
       main:
         enabled: true
