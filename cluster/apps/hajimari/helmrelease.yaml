@@ -26,25 +26,26 @@ spec:
     hajimari:
       defaultEnable: false
       namespaceSelector:
-        matchNames:
-          - deluge
-          - emqx
-          - fusion
-          - home-assistant
-          - homebox
-          - jackett
-          - lidarr
-          - nzbget
-          - overseerr
-          - plex
-          - prowlarr
-          - qbittorrent
-          - radarr
-          - readarr
-          - sonarr
-          - tautulli
-          - zigbee2mqtt
-          - zwave-js-ui
+        any: true
+        #matchNames:
+        #  - deluge
+        #  - emqx
+        #  - fusion
+        #  - home-assistant
+        #  - homebox
+        #  - jackett
+        #  - lidarr
+        #  - nzbget
+        #  - overseerr
+        #  - plex
+        #  - prowlarr
+        #  - qbittorrent
+        #  - radarr
+        #  - readarr
+        #  - sonarr
+        #  - tautulli
+        #  - zigbee2mqtt
+        #  - zwave-js-ui
       name: "you"
       searchProviders:
         - name: Google
