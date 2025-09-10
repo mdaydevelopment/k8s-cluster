@@ -27,7 +27,7 @@ spec:
               tag: latest
             env:
               TZ: America/Chicago
-              #HBOX_OPTIONS_ALLOW_REGISTRATION: false
+              HBOX_OPTIONS_ALLOW_REGISTRATION: false
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
