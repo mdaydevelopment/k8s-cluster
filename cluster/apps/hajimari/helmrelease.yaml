@@ -76,10 +76,10 @@ spec:
         - group: Local
           apps:
             - name: TrueNAS
-              url: '192.168.86.2'
+              url: 'https://192.168.86.2'
               icon: 'mdi:test-tube'
             - name: Pi-hole
-              url: '192.168.86.3/admin'
+              url: 'https://192.168.86.3/admin'
               icon: 'mdi:test-tube'
     ingress:
       main:
