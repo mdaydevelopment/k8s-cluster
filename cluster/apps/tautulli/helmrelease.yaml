@@ -36,7 +36,7 @@ spec:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
           external-dns/is-public: "true"
           hajimari.io/enable: "true"
-          hajimari.io/icon: "weather-sunset"
+          hajimari.io/icon: "mdi:animation-play"
         hosts:
         - host: "tautulli.${SECRET_DOMAIN}"
           paths:
