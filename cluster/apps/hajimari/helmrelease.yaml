@@ -57,6 +57,9 @@ spec:
       customApps:
         - group: Local
           apps:
+            - name: Router
+              url: 'https://192.168.86.1/network'
+              icon: 'mdi:router'
             - name: TrueNAS
               url: 'https://192.168.86.2'
               icon: 'mdi:nas'
