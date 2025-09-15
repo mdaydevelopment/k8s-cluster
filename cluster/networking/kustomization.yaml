@@ -6,5 +6,5 @@ resources:
   - cloudflare-ddns
   - external-dns
   - ingress-nginx
-  - metallb/ks.yaml
+  #- metallb/ks.yaml
   - k8s-gateway

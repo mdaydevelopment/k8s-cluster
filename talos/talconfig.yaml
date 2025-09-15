@@ -23,6 +23,13 @@ nodes:
         dhcp: true
 talosVersion: v1.10.5
 allowSchedulingOnControlPlanes: true
+cniConfig:
+  name: none
+patches:
+  - |-
+    cluster:
+      proxy:
+        disabled: true
 controlPlane:
   schematic:
     customization:

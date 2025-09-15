@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - app-template.yaml
   - bitnami.yaml
+  - cilium.yaml
   - external-dns.yaml
   - emqx.yaml
   - grafana.yaml
