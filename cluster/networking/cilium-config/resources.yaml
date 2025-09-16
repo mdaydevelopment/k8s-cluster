@@ -1,0 +1,21 @@
+---
+apiVersion: cilium.io/v2
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: default-pool
+  namespace: networking
+spec:
+  blocks:
+    - start: "${CILIUM_LB_DYNAMIC_START}"
+      stop: "${CILIUM_LB_DYNAMIC_STOP}"
+---
+apiVersion: cilium.io/v2
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: reserved-pool
+  namespace: networking
+spec:
+  blocks:
+    - start: "${CILIUM_LB_RESERVED_START}"
+      stop: "${CILIUM_LB_RESERVED_STOP}"
+
