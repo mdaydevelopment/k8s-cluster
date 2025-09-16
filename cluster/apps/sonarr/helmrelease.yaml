@@ -80,7 +80,7 @@ spec:
         labels:
           lb_pool: reserved
         annotations:
-          "lbipam.cilium.io/ips": "192.168.86.62"
+          "lbipam.cilium.io/ips": "192.168.86.65"
         ports:
           primary:
             enabled: true
