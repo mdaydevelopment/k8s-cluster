@@ -18,4 +18,7 @@ spec:
   blocks:
     - start: "${CILIUM_LB_RESERVED_START}"
       stop: "${CILIUM_LB_RESERVED_STOP}"
+  serviceSelector:
+    matchLabels:
+      reserved: true
 
