@@ -2,6 +2,19 @@
 apiVersion: cilium.io/v2
 kind: CiliumLoadBalancerIPPool
 metadata:
+  name: ingress-pool
+  namespace: networking
+spec:
+  blocks:
+    - start: "${CILIUM_LB_INGRESS_START}"
+      stop: "${CILIUM_LB_INGRESS_STOP}"
+  serviceSelector:
+    matchLabels:
+      lb_pool: ingress
+---
+apiVersion: cilium.io/v2
+kind: CiliumLoadBalancerIPPool
+metadata:
   name: default-pool
   namespace: networking
 spec:

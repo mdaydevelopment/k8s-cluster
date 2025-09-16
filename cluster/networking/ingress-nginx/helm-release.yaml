@@ -32,9 +32,11 @@ spec:
         - name: TZ
           value: "${TIMEZONE}"
       service:
+        type: LoadBalancer
+        labels:
+          lb_pool: ingress
         annotations:
-          metallb.universe.tf/loadBalancerIPs: |-
-            ${METALLB_INGRESS_ADDR}
+          lbipam.cilium.io/ips: "${NGINX_INGRESS_ADDR}"
         externalTrafficPolicy: Local
       publishService:
         enabled: true
