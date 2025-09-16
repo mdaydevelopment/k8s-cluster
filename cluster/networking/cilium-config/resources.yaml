@@ -20,5 +20,5 @@ spec:
       stop: "${CILIUM_LB_RESERVED_STOP}"
   serviceSelector:
     matchLabels:
-      reserved: true
+      lb_pool: reserved
 

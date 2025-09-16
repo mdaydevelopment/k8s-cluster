@@ -71,7 +71,7 @@ spec:
       main:
         type: LoadBalancer
         labels:
-          reserved: true
+          lb_pool: reserved
         annotations:
           "lbipam.cilium.io/ips": "192.168.86.62"
         ports:
