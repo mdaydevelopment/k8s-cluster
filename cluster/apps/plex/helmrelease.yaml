@@ -67,7 +67,6 @@ spec:
         supplementalGroups: [44]
       nodeSelector:
         gpu.intel.com/device-id.0300-7d51.present: "true"
-
     service:
       main:
         type: LoadBalancer
