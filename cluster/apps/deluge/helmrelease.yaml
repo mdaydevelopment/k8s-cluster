@@ -95,43 +95,40 @@ spec:
         labels:
           lb_pool: reserved
         annotations:
-          "lbipam.cilium.io/ips": "192.168.86.61"
+          lbipam.cilium.io/ips: "192.168.86.61"
+          lbipam.cilium.io/sharing-key: "deluge-share-key"
         ports:
           primary:
             enabled: true
             port: 51493
             protocol: TCP
             targetPort: 51493
-        annotations:
-          lbipam.cilium.io/sharing-key: "deluge-share-key"
       webui:
         enabled: true
         type: LoadBalancer
         labels:
           lb_pool: reserved
         annotations:
-          "lbipam.cilium.io/ips": "192.168.86.61"
+          lbipam.cilium.io/ips: "192.168.86.61"
+          lbipam.cilium.io/sharing-key: "deluge-share-key"
         ports:
           primary:
             enabled: true
             port: 8112
             protocol: TCP
             targetPort: 8112
-        annotations:
-          lbipam.cilium.io/sharing-key: "deluge-share-key"
       daemon:
         enabled: true
         type: LoadBalancer
         labels:
           lb_pool: reserved
         annotations:
-          "lbipam.cilium.io/ips": "192.168.86.61"
+          lbipam.cilium.io/ips: "192.168.86.61"
+          lbipam.cilium.io/sharing-key: "deluge-share-key"
         ports:
           primary:
             enabled: true
             port: 58846
             protocol: TCP
             targetPort: 58846
-        annotations:
-          lbipam.cilium.io/sharing-key: "deluge-share-key"
 
