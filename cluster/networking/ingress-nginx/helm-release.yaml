@@ -37,7 +37,7 @@ spec:
           lb_pool: ingress
         annotations:
           lbipam.cilium.io/ips: "${NGINX_INGRESS_ADDR}"
-        externalTrafficPolicy: Local
+        externalTrafficPolicy: Cluster
       publishService:
         enabled: true
       ingressClassResource:

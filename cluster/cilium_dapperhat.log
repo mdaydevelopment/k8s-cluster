@@ -1,0 +1,788 @@
+time=2025-09-17T02:18:44.177802147Z level=info msg="Memory available for map entries (0.250% of 67271815168B): 168179537B"
+time=2025-09-17T02:18:44.177853769Z level=info msg="option bpf-ct-global-tcp-max set by dynamic sizing to 590103"
+time=2025-09-17T02:18:44.17785947Z level=info msg="option bpf-ct-global-any-max set by dynamic sizing to 295051"
+time=2025-09-17T02:18:44.177863245Z level=info msg="option bpf-nat-global-max set by dynamic sizing to 590103"
+time=2025-09-17T02:18:44.177866861Z level=info msg="option bpf-neigh-global-max set by dynamic sizing to 590103"
+time=2025-09-17T02:18:44.178500536Z level=info msg="  --agent-health-port='9879'"
+time=2025-09-17T02:18:44.178510692Z level=info msg="  --agent-health-require-k8s-connectivity='true'"
+time=2025-09-17T02:18:44.178535533Z level=info msg="  --agent-labels=''"
+time=2025-09-17T02:18:44.178540253Z level=info msg="  --agent-liveness-update-interval='1s'"
+time=2025-09-17T02:18:44.178544075Z level=info msg="  --agent-not-ready-taint-key='node.cilium.io/agent-not-ready'"
+time=2025-09-17T02:18:44.178548993Z level=info msg="  --allocator-list-timeout='3m0s'"
+time=2025-09-17T02:18:44.178553395Z level=info msg="  --allow-icmp-frag-needed='true'"
+time=2025-09-17T02:18:44.178559535Z level=info msg="  --allow-localhost='auto'"
+time=2025-09-17T02:18:44.178563158Z level=info msg="  --allow-unsafe-policy-skb-usage='false'"
+time=2025-09-17T02:18:44.178566524Z level=info msg="  --annotate-k8s-node='false'"
+time=2025-09-17T02:18:44.178571237Z level=info msg="  --api-rate-limit=''"
+time=2025-09-17T02:18:44.178575371Z level=info msg="  --auto-create-cilium-node-resource='true'"
+time=2025-09-17T02:18:44.178579339Z level=info msg="  --auto-direct-node-routes='true'"
+time=2025-09-17T02:18:44.17858619Z level=info msg="  --bgp-router-id-allocation-ip-pool=''"
+time=2025-09-17T02:18:44.178590004Z level=info msg="  --bgp-router-id-allocation-mode='default'"
+time=2025-09-17T02:18:44.178593666Z level=info msg="  --boot-id-file='/proc/sys/kernel/random/boot_id'"
+time=2025-09-17T02:18:44.17859773Z level=info msg="  --bpf-auth-map-max='524288'"
+time=2025-09-17T02:18:44.178601421Z level=info msg="  --bpf-conntrack-accounting='false'"
+time=2025-09-17T02:18:44.178605191Z level=info msg="  --bpf-ct-global-any-max='262144'"
+time=2025-09-17T02:18:44.178608665Z level=info msg="  --bpf-ct-global-tcp-max='524288'"
+time=2025-09-17T02:18:44.178612374Z level=info msg="  --bpf-ct-timeout-regular-any='1m0s'"
+time=2025-09-17T02:18:44.17861587Z level=info msg="  --bpf-ct-timeout-regular-tcp='2h13m20s'"
+time=2025-09-17T02:18:44.178619646Z level=info msg="  --bpf-ct-timeout-regular-tcp-fin='10s'"
+time=2025-09-17T02:18:44.178623317Z level=info msg="  --bpf-ct-timeout-regular-tcp-syn='1m0s'"
+time=2025-09-17T02:18:44.178628368Z level=info msg="  --bpf-ct-timeout-service-any='1m0s'"
+time=2025-09-17T02:18:44.178631894Z level=info msg="  --bpf-ct-timeout-service-tcp='2h13m20s'"
+time=2025-09-17T02:18:44.178636025Z level=info msg="  --bpf-ct-timeout-service-tcp-grace='1m0s'"
+time=2025-09-17T02:18:44.178640982Z level=info msg="  --bpf-distributed-lru='false'"
+time=2025-09-17T02:18:44.178644764Z level=info msg="  --bpf-events-default-burst-limit='0'"
+time=2025-09-17T02:18:44.178648544Z level=info msg="  --bpf-events-default-rate-limit='0'"
+time=2025-09-17T02:18:44.178652067Z level=info msg="  --bpf-events-drop-enabled='true'"
+time=2025-09-17T02:18:44.17865654Z level=info msg="  --bpf-events-policy-verdict-enabled='true'"
+time=2025-09-17T02:18:44.1786608Z level=info msg="  --bpf-events-trace-enabled='true'"
+time=2025-09-17T02:18:44.178665116Z level=info msg="  --bpf-filter-priority='1'"
+time=2025-09-17T02:18:44.178668728Z level=info msg="  --bpf-fragments-map-max='8192'"
+time=2025-09-17T02:18:44.178672602Z level=info msg="  --bpf-lb-acceleration='disabled'"
+time=2025-09-17T02:18:44.178676223Z level=info msg="  --bpf-lb-affinity-map-max='0'"
+time=2025-09-17T02:18:44.178681189Z level=info msg="  --bpf-lb-algorithm='maglev'"
+time=2025-09-17T02:18:44.178684814Z level=info msg="  --bpf-lb-algorithm-annotation='false'"
+time=2025-09-17T02:18:44.178688661Z level=info msg="  --bpf-lb-dsr-dispatch='opt'"
+time=2025-09-17T02:18:44.178691908Z level=info msg="  --bpf-lb-external-clusterip='false'"
+time=2025-09-17T02:18:44.178695213Z level=info msg="  --bpf-lb-ipip-sock-mark='false'"
+time=2025-09-17T02:18:44.178698574Z level=info msg="  --bpf-lb-maglev-hash-seed='JLfvgnHc2kaSUFaI'"
+time=2025-09-17T02:18:44.178702066Z level=info msg="  --bpf-lb-maglev-map-max='0'"
+time=2025-09-17T02:18:44.178705628Z level=info msg="  --bpf-lb-maglev-table-size='16381'"
+time=2025-09-17T02:18:44.178710524Z level=info msg="  --bpf-lb-map-max='65536'"
+time=2025-09-17T02:18:44.178714052Z level=info msg="  --bpf-lb-mode='dsr'"
+time=2025-09-17T02:18:44.178717503Z level=info msg="  --bpf-lb-mode-annotation='false'"
+time=2025-09-17T02:18:44.178721042Z level=info msg="  --bpf-lb-nat46x64='false'"
+time=2025-09-17T02:18:44.178724545Z level=info msg="  --bpf-lb-proto-diff='true'"
+time=2025-09-17T02:18:44.178728078Z level=info msg="  --bpf-lb-rev-nat-map-max='0'"
+time=2025-09-17T02:18:44.178732672Z level=info msg="  --bpf-lb-rss-ipv4-src-cidr=''"
+time=2025-09-17T02:18:44.17873687Z level=info msg="  --bpf-lb-rss-ipv6-src-cidr=''"
+time=2025-09-17T02:18:44.178741713Z level=info msg="  --bpf-lb-service-backend-map-max='0'"
+time=2025-09-17T02:18:44.178745209Z level=info msg="  --bpf-lb-service-map-max='0'"
+time=2025-09-17T02:18:44.178748779Z level=info msg="  --bpf-lb-sock='false'"
+time=2025-09-17T02:18:44.178752083Z level=info msg="  --bpf-lb-sock-hostns-only='true'"
+time=2025-09-17T02:18:44.178755794Z level=info msg="  --bpf-lb-sock-terminate-pod-connections='true'"
+time=2025-09-17T02:18:44.178760761Z level=info msg="  --bpf-lb-source-range-all-types='false'"
+time=2025-09-17T02:18:44.178764505Z level=info msg="  --bpf-lb-source-range-map-max='0'"
+time=2025-09-17T02:18:44.178767984Z level=info msg="  --bpf-map-dynamic-size-ratio='0.0025'"
+time=2025-09-17T02:18:44.178772534Z level=info msg="  --bpf-map-event-buffers=''"
+time=2025-09-17T02:18:44.17877615Z level=info msg="  --bpf-nat-global-max='524288'"
+time=2025-09-17T02:18:44.178780804Z level=info msg="  --bpf-neigh-global-max='524288'"
+time=2025-09-17T02:18:44.178784555Z level=info msg="  --bpf-node-map-max='16384'"
+time=2025-09-17T02:18:44.17878872Z level=info msg="  --bpf-policy-map-full-reconciliation-interval='15m0s'"
+time=2025-09-17T02:18:44.178792207Z level=info msg="  --bpf-policy-map-max='16384'"
+time=2025-09-17T02:18:44.178795595Z level=info msg="  --bpf-policy-stats-map-max='65536'"
+time=2025-09-17T02:18:44.178799416Z level=info msg="  --bpf-root='/sys/fs/bpf'"
+time=2025-09-17T02:18:44.178802885Z level=info msg="  --bpf-sock-rev-map-max='0'"
+time=2025-09-17T02:18:44.178806663Z level=info msg="  --bypass-ip-availability-upon-restore='false'"
+time=2025-09-17T02:18:44.178810278Z level=info msg="  --certificates-directory='/var/run/cilium/certs'"
+time=2025-09-17T02:18:44.178818527Z level=info msg="  --cflags=''"
+time=2025-09-17T02:18:44.178822673Z level=info msg="  --cgroup-root='/sys/fs/cgroup'"
+time=2025-09-17T02:18:44.178826124Z level=info msg="  --cilium-endpoint-gc-interval='5m0s'"
+time=2025-09-17T02:18:44.17883003Z level=info msg="  --cluster-health-port='4240'"
+time=2025-09-17T02:18:44.178835773Z level=info msg="  --cluster-id='0'"
+time=2025-09-17T02:18:44.178850441Z level=info msg="  --cluster-name='default'"
+time=2025-09-17T02:18:44.178857453Z level=info msg="  --clustermesh-config='/var/lib/cilium/clustermesh/'"
+time=2025-09-17T02:18:44.178861329Z level=info msg="  --clustermesh-enable-endpoint-sync='false'"
+time=2025-09-17T02:18:44.178866193Z level=info msg="  --clustermesh-enable-mcs-api='false'"
+time=2025-09-17T02:18:44.178869804Z level=info msg="  --clustermesh-sync-timeout='1m0s'"
+time=2025-09-17T02:18:44.178875749Z level=info msg="  --cmdref=''"
+time=2025-09-17T02:18:44.17887938Z level=info msg="  --cni-chaining-mode='none'"
+time=2025-09-17T02:18:44.178884712Z level=info msg="  --cni-chaining-target=''"
+time=2025-09-17T02:18:44.178888058Z level=info msg="  --cni-exclusive='false'"
+time=2025-09-17T02:18:44.178891453Z level=info msg="  --cni-external-routing='false'"
+time=2025-09-17T02:18:44.178894872Z level=info msg="  --cni-log-file='/var/run/cilium/cilium-cni.log'"
+time=2025-09-17T02:18:44.178899226Z level=info msg="  --config=''"
+time=2025-09-17T02:18:44.178902603Z level=info msg="  --config-dir='/tmp/cilium/config-map'"
+time=2025-09-17T02:18:44.178906296Z level=info msg="  --config-sources='[{\"kind\":\"config-map\",\"namespace\":\"kube-system\",\"name\":\"cilium-config\"}]'"
+time=2025-09-17T02:18:44.178912038Z level=info msg="  --config-sources-overrides='{\"allowConfigKeys\":[],\"denyConfigKeys\":[]}'"
+time=2025-09-17T02:18:44.178917168Z level=info msg="  --connectivity-probe-frequency-ratio='0.5'"
+time=2025-09-17T02:18:44.178921121Z level=info msg="  --conntrack-gc-interval='0s'"
+time=2025-09-17T02:18:44.178924673Z level=info msg="  --conntrack-gc-max-interval='0s'"
+time=2025-09-17T02:18:44.178929747Z level=info msg="  --container-ip-local-reserved-ports='auto'"
+time=2025-09-17T02:18:44.178934087Z level=info msg="  --controller-group-metrics='write-cni-file,sync-host-ips,sync-lb-maps-with-k8s-services'"
+time=2025-09-17T02:18:44.178938388Z level=info msg="  --crd-wait-timeout='5m0s'"
+time=2025-09-17T02:18:44.17894206Z level=info msg="  --custom-cni-conf='false'"
+time=2025-09-17T02:18:44.178945474Z level=info msg="  --datapath-mode='veth'"
+time=2025-09-17T02:18:44.178949829Z level=info msg="  --debug='false'"
+time=2025-09-17T02:18:44.178953898Z level=info msg="  --debug-verbose=''"
+time=2025-09-17T02:18:44.178957405Z level=info msg="  --default-lb-service-ipam='lbipam'"
+time=2025-09-17T02:18:44.178961854Z level=info msg="  --derive-masq-ip-addr-from-device=''"
+time=2025-09-17T02:18:44.17897017Z level=info msg="  --devices=''"
+time=2025-09-17T02:18:44.178975257Z level=info msg="  --direct-routing-device=''"
+time=2025-09-17T02:18:44.178979549Z level=info msg="  --direct-routing-skip-unreachable='false'"
+time=2025-09-17T02:18:44.178983275Z level=info msg="  --disable-endpoint-crd='false'"
+time=2025-09-17T02:18:44.178986837Z level=info msg="  --disable-envoy-version-check='false'"
+time=2025-09-17T02:18:44.178991553Z level=info msg="  --disable-external-ip-mitigation='false'"
+time=2025-09-17T02:18:44.178998648Z level=info msg="  --disable-iptables-feeder-rules=''"
+time=2025-09-17T02:18:44.17900332Z level=info msg="  --dns-max-ips-per-restored-rule='1000'"
+time=2025-09-17T02:18:44.17900699Z level=info msg="  --dns-policy-unload-on-shutdown='false'"
+time=2025-09-17T02:18:44.179010958Z level=info msg="  --dnsproxy-concurrency-limit='0'"
+time=2025-09-17T02:18:44.179014606Z level=info msg="  --dnsproxy-concurrency-processing-grace-period='0s'"
+time=2025-09-17T02:18:44.17901842Z level=info msg="  --dnsproxy-enable-transparent-mode='true'"
+time=2025-09-17T02:18:44.179021997Z level=info msg="  --dnsproxy-insecure-skip-transparent-mode-check='false'"
+time=2025-09-17T02:18:44.179026639Z level=info msg="  --dnsproxy-lock-count='131'"
+time=2025-09-17T02:18:44.17903037Z level=info msg="  --dnsproxy-lock-timeout='500ms'"
+time=2025-09-17T02:18:44.179034243Z level=info msg="  --dnsproxy-socket-linger-timeout='10'"
+time=2025-09-17T02:18:44.179038048Z level=info msg="  --dynamic-lifecycle-config='[]'"
+time=2025-09-17T02:18:44.179043611Z level=info msg="  --egress-gateway-policy-map-max='16384'"
+time=2025-09-17T02:18:44.179047367Z level=info msg="  --egress-gateway-reconciliation-trigger-interval='1s'"
+time=2025-09-17T02:18:44.179055064Z level=info msg="  --egress-masquerade-interfaces=''"
+time=2025-09-17T02:18:44.179059357Z level=info msg="  --egress-multi-home-ip-rule-compat='false'"
+time=2025-09-17T02:18:44.179063013Z level=info msg="  --enable-active-connection-tracking='false'"
+time=2025-09-17T02:18:44.179066649Z level=info msg="  --enable-auto-protect-node-port-range='true'"
+time=2025-09-17T02:18:44.179070224Z level=info msg="  --enable-bandwidth-manager='false'"
+time=2025-09-17T02:18:44.179073608Z level=info msg="  --enable-bbr='false'"
+time=2025-09-17T02:18:44.17907684Z level=info msg="  --enable-bbr-hostns-only='false'"
+time=2025-09-17T02:18:44.179080157Z level=info msg="  --enable-bgp-control-plane='false'"
+time=2025-09-17T02:18:44.179083551Z level=info msg="  --enable-bgp-control-plane-status-report='true'"
+time=2025-09-17T02:18:44.179088307Z level=info msg="  --enable-bpf-clock-probe='false'"
+time=2025-09-17T02:18:44.179091963Z level=info msg="  --enable-bpf-masquerade='true'"
+time=2025-09-17T02:18:44.179096327Z level=info msg="  --enable-bpf-tproxy='false'"
+time=2025-09-17T02:18:44.179103913Z level=info msg="  --enable-cilium-api-server-access='*'"
+time=2025-09-17T02:18:44.179107984Z level=info msg="  --enable-cilium-clusterwide-network-policy='true'"
+time=2025-09-17T02:18:44.17911151Z level=info msg="  --enable-cilium-endpoint-slice='false'"
+time=2025-09-17T02:18:44.179118403Z level=info msg="  --enable-cilium-health-api-server-access='*'"
+time=2025-09-17T02:18:44.179122531Z level=info msg="  --enable-cilium-network-policy='true'"
+time=2025-09-17T02:18:44.179144315Z level=info msg="  --enable-custom-calls='false'"
+time=2025-09-17T02:18:44.17914919Z level=info msg="  --enable-drift-checker='true'"
+time=2025-09-17T02:18:44.179152954Z level=info msg="  --enable-dynamic-config='true'"
+time=2025-09-17T02:18:44.179156885Z level=info msg="  --enable-dynamic-lifecycle-manager='false'"
+time=2025-09-17T02:18:44.179160403Z level=info msg="  --enable-egress-gateway='false'"
+time=2025-09-17T02:18:44.179163915Z level=info msg="  --enable-encryption-strict-mode='false'"
+time=2025-09-17T02:18:44.179167323Z level=info msg="  --enable-endpoint-health-checking='true'"
+time=2025-09-17T02:18:44.179170816Z level=info msg="  --enable-endpoint-lockdown-on-policy-overflow='false'"
+time=2025-09-17T02:18:44.179174238Z level=info msg="  --enable-endpoint-routes='true'"
+time=2025-09-17T02:18:44.179177689Z level=info msg="  --enable-envoy-config='false'"
+time=2025-09-17T02:18:44.179181304Z level=info msg="  --enable-external-ips='false'"
+time=2025-09-17T02:18:44.179184653Z level=info msg="  --enable-gateway-api='false'"
+time=2025-09-17T02:18:44.179188231Z level=info msg="  --enable-gops='true'"
+time=2025-09-17T02:18:44.179191698Z level=info msg="  --enable-health-check-loadbalancer-ip='false'"
+time=2025-09-17T02:18:44.179195175Z level=info msg="  --enable-health-check-nodeport='true'"
+time=2025-09-17T02:18:44.179198505Z level=info msg="  --enable-health-checking='true'"
+time=2025-09-17T02:18:44.179203812Z level=info msg="  --enable-host-firewall='false'"
+time=2025-09-17T02:18:44.179207199Z level=info msg="  --enable-host-legacy-routing='true'"
+time=2025-09-17T02:18:44.179210662Z level=info msg="  --enable-host-port='false'"
+time=2025-09-17T02:18:44.179213977Z level=info msg="  --enable-hubble='false'"
+time=2025-09-17T02:18:44.179217492Z level=info msg="  --enable-hubble-open-metrics='false'"
+time=2025-09-17T02:18:44.179221084Z level=info msg="  --enable-hubble-recorder-api='true'"
+time=2025-09-17T02:18:44.179224612Z level=info msg="  --enable-icmp-rules='true'"
+time=2025-09-17T02:18:44.179228279Z level=info msg="  --enable-identity-mark='true'"
+time=2025-09-17T02:18:44.179233046Z level=info msg="  --enable-ingress-controller='false'"
+time=2025-09-17T02:18:44.179239569Z level=info msg="  --enable-internal-traffic-policy='true'"
+time=2025-09-17T02:18:44.179246508Z level=info msg="  --enable-ip-masq-agent='false'"
+time=2025-09-17T02:18:44.179253108Z level=info msg="  --enable-ipip-termination='false'"
+time=2025-09-17T02:18:44.179259905Z level=info msg="  --enable-ipsec='false'"
+time=2025-09-17T02:18:44.17926676Z level=info msg="  --enable-ipsec-encrypted-overlay='false'"
+time=2025-09-17T02:18:44.179273973Z level=info msg="  --enable-ipsec-key-watcher='true'"
+time=2025-09-17T02:18:44.179281406Z level=info msg="  --enable-ipsec-xfrm-state-caching='true'"
+time=2025-09-17T02:18:44.179288673Z level=info msg="  --enable-ipv4='true'"
+time=2025-09-17T02:18:44.179297423Z level=info msg="  --enable-ipv4-big-tcp='false'"
+time=2025-09-17T02:18:44.179304279Z level=info msg="  --enable-ipv4-egress-gateway='false'"
+time=2025-09-17T02:18:44.179311039Z level=info msg="  --enable-ipv4-fragment-tracking='true'"
+time=2025-09-17T02:18:44.179317744Z level=info msg="  --enable-ipv4-masquerade='true'"
+time=2025-09-17T02:18:44.179324716Z level=info msg="  --enable-ipv6='false'"
+time=2025-09-17T02:18:44.179331612Z level=info msg="  --enable-ipv6-big-tcp='false'"
+time=2025-09-17T02:18:44.179339311Z level=info msg="  --enable-ipv6-fragment-tracking='true'"
+time=2025-09-17T02:18:44.179346757Z level=info msg="  --enable-ipv6-masquerade='true'"
+time=2025-09-17T02:18:44.179354257Z level=info msg="  --enable-ipv6-ndp='false'"
+time=2025-09-17T02:18:44.179361972Z level=info msg="  --enable-k8s='true'"
+time=2025-09-17T02:18:44.179369908Z level=info msg="  --enable-k8s-api-discovery='false'"
+time=2025-09-17T02:18:44.179377785Z level=info msg="  --enable-k8s-endpoint-slice='true'"
+time=2025-09-17T02:18:44.17938487Z level=info msg="  --enable-k8s-networkpolicy='true'"
+time=2025-09-17T02:18:44.179391069Z level=info msg="  --enable-l2-announcements='true'"
+time=2025-09-17T02:18:44.179394677Z level=info msg="  --enable-l2-neigh-discovery='false'"
+time=2025-09-17T02:18:44.179398499Z level=info msg="  --enable-l2-pod-announcements='false'"
+time=2025-09-17T02:18:44.179403694Z level=info msg="  --enable-l7-proxy='true'"
+time=2025-09-17T02:18:44.179406991Z level=info msg="  --enable-lb-ipam='true'"
+time=2025-09-17T02:18:44.179410403Z level=info msg="  --enable-local-node-route='true'"
+time=2025-09-17T02:18:44.179413781Z level=info msg="  --enable-local-redirect-policy='true'"
+time=2025-09-17T02:18:44.179417182Z level=info msg="  --enable-masquerade-to-route-source='false'"
+time=2025-09-17T02:18:44.179420471Z level=info msg="  --enable-metrics='true'"
+time=2025-09-17T02:18:44.179423941Z level=info msg="  --enable-mke='false'"
+time=2025-09-17T02:18:44.179427425Z level=info msg="  --enable-monitor='true'"
+time=2025-09-17T02:18:44.179432221Z level=info msg="  --enable-nat46x64-gateway='false'"
+time=2025-09-17T02:18:44.179436696Z level=info msg="  --enable-node-port='false'"
+time=2025-09-17T02:18:44.179441721Z level=info msg="  --enable-node-selector-labels='false'"
+time=2025-09-17T02:18:44.179447978Z level=info msg="  --enable-non-default-deny-policies='true'"
+time=2025-09-17T02:18:44.179454732Z level=info msg="  --enable-pmtu-discovery='false'"
+time=2025-09-17T02:18:44.179461372Z level=info msg="  --enable-policy='default'"
+time=2025-09-17T02:18:44.179468339Z level=info msg="  --enable-policy-secrets-sync='true'"
+time=2025-09-17T02:18:44.179474709Z level=info msg="  --enable-recorder='false'"
+time=2025-09-17T02:18:44.179479479Z level=info msg="  --enable-route-mtu-for-cni-chaining='false'"
+time=2025-09-17T02:18:44.179482914Z level=info msg="  --enable-sctp='false'"
+time=2025-09-17T02:18:44.179486929Z level=info msg="  --enable-service-topology='false'"
+time=2025-09-17T02:18:44.179490334Z level=info msg="  --enable-session-affinity='true'"
+time=2025-09-17T02:18:44.179494118Z level=info msg="  --enable-source-ip-verification='true'"
+time=2025-09-17T02:18:44.179497502Z level=info msg="  --enable-srv6='false'"
+time=2025-09-17T02:18:44.179501248Z level=info msg="  --enable-stale-cilium-endpoint-cleanup='true'"
+time=2025-09-17T02:18:44.179505129Z level=info msg="  --enable-standalone-dns-proxy='false'"
+time=2025-09-17T02:18:44.179509237Z level=info msg="  --enable-svc-source-range-check='true'"
+time=2025-09-17T02:18:44.179515247Z level=info msg="  --enable-tcx='true'"
+time=2025-09-17T02:18:44.179523148Z level=info msg="  --enable-tracing='false'"
+time=2025-09-17T02:18:44.179529862Z level=info msg="  --enable-unreachable-routes='false'"
+time=2025-09-17T02:18:44.179533419Z level=info msg="  --enable-vtep='false'"
+time=2025-09-17T02:18:44.17953811Z level=info msg="  --enable-well-known-identities='false'"
+time=2025-09-17T02:18:44.179545037Z level=info msg="  --enable-wireguard='false'"
+time=2025-09-17T02:18:44.179552002Z level=info msg="  --enable-xdp-prefilter='false'"
+time=2025-09-17T02:18:44.179559108Z level=info msg="  --enable-xt-socket-fallback='true'"
+time=2025-09-17T02:18:44.179569103Z level=info msg="  --encrypt-interface=''"
+time=2025-09-17T02:18:44.179576572Z level=info msg="  --encrypt-node='false'"
+time=2025-09-17T02:18:44.179584274Z level=info msg="  --encryption-strict-mode-allow-remote-node-identities='false'"
+time=2025-09-17T02:18:44.1795948Z level=info msg="  --encryption-strict-mode-cidr=''"
+time=2025-09-17T02:18:44.179603259Z level=info msg="  --endpoint-bpf-prog-watchdog-interval='30s'"
+time=2025-09-17T02:18:44.179611343Z level=info msg="  --endpoint-gc-interval='5m0s'"
+time=2025-09-17T02:18:44.17961912Z level=info msg="  --endpoint-queue-size='25'"
+time=2025-09-17T02:18:44.179626869Z level=info msg="  --endpoint-regen-interval='2m0s'"
+time=2025-09-17T02:18:44.179633565Z level=info msg="  --envoy-access-log-buffer-size='4096'"
+time=2025-09-17T02:18:44.179640935Z level=info msg="  --envoy-base-id='0'"
+time=2025-09-17T02:18:44.179650191Z level=info msg="  --envoy-config-retry-interval='15s'"
+time=2025-09-17T02:18:44.179658069Z level=info msg="  --envoy-config-timeout='2m0s'"
+time=2025-09-17T02:18:44.179667515Z level=info msg="  --envoy-default-log-level=''"
+time=2025-09-17T02:18:44.179676516Z level=info msg="  --envoy-http-upstream-linger-timeout='-1'"
+time=2025-09-17T02:18:44.179684447Z level=info msg="  --envoy-keep-cap-netbindservice='false'"
+time=2025-09-17T02:18:44.179695194Z level=info msg="  --envoy-log=''"
+time=2025-09-17T02:18:44.179703162Z level=info msg="  --envoy-policy-restore-timeout='3m0s'"
+time=2025-09-17T02:18:44.179712945Z level=info msg="  --envoy-secrets-namespace=''"
+time=2025-09-17T02:18:44.179751885Z level=info msg="  --exclude-local-address=''"
+time=2025-09-17T02:18:44.179769566Z level=info msg="  --exclude-node-label-patterns=''"
+time=2025-09-17T02:18:44.179777979Z level=info msg="  --external-envoy-proxy='false'"
+time=2025-09-17T02:18:44.179788415Z level=info msg="  --fixed-identity-mapping=''"
+time=2025-09-17T02:18:44.179795602Z level=info msg="  --force-device-detection='false'"
+time=2025-09-17T02:18:44.179800444Z level=info msg="  --fqdn-regex-compile-lru-size='1024'"
+time=2025-09-17T02:18:44.179807226Z level=info msg="  --gateway-api-secrets-namespace=''"
+time=2025-09-17T02:18:44.179811478Z level=info msg="  --gops-port='9890'"
+time=2025-09-17T02:18:44.17981512Z level=info msg="  --health-check-icmp-failure-threshold='3'"
+time=2025-09-17T02:18:44.179818819Z level=info msg="  --http-idle-timeout='0'"
+time=2025-09-17T02:18:44.179822362Z level=info msg="  --http-max-grpc-timeout='0'"
+time=2025-09-17T02:18:44.17982606Z level=info msg="  --http-normalize-path='true'"
+time=2025-09-17T02:18:44.179831075Z level=info msg="  --http-request-timeout='3600'"
+time=2025-09-17T02:18:44.179834648Z level=info msg="  --http-retry-count='3'"
+time=2025-09-17T02:18:44.179837859Z level=info msg="  --http-retry-timeout='0'"
+time=2025-09-17T02:18:44.179841786Z level=info msg="  --http-stream-idle-timeout='300'"
+time=2025-09-17T02:18:44.179847361Z level=info msg="  --hubble-disable-tls='true'"
+time=2025-09-17T02:18:44.179854701Z level=info msg="  --hubble-drop-events='false'"
+time=2025-09-17T02:18:44.179859996Z level=info msg="  --hubble-drop-events-interval='2m0s'"
+time=2025-09-17T02:18:44.179871906Z level=info msg="  --hubble-drop-events-reasons='auth_required,policy_denied'"
+time=2025-09-17T02:18:44.179882649Z level=info msg="  --hubble-dynamic-metrics-config-path=''"
+time=2025-09-17T02:18:44.179891418Z level=info msg="  --hubble-event-buffer-capacity='4095'"
+time=2025-09-17T02:18:44.179899474Z level=info msg="  --hubble-event-queue-size='0'"
+time=2025-09-17T02:18:44.17990893Z level=info msg="  --hubble-export-allowlist=''"
+time=2025-09-17T02:18:44.179918087Z level=info msg="  --hubble-export-denylist=''"
+time=2025-09-17T02:18:44.17993301Z level=info msg="  --hubble-export-fieldmask=''"
+time=2025-09-17T02:18:44.179940773Z level=info msg="  --hubble-export-file-compress='false'"
+time=2025-09-17T02:18:44.179948363Z level=info msg="  --hubble-export-file-max-backups='5'"
+time=2025-09-17T02:18:44.17995623Z level=info msg="  --hubble-export-file-max-size-mb='10'"
+time=2025-09-17T02:18:44.179966336Z level=info msg="  --hubble-export-file-path=''"
+time=2025-09-17T02:18:44.179975737Z level=info msg="  --hubble-flowlogs-config-path=''"
+time=2025-09-17T02:18:44.179983523Z level=info msg="  --hubble-listen-address=''"
+time=2025-09-17T02:18:44.179988203Z level=info msg="  --hubble-metrics=''"
+time=2025-09-17T02:18:44.179992598Z level=info msg="  --hubble-metrics-server=''"
+time=2025-09-17T02:18:44.17999624Z level=info msg="  --hubble-metrics-server-enable-tls='false'"
+time=2025-09-17T02:18:44.180001297Z level=info msg="  --hubble-metrics-server-tls-cert-file=''"
+time=2025-09-17T02:18:44.180010108Z level=info msg="  --hubble-metrics-server-tls-client-ca-files=''"
+time=2025-09-17T02:18:44.180015227Z level=info msg="  --hubble-metrics-server-tls-key-file=''"
+time=2025-09-17T02:18:44.180022988Z level=info msg="  --hubble-monitor-events=''"
+time=2025-09-17T02:18:44.18002738Z level=info msg="  --hubble-network-policy-correlation-enabled='true'"
+time=2025-09-17T02:18:44.180033239Z level=info msg="  --hubble-prefer-ipv6='false'"
+time=2025-09-17T02:18:44.18004037Z level=info msg="  --hubble-recorder-sink-queue-size='1024'"
+time=2025-09-17T02:18:44.180048038Z level=info msg="  --hubble-recorder-storage-path='/var/run/cilium/pcaps'"
+time=2025-09-17T02:18:44.180055668Z level=info msg="  --hubble-redact-enabled='false'"
+time=2025-09-17T02:18:44.180086159Z level=info msg="  --hubble-redact-http-headers-allow=''"
+time=2025-09-17T02:18:44.18009634Z level=info msg="  --hubble-redact-http-headers-deny=''"
+time=2025-09-17T02:18:44.180101093Z level=info msg="  --hubble-redact-http-urlquery='false'"
+time=2025-09-17T02:18:44.180104906Z level=info msg="  --hubble-redact-http-userinfo='true'"
+time=2025-09-17T02:18:44.180108636Z level=info msg="  --hubble-redact-kafka-apikey='false'"
+time=2025-09-17T02:18:44.180111979Z level=info msg="  --hubble-skip-unknown-cgroup-ids='true'"
+time=2025-09-17T02:18:44.180115614Z level=info msg="  --hubble-socket-path='/var/run/cilium/hubble.sock'"
+time=2025-09-17T02:18:44.180122229Z level=info msg="  --hubble-tls-cert-file=''"
+time=2025-09-17T02:18:44.180135863Z level=info msg="  --hubble-tls-client-ca-files=''"
+time=2025-09-17T02:18:44.180145682Z level=info msg="  --hubble-tls-key-file=''"
+time=2025-09-17T02:18:44.180153466Z level=info msg="  --identity-allocation-mode='crd'"
+time=2025-09-17T02:18:44.180161921Z level=info msg="  --identity-allocation-sync-interval='5m0s'"
+time=2025-09-17T02:18:44.180169921Z level=info msg="  --identity-allocation-timeout='2m0s'"
+time=2025-09-17T02:18:44.180177518Z level=info msg="  --identity-change-grace-period='5s'"
+time=2025-09-17T02:18:44.180184739Z level=info msg="  --identity-gc-interval='15m0s'"
+time=2025-09-17T02:18:44.18019159Z level=info msg="  --identity-heartbeat-timeout='30m0s'"
+time=2025-09-17T02:18:44.180198549Z level=info msg="  --identity-management-mode='agent'"
+time=2025-09-17T02:18:44.180202872Z level=info msg="  --identity-max-jitter='30s'"
+time=2025-09-17T02:18:44.180206494Z level=info msg="  --identity-restore-grace-period='30s'"
+time=2025-09-17T02:18:44.180215819Z level=info msg="  --ignore-flags-drift-checker=''"
+time=2025-09-17T02:18:44.180221189Z level=info msg="  --ingress-secrets-namespace=''"
+time=2025-09-17T02:18:44.180225122Z level=info msg="  --install-iptables-rules='true'"
+time=2025-09-17T02:18:44.180228676Z level=info msg="  --install-no-conntrack-iptables-rules='false'"
+time=2025-09-17T02:18:44.180232614Z level=info msg="  --install-uplink-routes-for-delegated-ipam='false'"
+time=2025-09-17T02:18:44.180236238Z level=info msg="  --ip-masq-agent-config-path='/etc/config/ip-masq-agent'"
+time=2025-09-17T02:18:44.180239861Z level=info msg="  --ipam='kubernetes'"
+time=2025-09-17T02:18:44.180243164Z level=info msg="  --ipam-cilium-node-update-rate='15s'"
+time=2025-09-17T02:18:44.18024659Z level=info msg="  --ipam-default-ip-pool='default'"
+time=2025-09-17T02:18:44.180251014Z level=info msg="  --ipam-multi-pool-pre-allocation=''"
+time=2025-09-17T02:18:44.180255655Z level=info msg="  --ipsec-key-file=''"
+time=2025-09-17T02:18:44.180260443Z level=info msg="  --ipsec-key-rotation-duration='5m0s'"
+time=2025-09-17T02:18:44.180264046Z level=info msg="  --iptables-lock-timeout='5s'"
+time=2025-09-17T02:18:44.180267695Z level=info msg="  --iptables-random-fully='false'"
+time=2025-09-17T02:18:44.180271182Z level=info msg="  --ipv4-native-routing-cidr='10.244.0.0/16'"
+time=2025-09-17T02:18:44.180274986Z level=info msg="  --ipv4-node='auto'"
+time=2025-09-17T02:18:44.180281591Z level=info msg="  --ipv4-pod-subnets=''"
+time=2025-09-17T02:18:44.180285773Z level=info msg="  --ipv4-range='auto'"
+time=2025-09-17T02:18:44.180289389Z level=info msg="  --ipv4-service-loopback-address='169.254.42.1'"
+time=2025-09-17T02:18:44.180293165Z level=info msg="  --ipv4-service-range='auto'"
+time=2025-09-17T02:18:44.180296515Z level=info msg="  --ipv6-cluster-alloc-cidr='f00d::/64'"
+time=2025-09-17T02:18:44.180301837Z level=info msg="  --ipv6-mcast-device=''"
+time=2025-09-17T02:18:44.180308522Z level=info msg="  --ipv6-native-routing-cidr=''"
+time=2025-09-17T02:18:44.180315182Z level=info msg="  --ipv6-node='auto'"
+time=2025-09-17T02:18:44.180326036Z level=info msg="  --ipv6-pod-subnets=''"
+time=2025-09-17T02:18:44.180334049Z level=info msg="  --ipv6-range='auto'"
+time=2025-09-17T02:18:44.180341205Z level=info msg="  --ipv6-service-range='auto'"
+time=2025-09-17T02:18:44.180350169Z level=info msg="  --k8s-api-server=''"
+time=2025-09-17T02:18:44.180363456Z level=info msg="  --k8s-api-server-urls=''"
+time=2025-09-17T02:18:44.180372281Z level=info msg="  --k8s-client-burst='20'"
+time=2025-09-17T02:18:44.180380883Z level=info msg="  --k8s-client-connection-keep-alive='30s'"
+time=2025-09-17T02:18:44.180388851Z level=info msg="  --k8s-client-connection-timeout='30s'"
+time=2025-09-17T02:18:44.180397422Z level=info msg="  --k8s-client-qps='10'"
+time=2025-09-17T02:18:44.180405259Z level=info msg="  --k8s-heartbeat-timeout='30s'"
+time=2025-09-17T02:18:44.180414464Z level=info msg="  --k8s-kubeconfig-path=''"
+time=2025-09-17T02:18:44.180421627Z level=info msg="  --k8s-namespace='kube-system'"
+time=2025-09-17T02:18:44.180429123Z level=info msg="  --k8s-require-ipv4-pod-cidr='false'"
+time=2025-09-17T02:18:44.180436576Z level=info msg="  --k8s-require-ipv6-pod-cidr='false'"
+time=2025-09-17T02:18:44.180445325Z level=info msg="  --k8s-service-proxy-name=''"
+time=2025-09-17T02:18:44.180453105Z level=info msg="  --k8s-sync-timeout='3m0s'"
+time=2025-09-17T02:18:44.180460171Z level=info msg="  --keep-config='false'"
+time=2025-09-17T02:18:44.180467397Z level=info msg="  --kube-proxy-replacement='true'"
+time=2025-09-17T02:18:44.180475134Z level=info msg="  --kube-proxy-replacement-healthz-bind-address='0.0.0.0:10256'"
+time=2025-09-17T02:18:44.180484717Z level=info msg="  --kvstore=''"
+time=2025-09-17T02:18:44.180492811Z level=info msg="  --kvstore-lease-ttl='15m0s'"
+time=2025-09-17T02:18:44.180500452Z level=info msg="  --kvstore-max-consecutive-quorum-errors='2'"
+time=2025-09-17T02:18:44.180518023Z level=info msg="  --kvstore-opt=''"
+time=2025-09-17T02:18:44.180523911Z level=info msg="  --l2-announcements-lease-duration='15s'"
+time=2025-09-17T02:18:44.180529314Z level=info msg="  --l2-announcements-renew-deadline='5s'"
+time=2025-09-17T02:18:44.180537173Z level=info msg="  --l2-announcements-retry-period='2s'"
+time=2025-09-17T02:18:44.180546681Z level=info msg="  --l2-pod-announcements-interface=''"
+time=2025-09-17T02:18:44.180556028Z level=info msg="  --l2-pod-announcements-interface-pattern=''"
+time=2025-09-17T02:18:44.180565204Z level=info msg="  --label-prefix-file=''"
+time=2025-09-17T02:18:44.180576824Z level=info msg="  --labels=''"
+time=2025-09-17T02:18:44.180583011Z level=info msg="  --lb-init-wait-timeout='1m0s'"
+time=2025-09-17T02:18:44.18058917Z level=info msg="  --lb-pressure-metrics-interval='5m0s'"
+time=2025-09-17T02:18:44.180594421Z level=info msg="  --lb-retry-backoff-max='1s'"
+time=2025-09-17T02:18:44.180597821Z level=info msg="  --lb-retry-backoff-min='1s'"
+time=2025-09-17T02:18:44.180602187Z level=info msg="  --lb-state-file=''"
+time=2025-09-17T02:18:44.180607438Z level=info msg="  --lb-state-file-interval='1s'"
+time=2025-09-17T02:18:44.180610978Z level=info msg="  --lib-dir='/var/lib/cilium'"
+time=2025-09-17T02:18:44.180616089Z level=info msg="  --local-max-addr-scope='252'"
+time=2025-09-17T02:18:44.180620212Z level=info msg="  --local-router-ipv4=''"
+time=2025-09-17T02:18:44.180624022Z level=info msg="  --local-router-ipv6=''"
+time=2025-09-17T02:18:44.180630929Z level=info msg="  --log-driver=''"
+time=2025-09-17T02:18:44.180635713Z level=info msg="  --log-opt=''"
+time=2025-09-17T02:18:44.1806398Z level=info msg="  --log-system-load='false'"
+time=2025-09-17T02:18:44.180652189Z level=info msg="  --lrp-address-matcher-cidrs=''"
+time=2025-09-17T02:18:44.180657986Z level=info msg="  --max-connected-clusters='255'"
+time=2025-09-17T02:18:44.180662934Z level=info msg="  --max-controller-interval='0'"
+time=2025-09-17T02:18:44.180669695Z level=info msg="  --max-internal-timer-delay='0s'"
+time=2025-09-17T02:18:44.180676737Z level=info msg="  --mesh-auth-enabled='true'"
+time=2025-09-17T02:18:44.180683602Z level=info msg="  --mesh-auth-gc-interval='5m0s'"
+time=2025-09-17T02:18:44.180688002Z level=info msg="  --mesh-auth-mutual-connect-timeout='5s'"
+time=2025-09-17T02:18:44.18069278Z level=info msg="  --mesh-auth-mutual-listener-port='0'"
+time=2025-09-17T02:18:44.180696275Z level=info msg="  --mesh-auth-queue-size='1024'"
+time=2025-09-17T02:18:44.180699867Z level=info msg="  --mesh-auth-rotated-identities-queue-size='1024'"
+time=2025-09-17T02:18:44.180703677Z level=info msg="  --mesh-auth-signal-backoff-duration='1s'"
+time=2025-09-17T02:18:44.180707612Z level=info msg="  --mesh-auth-spiffe-trust-domain='spiffe.cilium'"
+time=2025-09-17T02:18:44.180713624Z level=info msg="  --mesh-auth-spire-admin-socket=''"
+time=2025-09-17T02:18:44.180721049Z level=info msg="  --metrics=''"
+time=2025-09-17T02:18:44.180724909Z level=info msg="  --metrics-sampling-interval='5m'"
+time=2025-09-17T02:18:44.180729167Z level=info msg="  --mke-cgroup-mount=''"
+time=2025-09-17T02:18:44.180733282Z level=info msg="  --monitor-aggregation='medium'"
+time=2025-09-17T02:18:44.180740501Z level=info msg="  --monitor-aggregation-flags='all'"
+time=2025-09-17T02:18:44.18074854Z level=info msg="  --monitor-aggregation-interval='5s'"
+time=2025-09-17T02:18:44.18075478Z level=info msg="  --monitor-queue-size='0'"
+time=2025-09-17T02:18:44.180761884Z level=info msg="  --mtu='0'"
+time=2025-09-17T02:18:44.180769273Z level=info msg="  --multicast-enabled='false'"
+time=2025-09-17T02:18:44.180776536Z level=info msg="  --nat-map-stats-entries='32'"
+time=2025-09-17T02:18:44.180783915Z level=info msg="  --nat-map-stats-interval='30s'"
+time=2025-09-17T02:18:44.180791843Z level=info msg="  --node-encryption-opt-out-labels='node-role.kubernetes.io/control-plane'"
+time=2025-09-17T02:18:44.180805425Z level=info msg="  --node-labels=''"
+time=2025-09-17T02:18:44.180813418Z level=info msg="  --node-port-acceleration='disabled'"
+time=2025-09-17T02:18:44.180821358Z level=info msg="  --node-port-algorithm=''"
+time=2025-09-17T02:18:44.180825096Z level=info msg="  --node-port-bind-protection='true'"
+time=2025-09-17T02:18:44.180829439Z level=info msg="  --node-port-mode=''"
+time=2025-09-17T02:18:44.180836732Z level=info msg="  --node-port-range='30000,32767'"
+time=2025-09-17T02:18:44.180841414Z level=info msg="  --nodeport-addresses=''"
+time=2025-09-17T02:18:44.180846099Z level=info msg="  --nodes-gc-interval='5m0s'"
+time=2025-09-17T02:18:44.180849498Z level=info msg="  --operator-api-serve-addr='127.0.0.1:9234'"
+time=2025-09-17T02:18:44.180853344Z level=info msg="  --operator-prometheus-serve-addr=':9963'"
+time=2025-09-17T02:18:44.180857109Z level=info msg="  --policy-accounting='true'"
+time=2025-09-17T02:18:44.18086074Z level=info msg="  --policy-audit-mode='false'"
+time=2025-09-17T02:18:44.180864881Z level=info msg="  --policy-cidr-match-mode=''"
+time=2025-09-17T02:18:44.180868545Z level=info msg="  --policy-default-local-cluster='false'"
+time=2025-09-17T02:18:44.180872357Z level=info msg="  --policy-queue-size='100'"
+time=2025-09-17T02:18:44.180875992Z level=info msg="  --policy-secrets-namespace='cilium-secrets'"
+time=2025-09-17T02:18:44.180879675Z level=info msg="  --policy-secrets-only-from-secrets-namespace='true'"
+time=2025-09-17T02:18:44.180883761Z level=info msg="  --policy-trigger-interval='1s'"
+time=2025-09-17T02:18:44.18088744Z level=info msg="  --pprof='false'"
+time=2025-09-17T02:18:44.180891984Z level=info msg="  --pprof-address='localhost'"
+time=2025-09-17T02:18:44.180895575Z level=info msg="  --pprof-port='6060'"
+time=2025-09-17T02:18:44.18089878Z level=info msg="  --preallocate-bpf-maps='false'"
+time=2025-09-17T02:18:44.180902325Z level=info msg="  --prepend-iptables-chains='true'"
+time=2025-09-17T02:18:44.180906577Z level=info msg="  --procfs='/host/proc'"
+time=2025-09-17T02:18:44.18091145Z level=info msg="  --prometheus-serve-addr=':9962'"
+time=2025-09-17T02:18:44.18091539Z level=info msg="  --proxy-admin-port='0'"
+time=2025-09-17T02:18:44.180920223Z level=info msg="  --proxy-connect-timeout='2'"
+time=2025-09-17T02:18:44.180923691Z level=info msg="  --proxy-gid='1337'"
+time=2025-09-17T02:18:44.180926952Z level=info msg="  --proxy-idle-timeout-seconds='60'"
+time=2025-09-17T02:18:44.18093036Z level=info msg="  --proxy-initial-fetch-timeout='30'"
+time=2025-09-17T02:18:44.180935284Z level=info msg="  --proxy-max-concurrent-retries='128'"
+time=2025-09-17T02:18:44.180938731Z level=info msg="  --proxy-max-connection-duration-seconds='0'"
+time=2025-09-17T02:18:44.180942589Z level=info msg="  --proxy-max-requests-per-connection='0'"
+time=2025-09-17T02:18:44.180947579Z level=info msg="  --proxy-portrange-max='20000'"
+time=2025-09-17T02:18:44.180951551Z level=info msg="  --proxy-portrange-min='10000'"
+time=2025-09-17T02:18:44.180954838Z level=info msg="  --proxy-prometheus-port='9964'"
+time=2025-09-17T02:18:44.18095817Z level=info msg="  --proxy-xff-num-trusted-hops-egress='0'"
+time=2025-09-17T02:18:44.180961705Z level=info msg="  --proxy-xff-num-trusted-hops-ingress='0'"
+time=2025-09-17T02:18:44.180966384Z level=info msg="  --read-cni-conf=''"
+time=2025-09-17T02:18:44.180969608Z level=info msg="  --remove-cilium-node-taints='true'"
+time=2025-09-17T02:18:44.180972892Z level=info msg="  --restore='true'"
+time=2025-09-17T02:18:44.180976331Z level=info msg="  --restored-proxy-ports-age-limit='15'"
+time=2025-09-17T02:18:44.180979937Z level=info msg="  --route-metric='0'"
+time=2025-09-17T02:18:44.180983806Z level=info msg="  --routing-mode='native'"
+time=2025-09-17T02:18:44.180987089Z level=info msg="  --service-no-backend-response='reject'"
+time=2025-09-17T02:18:44.18099043Z level=info msg="  --set-cilium-is-up-condition='true'"
+time=2025-09-17T02:18:44.180995253Z level=info msg="  --set-cilium-node-taints='true'"
+time=2025-09-17T02:18:44.1809988Z level=info msg="  --socket-path='/var/run/cilium/cilium.sock'"
+time=2025-09-17T02:18:44.181003432Z level=info msg="  --srv6-encap-mode='reduced'"
+time=2025-09-17T02:18:44.181007465Z level=info msg="  --standalone-dns-proxy-server-port='40045'"
+time=2025-09-17T02:18:44.181011013Z level=info msg="  --state-dir='/var/run/cilium'"
+time=2025-09-17T02:18:44.181015248Z level=info msg="  --static-cnp-path=''"
+time=2025-09-17T02:18:44.181021046Z level=info msg="  --status-collector-failure-threshold='1m0s'"
+time=2025-09-17T02:18:44.181024859Z level=info msg="  --status-collector-interval='5s'"
+time=2025-09-17T02:18:44.18102986Z level=info msg="  --status-collector-probe-check-timeout='5m0s'"
+time=2025-09-17T02:18:44.181033955Z level=info msg="  --status-collector-stackdump-path='/run/cilium/state/agent.stack.gz'"
+time=2025-09-17T02:18:44.181038086Z level=info msg="  --status-collector-warning-threshold='15s'"
+time=2025-09-17T02:18:44.181041636Z level=info msg="  --synchronize-k8s-nodes='true'"
+time=2025-09-17T02:18:44.181044933Z level=info msg="  --tofqdns-dns-reject-response-code='refused'"
+time=2025-09-17T02:18:44.181048628Z level=info msg="  --tofqdns-enable-dns-compression='true'"
+time=2025-09-17T02:18:44.181052078Z level=info msg="  --tofqdns-endpoint-max-ip-per-hostname='1000'"
+time=2025-09-17T02:18:44.18105659Z level=info msg="  --tofqdns-idle-connection-grace-period='0s'"
+time=2025-09-17T02:18:44.181060096Z level=info msg="  --tofqdns-max-deferred-connection-deletes='10000'"
+time=2025-09-17T02:18:44.181063964Z level=info msg="  --tofqdns-min-ttl='0'"
+time=2025-09-17T02:18:44.181068343Z level=info msg="  --tofqdns-pre-cache=''"
+time=2025-09-17T02:18:44.181072122Z level=info msg="  --tofqdns-preallocate-identities='true'"
+time=2025-09-17T02:18:44.181075725Z level=info msg="  --tofqdns-proxy-port='0'"
+time=2025-09-17T02:18:44.181078986Z level=info msg="  --tofqdns-proxy-response-max-delay='100ms'"
+time=2025-09-17T02:18:44.181082573Z level=info msg="  --trace-payloadlen='128'"
+time=2025-09-17T02:18:44.181086158Z level=info msg="  --trace-payloadlen-overlay='192'"
+time=2025-09-17T02:18:44.181089633Z level=info msg="  --trace-sock='true'"
+time=2025-09-17T02:18:44.18109295Z level=info msg="  --tunnel-port='0'"
+time=2025-09-17T02:18:44.181096243Z level=info msg="  --tunnel-protocol='vxlan'"
+time=2025-09-17T02:18:44.181099738Z level=info msg="  --tunnel-source-port-range='0-0'"
+time=2025-09-17T02:18:44.181103202Z level=info msg="  --underlay-protocol='ipv4'"
+time=2025-09-17T02:18:44.181106497Z level=info msg="  --unmanaged-pod-watcher-interval='15'"
+time=2025-09-17T02:18:44.181109998Z level=info msg="  --use-cilium-internal-ip-for-ipsec='false'"
+time=2025-09-17T02:18:44.181113495Z level=info msg="  --use-full-tls-context='false'"
+time=2025-09-17T02:18:44.181116852Z level=info msg="  --version='false'"
+time=2025-09-17T02:18:44.1811244Z level=info msg="  --vlan-bpf-bypass=''"
+time=2025-09-17T02:18:44.181129222Z level=info msg="  --vtep-cidr=''"
+time=2025-09-17T02:18:44.181133909Z level=info msg="  --vtep-endpoint=''"
+time=2025-09-17T02:18:44.181139967Z level=info msg="  --vtep-mac=''"
+time=2025-09-17T02:18:44.181143851Z level=info msg="  --vtep-mask=''"
+time=2025-09-17T02:18:44.181148686Z level=info msg="  --wireguard-persistent-keepalive='0s'"
+time=2025-09-17T02:18:44.181152225Z level=info msg="  --wireguard-track-all-ips-fallback='false'"
+time=2025-09-17T02:18:44.181155758Z level=info msg="  --write-cni-conf-when-ready='/host/etc/cni/net.d/05-cilium.conflist'"
+time=2025-09-17T02:18:44.181164107Z level=info msg="     _ _ _"
+time=2025-09-17T02:18:44.181167809Z level=info msg=" ___|_| |_|_ _ _____"
+time=2025-09-17T02:18:44.181170925Z level=info msg="|  _| | | | | |     |"
+time=2025-09-17T02:18:44.181175603Z level=info msg=|___|_|_|_|___|_|_|_|
+time=2025-09-17T02:18:44.181178922Z level=info msg="Cilium 1.18.1 e8a7070f 2025-08-13T14:47:02+00:00 go version go1.24.6 linux/amd64"
+time=2025-09-17T02:18:44.187844808Z level=info msg="Detected mounted BPF filesystem" bpffsRoot=/sys/fs/bpf
+time=2025-09-17T02:18:44.188008122Z level=info msg="Mounted cgroupv2 filesystem" location=/sys/fs/cgroup
+time=2025-09-17T02:18:44.188024998Z level=info msg="Parsing base label prefixes from default label list"
+time=2025-09-17T02:18:44.188104493Z level=info msg="Parsing node label prefixes from user inputs" prefix=[]
+time=2025-09-17T02:18:44.18811238Z level=info msg="Parsing additional label prefixes from user inputs" prefix=[]
+time=2025-09-17T02:18:44.188116709Z level=info msg="Final label prefixes to be used for identity evaluation:"
+time=2025-09-17T02:18:44.188123756Z level=info msg=" - reserved:.*"
+time=2025-09-17T02:18:44.188127352Z level=info msg=" - :io\\.kubernetes\\.pod\\.namespace"
+time=2025-09-17T02:18:44.188130508Z level=info msg=" - :io\\.cilium\\.k8s\\.namespace\\.labels"
+time=2025-09-17T02:18:44.188133333Z level=info msg=" - :app\\.kubernetes\\.io"
+time=2025-09-17T02:18:44.188136096Z level=info msg=" - :io\\.cilium\\.k8s\\.policy\\.cluster"
+time=2025-09-17T02:18:44.188138899Z level=info msg=" - :io\\.cilium\\.k8s\\.policy\\.serviceaccount"
+time=2025-09-17T02:18:44.188141816Z level=info msg=" - !:io\\.kubernetes"
+time=2025-09-17T02:18:44.188144489Z level=info msg=" - !:kubernetes\\.io"
+time=2025-09-17T02:18:44.188147274Z level=info msg=" - !:statefulset\\.kubernetes\\.io/pod-name"
+time=2025-09-17T02:18:44.188150175Z level=info msg=" - !:apps\\.kubernetes\\.io/pod-index"
+time=2025-09-17T02:18:44.188153033Z level=info msg=" - !:batch\\.kubernetes\\.io/job-completion-index"
+time=2025-09-17T02:18:44.188155978Z level=info msg=" - !:batch\\.kubernetes\\.io/controller-uid"
+time=2025-09-17T02:18:44.188158973Z level=info msg=" - !:.*beta\\.kubernetes\\.io"
+time=2025-09-17T02:18:44.188162058Z level=info msg=" - !:k8s\\.io"
+time=2025-09-17T02:18:44.188164843Z level=info msg=" - !:pod-template-generation"
+time=2025-09-17T02:18:44.188167658Z level=info msg=" - !:pod-template-hash"
+time=2025-09-17T02:18:44.188170404Z level=info msg=" - !:controller-revision-hash"
+time=2025-09-17T02:18:44.188173212Z level=info msg=" - !:controller-uid"
+time=2025-09-17T02:18:44.188176105Z level=info msg=" - !:annotation.*"
+time=2025-09-17T02:18:44.188178932Z level=info msg=" - !:etcd_node"
+time=2025-09-17T02:18:44.188181763Z level=info msg="Final node label prefixes to be used for identity evaluation:"
+time=2025-09-17T02:18:44.307293397Z level=info msg="Memory available for map entries (0.250% of 67271815168B): 168179537B" module=agent.controlplane
+time=2025-09-17T02:18:44.307358188Z level=info msg="option bpf-sock-rev-map-max set by dynamic sizing to 295051" module=agent.controlplane
+time=2025-09-17T02:18:44.397581687Z level=info msg="Cgroup metadata manager is enabled" module=agent.controlplane.cgroup-manager
+time=2025-09-17T02:18:44.407078291Z level=info msg="Spire Delegate API Client is disabled as no socket path is configured" module=agent.controlplane.auth.spire-delegate
+time=2025-09-17T02:18:44.407122061Z level=info msg="Mutual authentication handler is disabled as no port is configured" module=agent.controlplane.auth
+time=2025-09-17T02:18:44.407342777Z level=info msg="Certloader TLS watcher disabled" module=agent.controlplane.hubble config=certloader-server-tls
+time=2025-09-17T02:18:44.407552255Z level=info msg="The Hubble static exporter is disabled" module=agent.controlplane.hubble.hubble-exporters
+time=2025-09-17T02:18:44.407567546Z level=info msg="The Hubble dynamic exporter is disabled" module=agent.controlplane.hubble.hubble-exporters
+time=2025-09-17T02:18:44.407841098Z level=info msg="Certloader TLS watcher disabled" module=agent.controlplane.hubble.hubble-metrics config=certloader-server-tls
+time=2025-09-17T02:18:44.408010026Z level=info msg="The Hubble metrics server is disabled" module=agent.controlplane.hubble.hubble-metrics
+time=2025-09-17T02:18:44.459838713Z level=info msg="Determined final XDP mode" module=agent.datapath.datapath-xdp-config accelarationMode=disabled mode=disabled
+time=2025-09-17T02:18:44.462283932Z level=info msg="Starting hive"
+time=2025-09-17T02:18:44.46230832Z level=info msg="Started gops server" module=agent.infra.gops address=127.0.0.1:9890
+time=2025-09-17T02:18:44.465111714Z level=info msg="Establishing connection to apiserver" module=agent.infra.k8s-client ipAddr=https://127.0.0.1:7445
+time=2025-09-17T02:18:44.470089788Z level=info msg="Connected to apiserver" module=agent.infra.k8s-client
+time=2025-09-17T02:18:44.470978193Z level=info msg="Serving prometheus metrics" module=agent.infra.metrics address=:9962
+time=2025-09-17T02:18:44.47105965Z level=info msg="Waiting until all Cilium CRDs are available" module=agent.infra.k8s-synced-crdsync
+time=2025-09-17T02:18:44.521721596Z level=info msg="All Cilium CRDs have been found and are available" module=agent.infra.k8s-synced-crdsync
+time=2025-09-17T02:18:44.527809662Z level=info msg="Local boot ID" module=agent.controlplane bootID=6a7e5336-869c-4f97-b74e-7f78a818f2d3
+time=2025-09-17T02:18:44.52841063Z level=info msg="Serving cilium node monitor v1.2 API at unix:///var/run/cilium/monitor1_2.sock" module=agent.datapath.monitor-agent
+time=2025-09-17T02:18:44.539697375Z level=info msg="Devices changed" module=agent.datapath.devices-controller devices=[eno1]
+time=2025-09-17T02:18:44.549262904Z level=info msg="Generating CNI configuration file with mode" module=agent.infra.cni-config mode=none
+time=2025-09-17T02:18:44.5864946Z level=info msg="Envoy: Starting access log server listening" module=agent.controlplane.envoy-proxy address=/var/run/cilium/envoy/sockets/access_log.sock
+time=2025-09-17T02:18:44.586944907Z level=info msg="Envoy: Waiting for endpoint restorer before serving xDS resources..." module=agent.controlplane.envoy-proxy
+time=2025-09-17T02:18:44.587472846Z level=info msg="Fallback node addresses updated" module=agent.datapath.node-address addresses="127.0.0.1 (primary), ::1 (primary)" device=*
+time=2025-09-17T02:18:44.587554622Z level=info msg="Node addresses updated" module=agent.datapath.node-address addresses="192.168.86.23 (primary, nodeport)" device=eno1
+time=2025-09-17T02:18:44.587616682Z level=info msg="Fallback node addresses updated" module=agent.datapath.node-address addresses="192.168.86.23 (primary), fe80::1e69:7aff:fe6d:72c2 (primary)" device=*
+time=2025-09-17T02:18:44.587711595Z level=info msg="Node addresses updated" module=agent.datapath.node-address addresses="10.244.1.91 (primary), fe80::ec81:20ff:fe1b:23fb (primary)" device=cilium_host
+time=2025-09-17T02:18:44.591859587Z level=info msg="Datapath signal listener running" module=agent.controlplane.signal
+time=2025-09-17T02:18:44.592233913Z level=info msg="Restored node IDs from the BPF map" module=agent.datapath count=8
+time=2025-09-17T02:18:44.592629746Z level=info msg="Using discoveryv1.EndpointSlice" module=agent.controlplane.k8s-resources
+time=2025-09-17T02:18:44.593062277Z level=info msg="Setting IPv6" module=agent.datapath.bigtcp device=eno1 gso_max_size=65536 gro_max_size=65536
+time=2025-09-17T02:18:44.593507716Z level=info msg="Setting IPv4" module=agent.datapath.bigtcp device=eno1 gso_max_size=65536 gro_max_size=65536
+time=2025-09-17T02:18:44.595182968Z level=info msg="No identity checkpoint file found, skipping restoration" module=agent.controlplane.identity.identity file-path=/var/run/cilium/state/local_allocator_state.json
+time=2025-09-17T02:18:44.596183813Z level=info msg="Removed map pin, recreating and re-pinning map" bpfMapPath=cilium_ipcache_v2 bpfMapName=cilium_ipcache_v2
+time=2025-09-17T02:18:44.597176489Z level=info msg="Reading old endpoints..." module=agent.controlplane.daemon
+time=2025-09-17T02:18:44.609597394Z level=info msg="No FQDN selectors to restore from previous Cilium v1.15 installations" module=agent.controlplane.fqdn.namemanager
+time=2025-09-17T02:18:44.609654936Z level=info msg="Loaded DNS L7 rules for restored endpoints" module=agent.controlplane.fqdn.dns-proxy endpoints="[1780 2656 284 1255 3375 363 3894 1083 3557 832 1113 1181 283 481]"
+time=2025-09-17T02:18:44.609966119Z level=info msg="Retrieved node information from kubernetes node" module=agent.controlplane.daemon nodeName=dapperhat
+time=2025-09-17T02:18:44.610012429Z level=info msg="Received own node information from API server" module=agent.controlplane.daemon nodeName=dapperhat labels="map[beta.kubernetes.io/arch:amd64 beta.kubernetes.io/os:linux extensions.talos.dev/i915:20250613-v1.10.5 extensions.talos.dev/intel-ucode:20250512 extensions.talos.dev/iscsi-tools:v0.2.0 extensions.talos.dev/modules.dep:6.12.35-talos feature.node.kubernetes.io/cpu-cpuid.ADX:true feature.node.kubernetes.io/cpu-cpuid.AESNI:true feature.node.kubernetes.io/cpu-cpuid.AVX:true feature.node.kubernetes.io/cpu-cpuid.AVX2:true feature.node.kubernetes.io/cpu-cpuid.CMPXCHG8:true feature.node.kubernetes.io/cpu-cpuid.FLUSH_L1D:true feature.node.kubernetes.io/cpu-cpuid.FMA3:true feature.node.kubernetes.io/cpu-cpuid.FXSR:true feature.node.kubernetes.io/cpu-cpuid.FXSROPT:true feature.node.kubernetes.io/cpu-cpuid.IA32_ARCH_CAP:true feature.node.kubernetes.io/cpu-cpuid.IBPB:true feature.node.kubernetes.io/cpu-cpuid.LAHF:true feature.node.kubernetes.io/cpu-cpuid.MD_CLEAR:true feature.node.kubernetes.io/cpu-cpuid.MOVBE:true feature.node.kubernetes.io/cpu-cpuid.MPX:true feature.node.kubernetes.io/cpu-cpuid.OSXSAVE:true feature.node.kubernetes.io/cpu-cpuid.RTM_ALWAYS_ABORT:true feature.node.kubernetes.io/cpu-cpuid.SPEC_CTRL_SSBD:true feature.node.kubernetes.io/cpu-cpuid.SRBDS_CTRL:true feature.node.kubernetes.io/cpu-cpuid.STIBP:true feature.node.kubernetes.io/cpu-cpuid.SYSCALL:true feature.node.kubernetes.io/cpu-cpuid.SYSEE:true feature.node.kubernetes.io/cpu-cpuid.VMX:true feature.node.kubernetes.io/cpu-cpuid.X87:true feature.node.kubernetes.io/cpu-cpuid.XGETBV1:true feature.node.kubernetes.io/cpu-cpuid.XSAVE:true feature.node.kubernetes.io/cpu-cpuid.XSAVEC:true feature.node.kubernetes.io/cpu-cpuid.XSAVEOPT:true feature.node.kubernetes.io/cpu-cpuid.XSAVES:true feature.node.kubernetes.io/cpu-cstate.enabled:true feature.node.kubernetes.io/cpu-hardware_multithreading:true feature.node.kubernetes.io/cpu-model.family:6 feature.node.kubernetes.io/cpu-model.id:142 feature.node.kubernetes.io/cpu-model.vendor_id:Intel feature.node.kubernetes.io/cpu-pstate.scaling_governor:powersave feature.node.kubernetes.io/cpu-pstate.status:active feature.node.kubernetes.io/cpu-pstate.turbo:true feature.node.kubernetes.io/kernel-config.NO_HZ:true feature.node.kubernetes.io/kernel-config.NO_HZ_IDLE:true feature.node.kubernetes.io/kernel-version.full:6.12.35-talos feature.node.kubernetes.io/kernel-version.major:6 feature.node.kubernetes.io/kernel-version.minor:12 feature.node.kubernetes.io/kernel-version.revision:35 feature.node.kubernetes.io/pci-0300_8086.present:true feature.node.kubernetes.io/storage-nonrotationaldisk:true feature.node.kubernetes.io/system-os_release.ID:talos feature.node.kubernetes.io/system-os_release.VERSION_ID:v1.10.5 feature.node.kubernetes.io/usb-02_1a86_55d4.present:true feature.node.kubernetes.io/usb-ff_0b95_772b.present:true gpu.intel.com/device-id.0300-3ea5.count:1 gpu.intel.com/device-id.0300-3ea5.present:true intel.feature.node.kubernetes.io/gpu:true kubernetes.io/arch:amd64 kubernetes.io/hostname:dapperhat kubernetes.io/os:linux node-role.kubernetes.io/control-plane: node.kubernetes.io/exclude-from-external-load-balancers:]" ipv4=192.168.86.23 ipv6="" v4Prefix=10.244.1.0/24 v6Prefix=<nil> k8sNodeIP=192.168.86.23
+time=2025-09-17T02:18:44.610277458Z level=info msg="k8s mode: Allowing localhost to reach local endpoints" module=agent.controlplane.daemon
+time=2025-09-17T02:18:44.610317085Z level=info msg="Direct routing device detected" module=agent.controlplane.daemon direct-routing-device=eno1
+time=2025-09-17T02:18:44.610363778Z level=info msg="Enabling k8s event listener" module=agent.controlplane.k8s-watcher
+time=2025-09-17T02:18:44.610510419Z level=info msg="Removing stale endpoint interfaces" module=agent.controlplane.daemon
+time=2025-09-17T02:18:44.610804368Z level=info msg="Waiting until all pre-existing resources have been received" module=agent.controlplane.k8s-watcher
+time=2025-09-17T02:18:44.611671785Z level=info msg="Restored router address from node_config" module=agent.controlplane.daemon ipv4=10.244.1.91 ipv6="" file=/var/run/cilium/state/globals/node_config.h
+time=2025-09-17T02:18:44.617399244Z level=info msg="Node updated" module=agent.controlplane.node-manager clusterName=default nodeName=chonker spi=0
+time=2025-09-17T02:18:44.617732251Z level=info msg="Node updated" module=agent.controlplane.node-manager clusterName=default nodeName=smolboi spi=0
+time=2025-09-17T02:18:44.61850701Z level=info msg="Node updated" module=agent.controlplane.node-manager clusterName=default nodeName=stargazer spi=0
+time=2025-09-17T02:18:44.628637573Z level=info msg="Reusing previous / configured DNS proxy port" module=agent.controlplane.fqdn.dns-proxy port=34619
+time=2025-09-17T02:18:44.628671326Z level=info msg="Adding new proxy port rules" module=agent.controlplane.l7-proxy id=cilium-dns-egress name=cilium-dns-egress proxyPort=34619
+time=2025-09-17T02:18:44.711730963Z level=info msg="Deleting stale nodes" module=agent.controlplane.node-manager lenStaleNodes=1
+time=2025-09-17T02:18:44.711791111Z level=info msg="Node deleted" module=agent.controlplane.node-manager clusterName=default nodeName=dapperhat
+time=2025-09-17T02:18:46.364087066Z level=info msg="Initializing node addressing" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.364210309Z level=info msg="Initializing IPAM" module=agent.controlplane.ipam mode=kubernetes v4Prefix=10.244.1.0/24 v6Prefix=<nil>
+time=2025-09-17T02:18:46.364295964Z level=info msg="Restoring endpoints..." module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.370368373Z level=info msg="Endpoints restored" module=agent.controlplane.daemon restored=13 failed=0
+time=2025-09-17T02:18:46.371952806Z level=info msg="Addressing information:" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372054665Z level=info msg="  Cluster-Name: default" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372092933Z level=info msg="  Cluster-ID: 0" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372154685Z level=info msg="  Local node-name: dapperhat" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372196191Z level=info msg="  Node-IPv6: <nil>" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372263258Z level=info msg="  External-Node IPv4: 192.168.86.23" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.37230061Z level=info msg="  Internal-Node IPv4: 10.244.1.91" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372379991Z level=info msg="  IPv4 native routing prefix: 10.244.0.0/16" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372433187Z level=info msg="  Loopback IPv4: 169.254.42.1" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.372463776Z level=info msg="  Local IPv4 addresses:" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.385887959Z level=info msg="  - 10.244.1.91" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.38594358Z level=info msg="  - 192.168.86.23" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.387267755Z level=info msg="Node updated" module=agent.controlplane.node-manager clusterName=default nodeName=dapperhat spi=0
+time=2025-09-17T02:18:46.387286516Z level=info msg="Adding local node to cluster" module=agent.controlplane.nodediscovery node=dapperhat
+time=2025-09-17T02:18:46.387664974Z level=info msg="Creating or updating CiliumNode resource" module=agent.controlplane.nodediscovery node=dapperhat
+time=2025-09-17T02:18:46.405378241Z level=info msg="Initializing identity allocator" module=agent.controlplane.identity.identity
+time=2025-09-17T02:18:46.405433303Z level=info msg="Allocating identities between range" module=agent.controlplane.identity.identity min=256 max=65535 clusterID=0
+time=2025-09-17T02:18:46.406446602Z level=info msg="Initializing daemon" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.406479507Z level=info msg="Validating configured node address ranges" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.408428895Z level=info msg="Start hook executed" function="cmd.newDaemonPromise.func1 (cmd/daemon_main.go:1430) (agent.controlplane.daemon)" duration=1.81469198s
+time=2025-09-17T02:18:46.411493078Z level=info msg="Serving cilium API at unix:///var/run/cilium/cilium.sock" module=agent.infra.cilium-api-server
+time=2025-09-17T02:18:46.411755473Z level=info msg="Hubble server is disabled" module=agent.controlplane.hubble
+time=2025-09-17T02:18:46.417138135Z level=info msg="Starting kube-proxy healthz server" module=agent.infra.kube-proxy-healthz address=0.0.0.0:10256
+time=2025-09-17T02:18:46.417331744Z level=info msg="Starting healthz status API server" module=agent.infra.agent-healthz address=127.0.0.1:9879
+time=2025-09-17T02:18:46.423447644Z level=info msg="NetworkPolicy successfully added" module=agent.controlplane.policy-k8s-watcher k8sNetworkPolicyName=allow-egress k8sApiVersion=""
+time=2025-09-17T02:18:46.423570326Z level=info msg="NetworkPolicy successfully added" module=agent.controlplane.policy-k8s-watcher k8sNetworkPolicyName=allow-scraping k8sApiVersion=""
+time=2025-09-17T02:18:46.423669773Z level=info msg="NetworkPolicy successfully added" module=agent.controlplane.policy-k8s-watcher k8sNetworkPolicyName=allow-webhooks k8sApiVersion=""
+time=2025-09-17T02:18:46.427579904Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[11282 12009 1267]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.427649406Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[13647 15657 16630 13569]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.427676647Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[16682] policyID.Deleted=[]
+time=2025-09-17T02:18:46.427713374Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=3
+time=2025-09-17T02:18:46.427740794Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.427790024Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[17067 17628 18370]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.42782578Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[21503] policyID.Deleted=[]
+time=2025-09-17T02:18:46.427840639Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[2273] policyID.Deleted=[]
+time=2025-09-17T02:18:46.427862333Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=3
+time=2025-09-17T02:18:46.427876361Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428017738Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[2400 2569 26921 22796 2325]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.428044975Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[27116] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428069806Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[28141] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428091889Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=3
+time=2025-09-17T02:18:46.428107562Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428147099Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[29437 30537]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.428186876Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[32761] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428210213Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[33817] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428227813Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[38050] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428255525Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=4
+time=2025-09-17T02:18:46.428273Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428316506Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[3829 4039]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.42834598Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[40606] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428364364Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=1
+time=2025-09-17T02:18:46.428382562Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428429612Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=1
+time=2025-09-17T02:18:46.428442698Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428475362Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[40977 4104 41629 41654]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.42850286Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[42247] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428525746Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=2
+time=2025-09-17T02:18:46.428541503Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428631347Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[43486 43656 47436 43027]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.428652304Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[47495] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428664745Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=2
+time=2025-09-17T02:18:46.428676237Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428777704Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[47972 48021 4949 56095]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.428799831Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[56297] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428814916Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[5678] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428828805Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[61151] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428847853Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=4
+time=2025-09-17T02:18:46.428860704Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.428929851Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added="[6647 6695 6119 65263]" policyID.Deleted=[]
+time=2025-09-17T02:18:46.428951544Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[8801] policyID.Deleted=[]
+time=2025-09-17T02:18:46.428962483Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=2
+time=2025-09-17T02:18:46.428976539Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.432449444Z level=info msg="Processing policy updates" module=agent.controlplane.policy count=3
+time=2025-09-17T02:18:46.432528276Z level=info msg="Upserted policy to repository" module=agent.controlplane.policy resource=netpol/flux-system/allow-egress policyRevision=2 deletedRules=0 identity="[43027 56095 61151 8801 11282 18370 22796 41654]"
+time=2025-09-17T02:18:46.432594061Z level=info msg="Upserted policy to repository" module=agent.controlplane.policy resource=netpol/flux-system/allow-scraping policyRevision=3 deletedRules=0 identity="[43027 56095 61151 8801 11282 18370 22796 41654]"
+time=2025-09-17T02:18:46.43264188Z level=info msg="Upserted policy to repository" module=agent.controlplane.policy resource=netpol/flux-system/allow-webhooks policyRevision=4 deletedRules=0 identity="[11282 22796]"
+time=2025-09-17T02:18:46.432662807Z level=info msg="Policy repository updates complete, triggering endpoint updates" module=agent.controlplane.policy policyRevision=4
+time=2025-09-17T02:18:46.517040325Z level=info msg="All policy resources synchronized!" module=agent.controlplane.policy-k8s-watcher
+time=2025-09-17T02:18:46.53870112Z level=info msg="Start hook executed" function="datapath.initDatapath.func1 (pkg/datapath/cells.go:181) (agent.datapath)" duration=122.412564ms
+time=2025-09-17T02:18:46.53889998Z level=info msg="Started hive" duration=2.076603993s
+time=2025-09-17T02:18:46.541634724Z level=info msg="Processing identity update" module=agent.controlplane.policy policyID.Added=[host] policyID.Deleted=[]
+time=2025-09-17T02:18:46.541675738Z level=info msg="Incremental policy update: waiting for endpoint notifications to complete" module=agent.controlplane.policy count=1
+time=2025-09-17T02:18:46.541692039Z level=info msg="Incremental policy update: triggering UpdatePolicyMaps for all endpoints" module=agent.controlplane.policy
+time=2025-09-17T02:18:46.542180767Z level=info msg="Regenerating restored endpoints" module=agent.controlplane.daemon restored=13
+time=2025-09-17T02:18:46.54232112Z level=info msg="New endpoint" k8sPodName=kube-system/reloader-8468965549-7fkt2 ipv4=10.244.1.200 ciliumEndpointName=kube-system/reloader-8468965549-7fkt2 containerInterface=eth0 endpointID=481 containerID=2e41773bbd identity=40977 datapathPolicyRevision=0 desiredPolicyRevision=0 ipv6="" subsys=endpoint
+time=2025-09-17T02:18:46.542452121Z level=info msg="New endpoint" ipv6="" containerID="" datapathPolicyRevision=0 containerInterface="" k8sPodName=/ identity=1 ipv4="" ciliumEndpointName=/ desiredPolicyRevision=0 endpointID=1181 subsys=endpoint
+time=2025-09-17T02:18:46.542522682Z level=info msg="New endpoint" containerInterface=eth0 datapathPolicyRevision=0 endpointID=1113 k8sPodName=kube-system/metrics-server-7dc45797f5-lp67d identity=28141 ipv4=10.244.1.130 ciliumEndpointName=kube-system/metrics-server-7dc45797f5-lp67d desiredPolicyRevision=0 containerID=ae1dfbe8f9 ipv6="" subsys=endpoint
+time=2025-09-17T02:18:46.542604385Z level=info msg="New endpoint" containerID=adceca8c53 ipv4=10.244.1.95 desiredPolicyRevision=0 datapathPolicyRevision=0 identity=26921 k8sPodName=networking/external-dns-58b866fbfd-zqslw ciliumEndpointName=networking/external-dns-58b866fbfd-zqslw ipv6="" endpointID=832 containerInterface=eth0 subsys=endpoint
+time=2025-09-17T02:18:46.54267941Z level=info msg="New endpoint" desiredPolicyRevision=0 k8sPodName=node-feature-discovery/node-feature-discovery-worker-pr546 containerInterface=eth0 datapathPolicyRevision=0 ipv6="" containerID=eb5d20c90c endpointID=3557 identity=1267 ipv4=10.244.1.12 ciliumEndpointName=node-feature-discovery/node-feature-discovery-worker-pr546 subsys=endpoint
+time=2025-09-17T02:18:46.542758836Z level=info msg="New endpoint" containerInterface=eth0 containerID=734535688b desiredPolicyRevision=0 ciliumEndpointName=kube-system/inteldeviceplugins-controller-manager-6c84dbd694-l4pgn ipv4=10.244.1.159 identity=38050 k8sPodName=kube-system/inteldeviceplugins-controller-manager-6c84dbd694-l4pgn ipv6="" endpointID=1083 datapathPolicyRevision=0 subsys=endpoint
+time=2025-09-17T02:18:46.542842732Z level=info msg="New endpoint" identity=4104 k8sPodName=kube-system/local-path-provisioner-5b5f758bcf-rcj78 endpointID=3894 ciliumEndpointName=kube-system/local-path-provisioner-5b5f758bcf-rcj78 datapathPolicyRevision=0 desiredPolicyRevision=0 containerID=19c6c2f5d8 ipv4=10.244.1.20 ipv6="" containerInterface=eth0 subsys=endpoint
+time=2025-09-17T02:18:46.542941975Z level=info msg="New endpoint" ipv6="" containerInterface=eth0 ciliumEndpointName=zwave-js-ui/zwave-js-ui-d8669fc9b-qrz5x datapathPolicyRevision=0 ipv4=10.244.1.60 k8sPodName=zwave-js-ui/zwave-js-ui-d8669fc9b-qrz5x containerID=a572b77b3d desiredPolicyRevision=0 identity=16630 endpointID=363 subsys=endpoint
+time=2025-09-17T02:18:46.543012948Z level=info msg="New endpoint" datapathPolicyRevision=0 endpointID=3375 containerID=7fa8a07ec2 ipv4=10.244.1.87 k8sPodName=networking/ingress-nginx-defaultbackend-6fd686f588-97xtm containerInterface=eth0 identity=40606 ipv6="" ciliumEndpointName=networking/ingress-nginx-defaultbackend-6fd686f588-97xtm desiredPolicyRevision=0 subsys=endpoint
+time=2025-09-17T02:18:46.543104242Z level=info msg="New endpoint" identity=41629 ipv4=10.244.1.247 datapathPolicyRevision=0 ciliumEndpointName=kube-system/coredns-78d87fb69b-v4nsn containerID=b53a5a72a3 ipv6="" desiredPolicyRevision=0 endpointID=1255 containerInterface=eth0 k8sPodName=kube-system/coredns-78d87fb69b-v4nsn subsys=endpoint
+time=2025-09-17T02:18:46.543173993Z level=info msg="New endpoint" endpointID=284 desiredPolicyRevision=0 identity=6119 ipv6="" datapathPolicyRevision=0 ipv4=10.244.1.120 containerInterface=eth0 k8sPodName=networking/ingress-nginx-controller-54574fd6-mvtf5 containerID=4f1bd3cf4f ciliumEndpointName=networking/ingress-nginx-controller-54574fd6-mvtf5 subsys=endpoint
+time=2025-09-17T02:18:46.543250754Z level=info msg="New endpoint" k8sPodName=kube-system/intel-gpu-plugin-i915-5hgsz desiredPolicyRevision=0 containerInterface=eth0 datapathPolicyRevision=0 ipv6="" endpointID=2656 containerID=a1041e94b8 ciliumEndpointName=kube-system/intel-gpu-plugin-i915-5hgsz identity=42247 ipv4=10.244.1.225 subsys=endpoint
+time=2025-09-17T02:18:46.543330966Z level=info msg="New endpoint" identity=4949 k8sPodName=qbittorrent/qbittorrent-ccf9947c4-6xw4q ipv6="" endpointID=1780 desiredPolicyRevision=0 ciliumEndpointName=qbittorrent/qbittorrent-ccf9947c4-6xw4q ipv4=10.244.1.183 containerInterface=eth0 datapathPolicyRevision=0 containerID=5d3f5936f8 subsys=endpoint
+time=2025-09-17T02:18:46.543377539Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=1780
+time=2025-09-17T02:18:46.543392878Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=2656
+time=2025-09-17T02:18:46.543402288Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=284
+time=2025-09-17T02:18:46.543409448Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=1255
+time=2025-09-17T02:18:46.543417273Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=3375
+time=2025-09-17T02:18:46.543425653Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=363
+time=2025-09-17T02:18:46.543432188Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=3894
+time=2025-09-17T02:18:46.543439978Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=1083
+time=2025-09-17T02:18:46.543446782Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=3557
+time=2025-09-17T02:18:46.543455042Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=832
+time=2025-09-17T02:18:46.543461943Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=1113
+time=2025-09-17T02:18:46.543469564Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=1181
+time=2025-09-17T02:18:46.543476643Z level=info msg="Successfully restored endpoint. Scheduling regeneration" module=agent.controlplane.daemon endpointID=481
+time=2025-09-17T02:18:46.543713675Z level=info msg="Fence waiting" module=agent.controlplane.endpoint-regeneration name=clustermesh remaining=4
+time=2025-09-17T02:18:46.543731701Z level=info msg="Fence done" module=agent.controlplane.endpoint-regeneration name=clustermesh remaining=4 duration=23.99µs
+time=2025-09-17T02:18:46.543743703Z level=info msg="Fence waiting" module=agent.controlplane.endpoint-regeneration name=loadbalancer remaining=3
+time=2025-09-17T02:18:46.895766906Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock4_sendmsg pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock4_sendmsg
+time=2025-09-17T02:18:46.895811433Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock4_recvmsg pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock4_recvmsg
+time=2025-09-17T02:18:46.895834474Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock4_getpeername pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock4_getpeername
+time=2025-09-17T02:18:46.895916973Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock6_connect pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock6_connect
+time=2025-09-17T02:18:46.895977879Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock6_sendmsg pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock6_sendmsg
+time=2025-09-17T02:18:46.896014361Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock6_post_bind pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock6_post_bind
+time=2025-09-17T02:18:46.896058689Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock_release pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock_release
+time=2025-09-17T02:18:46.896112463Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock4_connect pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock4_connect
+time=2025-09-17T02:18:46.896136848Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock4_post_bind pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock4_post_bind
+time=2025-09-17T02:18:46.896156077Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock6_recvmsg pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock6_recvmsg
+time=2025-09-17T02:18:46.896174541Z level=info msg="Updated link for program" module=agent.datapath.loader name=cil_sock6_getpeername pin=/sys/fs/bpf/cilium/socketlb/links/cgroup/cil_sock6_getpeername
+time=2025-09-17T02:18:46.922066077Z level=info msg="Start hook executed" module=agent.controlplane.loadbalancer-reconciler function=*job.groupHooks.Start duration=936ns
+time=2025-09-17T02:18:46.922098919Z level=info msg="Start hook executed" module=agent.controlplane.loadbalancer-reconciler function=*job.queuedJob.Start duration=3.377µs
+time=2025-09-17T02:18:46.92210812Z level=info msg="Start hook executed" module=agent.controlplane.loadbalancer-reconciler function=*job.queuedJob.Start duration=1.324µs
+time=2025-09-17T02:18:46.985521618Z level=info msg="Removed endpoint" identity=4 endpointID=283 containerInterface="" ipv4=10.244.1.23 datapathPolicyRevision=0 k8sPodName=/ ipv6="" ciliumEndpointName=/ desiredPolicyRevision=0 containerID="" subsys=endpoint
+time=2025-09-17T02:18:46.985577489Z level=info msg="Starting connection tracking garbage collector" module=agent.controlplane.daemon
+time=2025-09-17T02:18:46.985602702Z level=info msg="Starting initial GC of connection tracking" module=agent.datapath.maps.ct-nat-map-gc
+time=2025-09-17T02:18:46.985885069Z level=info msg="Launching Cilium health daemon" module=agent.controlplane.cilium-health
+time=2025-09-17T02:18:46.986644387Z level=info msg="Launching Cilium health endpoint" module=agent.controlplane.cilium-health
+time=2025-09-17T02:18:46.986715337Z level=info msg="Daemon initialization completed" module=agent.controlplane.daemon bootstrapTime=2.930781309s
+time=2025-09-17T02:18:46.986759919Z level=info msg="Cleaning up Cilium health endpoint" module=agent.controlplane.cilium-health
+time=2025-09-17T02:18:46.986782599Z level=info msg="Envoy: Waiting for endpoint restoration before serving xDS resources..." module=agent.controlplane.envoy-proxy
+time=2025-09-17T02:18:46.986845503Z level=info msg="Processing queued deletion requests" module=agent.controlplane.endpoint-api lenEndpoints=0
+time=2025-09-17T02:18:46.995348493Z level=info msg="Conntrack garbage collector interval recalculated" module=agent.datapath.maps.ct-nat-map-gc expectedPrevInterval=5m0s actualPrevInterval=0s newInterval=7m30s deleteRatio=0.0017488472351436953 adjustedDeleteRatio=0.0017488472351436953
+time=2025-09-17T02:18:46.995391269Z level=info msg="initial gc of ct and nat maps completed" module=agent.datapath.maps.ct-nat-map-gc duration=9.795132ms
+time=2025-09-17T02:18:46.99541379Z level=info msg="Initial scan of connection tracking completed, starting ctmap pressure metrics controller" module=agent.datapath.maps.ct-nat-map-gc
+time=2025-09-17T02:18:47.603986918Z level=info msg="Fence done" module=agent.controlplane.endpoint-regeneration name=loadbalancer remaining=3 duration=1.060230591s
+time=2025-09-17T02:18:47.60409385Z level=info msg="Fence waiting" module=agent.controlplane.endpoint-regeneration name=kvstore-ipcache remaining=2
+time=2025-09-17T02:18:47.604122502Z level=info msg="Fence done" module=agent.controlplane.endpoint-regeneration name=kvstore-ipcache remaining=2 duration=50.814µs
+time=2025-09-17T02:18:47.604147615Z level=info msg="Fence waiting" module=agent.controlplane.endpoint-regeneration name=kvstore-nodes remaining=1
+time=2025-09-17T02:18:47.604165212Z level=info msg="Fence done" module=agent.controlplane.endpoint-regeneration name=kvstore-nodes remaining=1 duration=26.208µs
+time=2025-09-17T02:18:47.610311585Z level=info msg="Envoy: Starting xDS gRPC server listening" module=agent.controlplane.envoy-proxy address=/var/run/cilium/envoy/sockets/xds.sock
+time=2025-09-17T02:18:48.041842087Z level=info msg="New endpoint" endpointID=1058 ipv6="" desiredPolicyRevision=0 k8sPodName=/ ciliumEndpointName=/ datapathPolicyRevision=0 ipv4=10.244.1.23 containerID="" containerInterface="" subsys=endpoint
+time=2025-09-17T02:18:48.041944269Z level=info msg="Resolving identity labels (blocking)" endpointID=1058 ipv6="" desiredPolicyRevision=0 k8sPodName=/ ciliumEndpointName=/ datapathPolicyRevision=0 ipv4=10.244.1.23 containerID="" containerInterface="" subsys=endpoint identityLabels=reserved:health
+time=2025-09-17T02:18:48.041974776Z level=info msg="Identity of endpoint changed" endpointID=1058 ipv6="" desiredPolicyRevision=0 k8sPodName=/ ciliumEndpointName=/ datapathPolicyRevision=0 ipv4=10.244.1.23 containerID="" containerInterface="" subsys=endpoint new-identity=4 old-identity="no identity" identityLabels=reserved:health
+time=2025-09-17T02:18:49.125630964Z level=info msg="Compiled new BPF template" module=agent.datapath.loader file-path=/var/run/cilium/state/templates/86d98c6531acd18e5268fb41289511ee854556a4701a2b7d33bd89069bc2afa0/bpf_lxc.o BPFCompilationTime=1.515561724s
+time=2025-09-17T02:18:49.225884534Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1780/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.226176986Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1780/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.226583885Z level=info msg="Reloaded endpoint BPF program" identity=4949 k8sPodName=qbittorrent/qbittorrent-ccf9947c4-6xw4q ipv6="" endpointID=1780 desiredPolicyRevision=4 ciliumEndpointName=qbittorrent/qbittorrent-ccf9947c4-6xw4q ipv4=10.244.1.183 containerInterface=eth0 datapathPolicyRevision=0 containerID=5d3f5936f8 subsys=endpoint
+time=2025-09-17T02:18:49.227690166Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/2656/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.227822079Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/2656/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.228025271Z level=info msg="Restored endpoint" identity=4949 k8sPodName=qbittorrent/qbittorrent-ccf9947c4-6xw4q ipv6="" endpointID=1780 desiredPolicyRevision=4 ciliumEndpointName=qbittorrent/qbittorrent-ccf9947c4-6xw4q ipv4=10.244.1.183 containerInterface=eth0 datapathPolicyRevision=4 containerID=5d3f5936f8 subsys=endpoint ipAddrs="[ipv4 10.244.1.183 ipv6 ]"
+time=2025-09-17T02:18:49.228289966Z level=info msg="Reloaded endpoint BPF program" k8sPodName=kube-system/intel-gpu-plugin-i915-5hgsz desiredPolicyRevision=4 containerInterface=eth0 datapathPolicyRevision=0 ipv6="" endpointID=2656 containerID=a1041e94b8 ciliumEndpointName=kube-system/intel-gpu-plugin-i915-5hgsz identity=42247 ipv4=10.244.1.225 subsys=endpoint
+time=2025-09-17T02:18:49.232021902Z level=info msg="Restored endpoint" k8sPodName=kube-system/intel-gpu-plugin-i915-5hgsz desiredPolicyRevision=4 containerInterface=eth0 datapathPolicyRevision=4 ipv6="" endpointID=2656 containerID=a1041e94b8 ciliumEndpointName=kube-system/intel-gpu-plugin-i915-5hgsz identity=42247 ipv4=10.244.1.225 subsys=endpoint ipAddrs="[ipv4 10.244.1.225 ipv6 ]"
+time=2025-09-17T02:18:49.232457158Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1083/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.23249098Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/284/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.232564273Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/284/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.232587487Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1083/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.232827439Z level=info msg="Reloaded endpoint BPF program" containerInterface=eth0 containerID=734535688b desiredPolicyRevision=4 ciliumEndpointName=kube-system/inteldeviceplugins-controller-manager-6c84dbd694-l4pgn ipv4=10.244.1.159 identity=38050 k8sPodName=kube-system/inteldeviceplugins-controller-manager-6c84dbd694-l4pgn ipv6="" endpointID=1083 datapathPolicyRevision=0 subsys=endpoint
+time=2025-09-17T02:18:49.232838052Z level=info msg="Reloaded endpoint BPF program" endpointID=284 desiredPolicyRevision=4 identity=6119 ipv6="" datapathPolicyRevision=0 ipv4=10.244.1.120 containerInterface=eth0 k8sPodName=networking/ingress-nginx-controller-54574fd6-mvtf5 containerID=4f1bd3cf4f ciliumEndpointName=networking/ingress-nginx-controller-54574fd6-mvtf5 subsys=endpoint
+time=2025-09-17T02:18:49.233243584Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1113/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.233339517Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1113/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.233341461Z level=info msg="Restored endpoint" containerInterface=eth0 containerID=734535688b desiredPolicyRevision=4 ciliumEndpointName=kube-system/inteldeviceplugins-controller-manager-6c84dbd694-l4pgn ipv4=10.244.1.159 identity=38050 k8sPodName=kube-system/inteldeviceplugins-controller-manager-6c84dbd694-l4pgn ipv6="" endpointID=1083 datapathPolicyRevision=4 subsys=endpoint ipAddrs="[ipv4 10.244.1.159 ipv6 ]"
+time=2025-09-17T02:18:49.233463422Z level=info msg="Restored endpoint" endpointID=284 desiredPolicyRevision=4 identity=6119 ipv6="" datapathPolicyRevision=4 ipv4=10.244.1.120 containerInterface=eth0 k8sPodName=networking/ingress-nginx-controller-54574fd6-mvtf5 containerID=4f1bd3cf4f ciliumEndpointName=networking/ingress-nginx-controller-54574fd6-mvtf5 subsys=endpoint ipAddrs="[ipv4 10.244.1.120 ipv6 ]"
+time=2025-09-17T02:18:49.233625202Z level=info msg="Reloaded endpoint BPF program" containerInterface=eth0 datapathPolicyRevision=0 endpointID=1113 k8sPodName=kube-system/metrics-server-7dc45797f5-lp67d identity=28141 ipv4=10.244.1.130 ciliumEndpointName=kube-system/metrics-server-7dc45797f5-lp67d desiredPolicyRevision=4 containerID=ae1dfbe8f9 ipv6="" subsys=endpoint
+time=2025-09-17T02:18:49.234104748Z level=info msg="Restored endpoint" containerInterface=eth0 datapathPolicyRevision=4 endpointID=1113 k8sPodName=kube-system/metrics-server-7dc45797f5-lp67d identity=28141 ipv4=10.244.1.130 ciliumEndpointName=kube-system/metrics-server-7dc45797f5-lp67d desiredPolicyRevision=4 containerID=ae1dfbe8f9 ipv6="" subsys=endpoint ipAddrs="[ipv4 10.244.1.130 ipv6 ]"
+time=2025-09-17T02:18:49.235077662Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1255/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.235159464Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/1255/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.235525722Z level=info msg="Reloaded endpoint BPF program" identity=41629 ipv4=10.244.1.247 datapathPolicyRevision=0 ciliumEndpointName=kube-system/coredns-78d87fb69b-v4nsn containerID=b53a5a72a3 ipv6="" desiredPolicyRevision=4 endpointID=1255 containerInterface=eth0 k8sPodName=kube-system/coredns-78d87fb69b-v4nsn subsys=endpoint
+time=2025-09-17T02:18:49.235786756Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/3375/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.235963705Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/3375/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.236281568Z level=info msg="Reloaded endpoint BPF program" datapathPolicyRevision=0 endpointID=3375 containerID=7fa8a07ec2 ipv4=10.244.1.87 k8sPodName=networking/ingress-nginx-defaultbackend-6fd686f588-97xtm containerInterface=eth0 identity=40606 ipv6="" ciliumEndpointName=networking/ingress-nginx-defaultbackend-6fd686f588-97xtm desiredPolicyRevision=4 subsys=endpoint
+time=2025-09-17T02:18:49.236746795Z level=info msg="Restored endpoint" identity=41629 ipv4=10.244.1.247 datapathPolicyRevision=4 ciliumEndpointName=kube-system/coredns-78d87fb69b-v4nsn containerID=b53a5a72a3 ipv6="" desiredPolicyRevision=4 endpointID=1255 containerInterface=eth0 k8sPodName=kube-system/coredns-78d87fb69b-v4nsn subsys=endpoint ipAddrs="[ipv4 10.244.1.247 ipv6 ]"
+time=2025-09-17T02:18:49.236892524Z level=info msg="Restored endpoint" datapathPolicyRevision=4 endpointID=3375 containerID=7fa8a07ec2 ipv4=10.244.1.87 k8sPodName=networking/ingress-nginx-defaultbackend-6fd686f588-97xtm containerInterface=eth0 identity=40606 ipv6="" ciliumEndpointName=networking/ingress-nginx-defaultbackend-6fd686f588-97xtm desiredPolicyRevision=4 subsys=endpoint ipAddrs="[ipv4 10.244.1.87 ipv6 ]"
+time=2025-09-17T02:18:49.237141486Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/3557/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.237313336Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/3557/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.23761791Z level=info msg="Reloaded endpoint BPF program" desiredPolicyRevision=4 k8sPodName=node-feature-discovery/node-feature-discovery-worker-pr546 containerInterface=eth0 datapathPolicyRevision=0 ipv6="" containerID=eb5d20c90c endpointID=3557 identity=1267 ipv4=10.244.1.12 ciliumEndpointName=node-feature-discovery/node-feature-discovery-worker-pr546 subsys=endpoint
+time=2025-09-17T02:18:49.238039974Z level=info msg="Restored endpoint" desiredPolicyRevision=4 k8sPodName=node-feature-discovery/node-feature-discovery-worker-pr546 containerInterface=eth0 datapathPolicyRevision=4 ipv6="" containerID=eb5d20c90c endpointID=3557 identity=1267 ipv4=10.244.1.12 ciliumEndpointName=node-feature-discovery/node-feature-discovery-worker-pr546 subsys=endpoint ipAddrs="[ipv4 10.244.1.12 ipv6 ]"
+time=2025-09-17T02:18:49.311046287Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/832/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.311138333Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/832/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.311361809Z level=info msg="Reloaded endpoint BPF program" containerID=adceca8c53 ipv4=10.244.1.95 desiredPolicyRevision=4 datapathPolicyRevision=0 identity=26921 k8sPodName=networking/external-dns-58b866fbfd-zqslw ciliumEndpointName=networking/external-dns-58b866fbfd-zqslw ipv6="" endpointID=832 containerInterface=eth0 subsys=endpoint
+time=2025-09-17T02:18:49.311736786Z level=info msg="Restored endpoint" containerID=adceca8c53 ipv4=10.244.1.95 desiredPolicyRevision=4 datapathPolicyRevision=4 identity=26921 k8sPodName=networking/external-dns-58b866fbfd-zqslw ciliumEndpointName=networking/external-dns-58b866fbfd-zqslw ipv6="" endpointID=832 containerInterface=eth0 subsys=endpoint ipAddrs="[ipv4 10.244.1.95 ipv6 ]"
+time=2025-09-17T02:18:49.342214561Z level=info msg="Program attached to device using tcx" module=agent.datapath.loader progName=cil_from_container device=lxc_health
+time=2025-09-17T02:18:49.342347123Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/3894/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.342349848Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/363/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.342357098Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/481/links/cil_from_container progName=cil_from_container
+time=2025-09-17T02:18:49.366217186Z level=info msg="Program attached to device using tcx" module=agent.datapath.loader progName=cil_to_container device=lxc_health
+time=2025-09-17T02:18:49.366297343Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/363/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.366302269Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/481/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.366308526Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/endpoints/3894/links/cil_to_container progName=cil_to_container
+time=2025-09-17T02:18:49.367394466Z level=info msg="Reloaded endpoint BPF program" endpointID=1058 ipv6="" desiredPolicyRevision=4 identity=4 k8sPodName=/ ciliumEndpointName=/ datapathPolicyRevision=0 ipv4=10.244.1.23 containerID="" containerInterface="" subsys=endpoint
+time=2025-09-17T02:18:49.367472611Z level=info msg="Reloaded endpoint BPF program" k8sPodName=kube-system/reloader-8468965549-7fkt2 ipv4=10.244.1.200 ciliumEndpointName=kube-system/reloader-8468965549-7fkt2 containerInterface=eth0 endpointID=481 containerID=2e41773bbd identity=40977 datapathPolicyRevision=0 desiredPolicyRevision=4 ipv6="" subsys=endpoint
+time=2025-09-17T02:18:49.367500501Z level=info msg="Reloaded endpoint BPF program" ipv6="" containerInterface=eth0 ciliumEndpointName=zwave-js-ui/zwave-js-ui-d8669fc9b-qrz5x datapathPolicyRevision=0 ipv4=10.244.1.60 k8sPodName=zwave-js-ui/zwave-js-ui-d8669fc9b-qrz5x containerID=a572b77b3d desiredPolicyRevision=4 identity=16630 endpointID=363 subsys=endpoint
+time=2025-09-17T02:18:49.367407534Z level=info msg="Reloaded endpoint BPF program" identity=4104 k8sPodName=kube-system/local-path-provisioner-5b5f758bcf-rcj78 endpointID=3894 ciliumEndpointName=kube-system/local-path-provisioner-5b5f758bcf-rcj78 datapathPolicyRevision=0 desiredPolicyRevision=4 containerID=19c6c2f5d8 ipv4=10.244.1.20 ipv6="" containerInterface=eth0 subsys=endpoint
+time=2025-09-17T02:18:49.368173667Z level=info msg="Restored endpoint" identity=4104 k8sPodName=kube-system/local-path-provisioner-5b5f758bcf-rcj78 endpointID=3894 ciliumEndpointName=kube-system/local-path-provisioner-5b5f758bcf-rcj78 datapathPolicyRevision=4 desiredPolicyRevision=4 containerID=19c6c2f5d8 ipv4=10.244.1.20 ipv6="" containerInterface=eth0 subsys=endpoint ipAddrs="[ipv4 10.244.1.20 ipv6 ]"
+time=2025-09-17T02:18:49.368518253Z level=info msg="Restored endpoint" ipv6="" containerInterface=eth0 ciliumEndpointName=zwave-js-ui/zwave-js-ui-d8669fc9b-qrz5x datapathPolicyRevision=4 ipv4=10.244.1.60 k8sPodName=zwave-js-ui/zwave-js-ui-d8669fc9b-qrz5x containerID=a572b77b3d desiredPolicyRevision=4 identity=16630 endpointID=363 subsys=endpoint ipAddrs="[ipv4 10.244.1.60 ipv6 ]"
+time=2025-09-17T02:18:49.368663039Z level=info msg="Restored endpoint" k8sPodName=kube-system/reloader-8468965549-7fkt2 ipv4=10.244.1.200 ciliumEndpointName=kube-system/reloader-8468965549-7fkt2 containerInterface=eth0 endpointID=481 containerID=2e41773bbd identity=40977 datapathPolicyRevision=4 desiredPolicyRevision=4 ipv6="" subsys=endpoint ipAddrs="[ipv4 10.244.1.200 ipv6 ]"
+time=2025-09-17T02:18:50.539501588Z level=info msg="Compiled new BPF template" module=agent.datapath.loader file-path=/var/run/cilium/state/templates/b683760c98ac817d7b2e6daccc7a640b5010b5f6a5a9a9a7f22e4ef316ac98c1/bpf_host.o BPFCompilationTime=1.311052429s
+time=2025-09-17T02:18:50.608303037Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/devices/cilium_host/links/cil_to_host progName=cil_to_host
+time=2025-09-17T02:18:50.608433452Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/devices/cilium_host/links/cil_from_host progName=cil_from_host
+time=2025-09-17T02:18:50.671756543Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/devices/cilium_net/links/cil_to_host progName=cil_to_host
+time=2025-09-17T02:18:50.735086719Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/devices/eno1/links/cil_from_netdev progName=cil_from_netdev
+time=2025-09-17T02:18:50.735234754Z level=info msg="Updated link for program" module=agent.datapath.loader link=/sys/fs/bpf/cilium/devices/eno1/links/cil_to_netdev progName=cil_to_netdev
+time=2025-09-17T02:18:50.735990596Z level=info msg="Reloaded endpoint BPF program" ipv6="" containerID="" datapathPolicyRevision=0 containerInterface="" k8sPodName=/ identity=1 ipv4="" ciliumEndpointName=/ desiredPolicyRevision=4 endpointID=1181 subsys=endpoint
+time=2025-09-17T02:18:50.736285838Z level=info msg="Restored endpoint" ipv6="" containerID="" datapathPolicyRevision=4 containerInterface="" k8sPodName=/ identity=1 ipv4="" ciliumEndpointName=/ desiredPolicyRevision=4 endpointID=1181 subsys=endpoint ipAddrs="[ipv4  ipv6 ]"
+time=2025-09-17T02:18:50.736310679Z level=info msg="Finished regenerating restored endpoints" module=agent.controlplane.daemon regenerated=13 total=13
+time=2025-09-17T02:18:50.737507825Z level=info msg="Serving cilium health API at unix:///var/run/cilium/health.sock" module=agent.controlplane.cilium-health subsys=cilium-health-api-server
+time=2025-09-17T02:26:16.996419205Z level=info msg="Starting initial GC of connection tracking" module=agent.datapath.maps.ct-nat-map-gc
+time=2025-09-17T02:26:17.007425883Z level=info msg="Conntrack garbage collector interval recalculated" module=agent.datapath.maps.ct-nat-map-gc expectedPrevInterval=7m30s actualPrevInterval=7m30.010792004s newInterval=11m15s deleteRatio=0.0019132253182918915 adjustedDeleteRatio=0.0019132253182918915
