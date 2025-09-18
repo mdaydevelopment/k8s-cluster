@@ -68,3 +68,9 @@ spec:
             port: 5055
             protocol: TCP
             targetPort: 5055
+    hostAliases:
+      - ip: "${NGINX_INGRESS_ADDR}"
+        hostnames:
+          - "sonarr.${SECRET_DOMAIN}"
+          - "radarr.${SECRET_DOMAIN}"
+          - "lidarr.${SECRET_DOMAIN}"
