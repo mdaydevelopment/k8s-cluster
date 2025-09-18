@@ -62,7 +62,6 @@ spec:
       prowlarr:
         enabled: true
         nameOverride: torrent
-        type: LoadBalancer
         ports:
           primary:
             enabled: true

@@ -68,7 +68,10 @@ spec:
         enabled: true
         nameOverride: nzbget
         type: LoadBalancer
-        loadBalancerIP: 192.168.86.64
+        labels:
+          lb_pool: reserved
+        annotations:
+          lbipam.cilium.io/ips: "192.168.86.64"
         ports:
           primary:
             enabled: true

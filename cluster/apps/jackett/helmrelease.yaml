@@ -63,7 +63,6 @@ spec:
       jackett:
         enabled: true
         nameOverride: jackett
-        type: LoadBalancer
         ports:
           primary:
             enabled: true

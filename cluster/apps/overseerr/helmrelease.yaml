@@ -62,7 +62,6 @@ spec:
       overseerr:
         enabled: true
         nameOverride: overseerr
-        type: LoadBalancer
         ports:
           primary:
             enabled: true

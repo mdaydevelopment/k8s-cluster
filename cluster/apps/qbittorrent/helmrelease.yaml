@@ -68,21 +68,25 @@ spec:
         forceRename: *app
         primary: true
         type: LoadBalancer
-        loadBalancerIP: 192.168.86.63
+        labels:
+          lb_pool: reserved
+        annotations:
+          lbipam.cilium.io/ips: "192.168.86.63"
+          lbipam.cilium.io/sharing-key: "qb-share-key"
         ports:
           http:
             port: *port
-        annotations:
-          metallb.io/allow-shared-ip: "qb-share-key"
       bittorrent:
         type: LoadBalancer
-        loadBalancerIP: 192.168.86.63
+        labels:
+          lb_pool: reserved
+        annotations:
+          lbipam.cilium.io/ips: "192.168.86.63"
+          lbipam.cilium.io/sharing-key: "qb-share-key"
         ports:
           bittorrent-tcp:
             port: *torrentPort
             protocol: TCP
-        annotations:
-          metallb.io/allow-shared-ip: "qb-share-key"
     ingress:
       main:
         enabled: true

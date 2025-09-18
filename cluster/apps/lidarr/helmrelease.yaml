@@ -76,7 +76,6 @@ spec:
     service:
       lidarr:
         enabled: true
-        type: LoadBalancer
         ports:
           primary:
             enabled: true
