@@ -16,10 +16,11 @@ spec:
         accessModes:
           - ReadWriteOnce
   listenersServiceTemplate:
-    annotations:
-      lbipam.cilium.io/ips: "192.168.86.67"
-    labels:
-      lb_pool: reserved
+    metadata:
+      annotations:
+        lbipam.cilium.io/ips: "192.168.86.67"
+      labels:
+        lb_pool: reserved
     spec:
       type: LoadBalancer
 ---
