@@ -46,9 +46,9 @@ spec:
         paths:
           - /
         tls:
-        - hosts:
+        - secretName: prometheus-tls
+          hosts:
           - "prometheus.${SECRET_DOMAIN}"
-          secretName: prometheus-tls
       storageSpec:
         volumeClaimTemplate:
           spec:
@@ -71,8 +71,7 @@ spec:
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
         - "grafana.${SECRET_DOMAIN}"
-        paths:
-          - /
+        paths: /
         tls:
         - hosts:
           - "grafana.${SECRET_DOMAIN}"
