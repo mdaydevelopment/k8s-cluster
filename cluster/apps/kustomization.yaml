@@ -12,9 +12,9 @@ resources:
   - homebox
   - jackett
   - kapowarr
+  - kube-prometheus-stack
   - kube-system
   - lidarr
-  #- monitoring
   - node-feature-discovery
   - nzbget
   - overseerr
@@ -24,7 +24,6 @@ resources:
   - radarr
   - recyclarr
   - sonarr
-  #- system-upgrade
   - tautulli
   - zigbee2mqtt
   - zwave-js-ui
