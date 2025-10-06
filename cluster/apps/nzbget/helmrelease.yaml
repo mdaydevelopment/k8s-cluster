@@ -63,6 +63,8 @@ spec:
       requests:
         cpu: 500m
         memory: 2048Mi
+      limits:
+        memory: 16Gi
     service:
       nzbget:
         enabled: true
