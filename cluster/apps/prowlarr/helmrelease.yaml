@@ -59,12 +59,16 @@ spec:
         cpu: 500m
         memory: 1024Mi
     service:
-      prowlarr:
-        enabled: true
-        nameOverride: torrent
+      #prowlarr:
+      #  enabled: true
+      #  nameOverride: torrent
+      #  ports:
+      #    primary:
+      #      enabled: true
+      #      port: 9696
+      #      protocol: TCP
+      #      targetPort: 9696
+      app:
         ports:
-          primary:
-            enabled: true
+          http:
             port: 9696
-            protocol: TCP
-            targetPort: 9696
