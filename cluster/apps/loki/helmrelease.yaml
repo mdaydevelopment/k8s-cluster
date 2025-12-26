@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: loki
-      version: 6.41.1
+      version: 6.49.0
       sourceRef:
         kind: HelmRepository
         name: grafana
@@ -53,5 +53,15 @@ spec:
           region: us-east-1
           secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
           accessKeyId": "${MINIO_ACCESS_KEY_ID}"
+        useTestSchema: false
+      testSchemaConfig:
+       configs:
+         - from: 2024-04-01
+           store: tsdb
+           object_store: '{{ include "loki.testSchemaObjectStore" . }}'
+           schema: v13
+           index:
+             prefix: index_
+             period: 24h
 
 
