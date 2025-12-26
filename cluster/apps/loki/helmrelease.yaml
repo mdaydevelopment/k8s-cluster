@@ -53,15 +53,12 @@ spec:
           region: us-east-1
           secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
           accessKeyId": "${MINIO_ACCESS_KEY_ID}"
-        useTestSchema: false
-      testSchemaConfig:
-       configs:
-         - from: 2024-04-01
-           store: tsdb
-           object_store: '{{ include "loki.testSchemaObjectStore" . }}'
-           schema: v13
-           index:
-             prefix: index_
-             period: 24h
-
-
+      schemaConfig:
+          configs:
+            - from: 2024-04-01
+              object_store: s3
+              store: tsdb
+              schema: v13
+              index:
+                prefix: index_
+                period: 24h
