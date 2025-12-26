@@ -15,6 +15,7 @@ resources:
   - kube-prometheus-stack
   - kube-system
   - lidarr
+  - loki
   - node-feature-discovery
   - nzbget
   - overseerr
