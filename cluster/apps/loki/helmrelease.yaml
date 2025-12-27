@@ -23,25 +23,8 @@ spec:
     remediation:
       retries: 3
   values:
+    deploymentMode: SimpleScalable
     loki:
-      ingress:
-        enabled: true
-        ingressClassName: "nginx"
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
-          external-dns/is-public: "true"
-          hajimari.io/enable: "true"
-          hajimari.io/icon: "mdi:rss"
-          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
-        hosts:
-        - "loki.${SECRET_DOMAIN}"
-        paths:
-          - /
-        tls:
-        - secretName: loki-tls
-          hosts:
-          - "loki.${SECRET_DOMAIN}"
       storage:
         bucketNames:
           chunks: loki-chunks
@@ -62,6 +45,27 @@ spec:
             index:
               prefix: index_
               period: 24h
+    gateway:
+      enabled: false
+    ingress:
+      enabled: true
+      ingressClassName: "nginx"
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+        external-dns/is-public: "true"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "mdi:notebook"
+        nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+      hosts:
+      - "loki.${SECRET_DOMAIN}"
+      paths:
+        - /
+      tls:
+      - secretName: loki-tls
+        hosts:
+        - "loki.${SECRET_DOMAIN}"
+
     write:
       persistence:
         storageClass: freenas-iscsi-csi
