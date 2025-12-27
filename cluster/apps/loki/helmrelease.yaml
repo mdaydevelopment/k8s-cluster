@@ -60,12 +60,23 @@ spec:
       hosts:
       - "loki.${SECRET_DOMAIN}"
       paths:
-        - /
+        distributor:
+          - /api/prom/push
+          - /loki/api/v1/push
+        querier:
+          - /api/prom/tail
+          - /loki/api/v1/tail
+        query-frontend:
+          - /loki/api
+        ruler:
+          - /api/prom/rules
+          - /loki/api/v1/rules
+          - /prometheus/api/v1/rules
+          - /prometheus/api/v1/alerts
       tls:
       - secretName: loki-tls
         hosts:
         - "loki.${SECRET_DOMAIN}"
-
     write:
       persistence:
         storageClass: freenas-iscsi-csi
