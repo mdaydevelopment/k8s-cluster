@@ -62,3 +62,12 @@ spec:
             index:
               prefix: index_
               period: 24h
+    write:
+      persistence:
+        storageClass: freenas-iscsi-csi
+    read:
+      persistence:
+        storageClass: freenas-iscsi-csi
+    backend:
+      persistence:
+        storageClass: freenas-iscsi-csi
