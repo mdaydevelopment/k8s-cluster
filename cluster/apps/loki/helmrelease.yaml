@@ -34,8 +34,8 @@ spec:
         s3:
           endpoint: "${MINIO_ENDPOINT}"
           region: us-east-1
-          secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
-          accessKeyId": "${MINIO_ACCESS_KEY_ID}"
+          #secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
+          #accessKeyId": "${MINIO_ACCESS_KEY_ID}"
         object_store:
           type: s3
           s3:
