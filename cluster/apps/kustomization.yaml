@@ -24,6 +24,7 @@ resources:
   - qbittorrent
   - radarr
   - recyclarr
+  - seerr
   - sonarr
   - tautulli
   - zigbee2mqtt
