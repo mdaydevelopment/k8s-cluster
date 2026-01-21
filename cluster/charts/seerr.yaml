@@ -6,4 +6,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  url: oci://ghcr.io/fallenbagel/jellyseerr/jellyseerr-chart
+  url: oci://ghcr.io/fallenbagel/seerr/seerr-chart
