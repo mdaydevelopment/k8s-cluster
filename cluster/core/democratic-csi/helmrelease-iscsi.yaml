@@ -1,0 +1,64 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: democratic-csi-iscsi
+  namespace: democratic-csi
+spec:
+  interval: 1m
+  chart:
+    spec:
+      chart: democratic-csi
+      version: 0.15.1
+      sourceRef:
+        kind: HelmRepository
+        name: democratic-csi
+        namespace: flux-system
+  values:
+    driver: freenas-iscsi
+    httpConnection:
+      allowInsecure: true
+      apiKey: "${DCSI_API_KEY}"
+      host: "${NAS_IP}"
+      port: 80
+      protocol: http
+    sshConnection:
+      host: "${NAS_IP}"
+      password: "${DCSI_PASS}"
+      port: 22
+      username: "${DCSI_USER}"
+    node:
+      hostPID: true
+      driver:
+        extraEnv:
+          - name: ISCSIADM_HOST_STRATEGY
+            value: nsenter
+          - name: ISCSIADM_HOST_PATH
+            value: /usr/local/sbin/iscsiadm
+        iscsiDirHostPath: /usr/local/etc/iscsi
+        iscsiDirHostPathType: ""
+    zfs:
+      cli:
+        sudoEnabled: true
+      datasetParentName: tank/k8s/iscsi/v
+      datasetProperties:
+        org.freenas:description: '{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{
+          parameters.[csi.storage.k8s.io/pvc/name] }}'
+      detachedSnapshotsDatasetParentName: tank/k8s/iscsi/s
+      zvolEnableReservation: false
+    iscsi:
+      extentAvailThreshold: 0
+      extentBlocksize: 512
+      extentDisablePhysicalBlocksize: true
+      extentInsecureTpc: true
+      extentRpm: SSD
+      extentXenCompat: false
+      namePrefix: csi-
+      nameSuffix: -clustera
+      targetGroups:
+      - targetGroupAuthType: None
+        targetGroupInitiatorGroup: 1
+        targetGroupPortalGroup: 1
+      targetPortal: "${NAS_IP}:3260"
+      targetPortals: []
+
