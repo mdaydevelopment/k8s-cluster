@@ -15,38 +15,43 @@ spec:
         name: democratic-csi
         namespace: flux-system
   values:
-    driver: freenas-nfs
-    httpConnection:
-      allowInsecure: true
-      apiKey: "${DCSI_API_KEY}"
-      host: "${NAS_IP}"
-      port: 80
-      protocol: http
-    sshConnection:
-      host: "${NAS_IP}"
-      password: "${DCSI_PASS}"
-      port: 22
-      username: "${DCSI_USER}"
-    zfs:
-      cli:
-        sudoEnabled: true
-      datasetEnableQuotas: true
-      datasetEnableReservation: false
-      datasetParentName: tank/k8s/nfs/v
-      datasetPermissionsGroup: 0
-      datasetPermissionsMode: "0777"
-      datasetPermissionsUser: 0
-      datasetProperties:
-        org.freenas:description: '{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{
-          parameters.[csi.storage.k8s.io/pvc/name] }}'
-      detachedSnapshotsDatasetParentName: tank/k8s/nfs/s
-    nfs:
-      shareAlldirs: false
-      shareAllowedHosts: []
-      shareAllowedNetworks: []
-      shareHost: "${NAS_IP}"
-      shareMapallGroup: ""
-      shareMapallUser: ""
-      shareMaprootGroup: root
-      shareMaprootUser: root
+    csiDriver:
+      name: "org.democratic-csi.nfs"
+      fsGroupPolicy: File
+    driver:
+      config:
+        driver: freenas-nfs
+        httpConnection:
+          allowInsecure: true
+          apiKey: "${DCSI_API_KEY}"
+          host: "${NAS_IP}"
+          port: 80
+          protocol: http
+        sshConnection:
+          host: "${NAS_IP}"
+          password: "${DCSI_PASS}"
+          port: 22
+          username: "${DCSI_USER}"
+        zfs:
+          cli:
+            sudoEnabled: true
+          datasetEnableQuotas: true
+          datasetEnableReservation: false
+          datasetParentName: tank/k8s/nfs/v
+          datasetPermissionsGroup: 0
+          datasetPermissionsMode: "0777"
+          datasetPermissionsUser: 0
+          datasetProperties:
+            org.freenas:description: '{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{
+              parameters.[csi.storage.k8s.io/pvc/name] }}'
+          detachedSnapshotsDatasetParentName: tank/k8s/nfs/s
+        nfs:
+          shareAlldirs: false
+          shareAllowedHosts: []
+          shareAllowedNetworks: []
+          shareHost: "${NAS_IP}"
+          shareMapallGroup: ""
+          shareMapallUser: ""
+          shareMaprootGroup: root
+          shareMaprootUser: root
 
