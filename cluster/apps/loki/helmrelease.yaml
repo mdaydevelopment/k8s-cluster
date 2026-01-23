@@ -24,32 +24,6 @@ spec:
       retries: 3
   values:
     deploymentMode: SimpleScalable
-    #loki:
-    #  storage:
-    #    bucketNames:
-    #      chunks: loki-chunks
-    #      ruler: loki-ruler
-    #      admin: loki-admin
-    #    type: s3
-    #    s3:
-    #      endpoint: "${MINIO_ENDPOINT}"
-    #      region: us-east-1
-    #      #secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
-    #      #accessKeyId": "${MINIO_ACCESS_KEY_ID}"
-    #    object_store:
-    #      type: s3
-    #      s3:
-    #        secret_access_key: "${MINIO_SECRET_ACCESS_KEY}"
-    #        access_key_id": "${MINIO_ACCESS_KEY_ID}"
-    #  schemaConfig:
-    #    configs:
-    #      - from: "2024-04-01"
-    #        object_store: s3
-    #        store: tsdb
-    #        schema: v13
-    #        index:
-    #          prefix: index_
-    #          period: 24h
     loki:
       auth_enabled: false
       schemaConfig:
@@ -61,21 +35,43 @@ spec:
             index:
               prefix: index_
               period: 24h
-      ingester:
-        chunk_encoding: snappy
-      querier:
-        max_concurrent: 4
+      storage_config:
+        aws:
+          region: us-east-1
+          bucketnames: loki-chunk
+          s3forcepathstyle: false
       pattern_ingester:
-        enabled: true
+          enabled: true
       limits_config:
         allow_structured_metadata: true
         volume_enabled: true
-    minio:
-      enabled: true
-      persistence:
-        storageClass: freenas-iscsi-csi
-    gateway:
-      enabled: false
+        retention_period: 672h # 28 days retention
+      querier:
+        max_concurrent: 4
+      storage:
+        type: s3
+        bucketNames:
+            chunks: loki-chunk
+            ruler: loki-ruler
+            admin: loki-admin
+        s3:
+          # AWS endpoint URL
+          endpoint: "${MINIO_ENDPOINT}"
+          # AWS region where the S3 bucket is located
+          region: us-east-1
+          # AWS secret access key
+          secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
+          # AWS access key ID
+          accessKeyId: "${MINIO_ACCESS_KEY_ID}"
+          # AWS signature version (e.g., v2 or v4)
+          signatureVersion: v4
+          # Forces the path style for S3 (true/false)
+          s3ForcePathStyle: false
+          # Allows insecure (HTTP) connections (true/false)
+          insecure: false
+          # HTTP configuration settings
+          http_config: {}
+
     ingress:
       enabled: true
       ingressClassName: "nginx"
@@ -106,6 +102,7 @@ spec:
       - secretName: loki-tls
         hosts:
         - "loki.${SECRET_DOMAIN}"
+
     write:
       replicas: 2
       persistence:
@@ -118,3 +115,11 @@ spec:
       replicas: 3
       persistence:
         storageClass: freenas-iscsi-csi
+
+    minio:
+      enabled: false
+      #persistence:
+      #  storageClass: freenas-iscsi-csi
+    gateway:
+      enabled: false
+
