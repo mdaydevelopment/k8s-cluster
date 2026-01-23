@@ -51,8 +51,7 @@ spec:
     #          prefix: index_
     #          period: 24h
     loki:
-      config:
-        auth_enabled: false
+      auth_enabled: false
       schemaConfig:
         configs:
           - from: "2024-04-01"
