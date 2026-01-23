@@ -16,9 +16,10 @@ spec:
         containers:
           app:
             image:
-              repository: fallenbagel/jellyseerr
+              repository: ghcr.io/seerr-team/seerr:latest
               tag: latest
             env:
+              LOG_LEVEL: debug
               TZ: "America/Chicago"
               PUID: "1000"
               PGID: "1000"
