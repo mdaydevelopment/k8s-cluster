@@ -10,7 +10,7 @@ local.file_match "node_logs" {
       __path__  = "/var/log/syslog",
       job       = "node/syslog",
       node_name = sys.env("HOSTNAME"),
-      cluster   = home-talos,
+      cluster   = "home-talos",
   }]
 }
 loki.source.file "node_logs" {
