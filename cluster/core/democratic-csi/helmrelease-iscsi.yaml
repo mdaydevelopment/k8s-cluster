@@ -17,6 +17,22 @@ spec:
   values:
     csiDriver:
       name: "org.democratic-csi.iscsi"
+    storageClasses:
+      - name: freenas-iscsi-csi
+        defaultClass: false
+        reclaimPolicy: Delete
+        volumeBindingMode: Immediate
+        allowVolumeExpansion: true
+        parameters:
+          fsType: ext4
+        mountOptions: []
+        secrets:
+          provisioner-secret: null
+          controller-publish-secret: null
+          node-stage-secret: null
+          node-publish-secret: null
+          controller-expand-secret: null
+    volumeSnapshotClasses: []
     node:
       hostPID: true
       driver:
