@@ -22,4 +22,72 @@ spec:
     cleanupOnFail: true
     remediation:
       retries: 3
+  values:
+    crds:
+      # -- Whether to install CRDs for monitoring.
+      create: false
+    alloy:
+      configMap:
+        # -- Create a new ConfigMap for the config file.
+        create: false
+        # -- Name of existing ConfigMap to use. Used when create is false.
+        name: alloy-config
+        # -- Key in ConfigMap to get config from.
+        key: config.alloy
+
+      # -- Enables sending Grafana Labs anonymous usage stats to help improve Grafana
+      # Alloy.
+      enableReporting: false
+
+      # -- Host aliases to add to the Alloy container.
+      hostAliases: []
+      # - ip: "20.21.22.23"
+      #   hostnames:
+      #     - "company.grafana.net"
+
+      mounts:
+        # -- Mount /var/log from the host into the container for log collection.
+        varlog: true
+
+      # -- Security context to apply to the Grafana Alloy container.
+      securityContext: {}
+
+      # -- Resource requests and limits to apply to the Grafana Alloy container.
+      resources: {}
+
+      # -- Set lifecycle hooks for the Grafana Alloy container.
+      lifecycle: {}
+        # preStop:
+        #   exec:
+        #     command:
+        #     - /bin/sleep
+        #     - "10"
+
+      # -- Set livenessProbe for the Grafana Alloy container.
+      livenessProbe: {}
+
+    ingress:
+      # -- Enables ingress for Alloy (Faro port)
+      enabled: true
+      # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
+      # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
+      ingressClassName: nginx
+      # Values can be templated
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+        external-dns/is-public: "true"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "mdi:bowl-mix"
+        nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+      labels: {}
+      path: /
+      faroPort: 12347
+      pathType: Prefix
+      hosts:
+        - "alloy.${SECRET_DOMAIN}"
+      tls:
+       - secretName: alloy-tls
+         hosts:
+           - "alloy.${SECRET_DOMAIN}"
 
