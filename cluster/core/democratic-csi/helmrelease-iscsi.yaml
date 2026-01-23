@@ -37,6 +37,7 @@ spec:
           host: "${NAS_IP}"
           port: 80
           protocol: http
+          apiVersion: 2
         sshConnection:
           host: "${NAS_IP}"
           password: "${DCSI_PASS}"
