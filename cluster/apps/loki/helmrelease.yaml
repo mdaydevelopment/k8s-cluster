@@ -87,20 +87,20 @@ spec:
         nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
       hosts:
       - "loki.${SECRET_DOMAIN}"
-      paths:
-        distributor:
-          - /api/prom/push
-          - /loki/api/v1/push
-        querier:
-          - /api/prom/tail
-          - /loki/api/v1/tail
-        query-frontend:
-          - /loki/api
-        ruler:
-          - /api/prom/rules
-          - /loki/api/v1/rules
-          - /prometheus/api/v1/rules
-          - /prometheus/api/v1/alerts
+      #paths:
+      #  distributor:
+      #    - /api/prom/push
+      #    - /loki/api/v1/push
+      #  querier:
+      #    - /api/prom/tail
+      #    - /loki/api/v1/tail
+      #  query-frontend:
+      #    - /loki/api
+      #  ruler:
+      #    - /api/prom/rules
+      #    - /loki/api/v1/rules
+      #    - /prometheus/api/v1/rules
+      #    - /prometheus/api/v1/alerts
       tls:
       - secretName: loki-tls
         hosts:
