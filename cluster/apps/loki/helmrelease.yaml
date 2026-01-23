@@ -71,6 +71,8 @@ spec:
         volume_enabled: true
     minio:
       enabled: true
+      persistence:
+        storageClass: freenas-iscsi-csi
     gateway:
       enabled: false
     ingress:
