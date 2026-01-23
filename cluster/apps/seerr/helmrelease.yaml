@@ -16,9 +16,8 @@ spec:
         containers:
           app:
             image:
-              registry: ghcr.io
-              repository: seerr-team/seerr:preview-availability-sync-fix
-              tag: latest
+              repository: ghcr.io/seerr-team/seerr
+              tag: preview-availability-sync-fix
             env:
               LOG_LEVEL: debug
               TZ: "America/Chicago"
