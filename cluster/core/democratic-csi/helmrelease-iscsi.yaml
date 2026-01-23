@@ -31,13 +31,13 @@ spec:
     driver:
       config:
         driver: freenas-iscsi
+        instance_id: null
         httpConnection:
           allowInsecure: true
           apiKey: "${DCSI_API_KEY}"
           host: "${NAS_IP}"
           port: 80
           protocol: http
-          apiVersion: 2
         sshConnection:
           host: "${NAS_IP}"
           password: "${DCSI_PASS}"
@@ -51,6 +51,9 @@ spec:
             org.freenas:description: '{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{
               parameters.[csi.storage.k8s.io/pvc/name] }}'
           detachedSnapshotsDatasetParentName: tank/k8s/iscsi/s
+          zvolBlocksize: null
+          zvolCompression: null
+          zvolDedup: null
           zvolEnableReservation: false
         iscsi:
           extentAvailThreshold: 0
@@ -59,10 +62,12 @@ spec:
           extentInsecureTpc: true
           extentRpm: SSD
           extentXenCompat: false
+          interface: null
           namePrefix: csi-
           nameSuffix: -clustera
           targetGroups:
-          - targetGroupAuthType: None
+          - targetGroupAuthGroup: null
+            targetGroupAuthType: None
             targetGroupInitiatorGroup: 1
             targetGroupPortalGroup: 1
           targetPortal: "${NAS_IP}:3260"

@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: democratic-csi-nfs
+  name: zfs-nfs
   namespace: democratic-csi
 spec:
   interval: 1m
