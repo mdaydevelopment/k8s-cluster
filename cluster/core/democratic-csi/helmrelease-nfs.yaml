@@ -55,6 +55,8 @@ spec:
         zfs:
           cli:
             sudoEnabled: true
+            paths:
+              zfs: /usr/sbin/zfs
           datasetEnableQuotas: true
           datasetEnableReservation: false
           datasetParentName: tank/k8s/nfs/v

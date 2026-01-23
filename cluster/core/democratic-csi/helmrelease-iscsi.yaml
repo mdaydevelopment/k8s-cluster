@@ -62,6 +62,8 @@ spec:
         zfs:
           cli:
             sudoEnabled: true
+            paths:
+              zfs: /usr/sbin/zfs
           datasetParentName: tank/k8s/iscsi/v
           datasetProperties:
             org.freenas:description: '{{ parameters.[csi.storage.k8s.io/pvc/namespace] }}/{{
