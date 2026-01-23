@@ -24,23 +24,33 @@ spec:
       retries: 3
   values:
     deploymentMode: SimpleScalable
+    #loki:
+    #  storage:
+    #    bucketNames:
+    #      chunks: loki-chunks
+    #      ruler: loki-ruler
+    #      admin: loki-admin
+    #    type: s3
+    #    s3:
+    #      endpoint: "${MINIO_ENDPOINT}"
+    #      region: us-east-1
+    #      #secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
+    #      #accessKeyId": "${MINIO_ACCESS_KEY_ID}"
+    #    object_store:
+    #      type: s3
+    #      s3:
+    #        secret_access_key: "${MINIO_SECRET_ACCESS_KEY}"
+    #        access_key_id": "${MINIO_ACCESS_KEY_ID}"
+    #  schemaConfig:
+    #    configs:
+    #      - from: "2024-04-01"
+    #        object_store: s3
+    #        store: tsdb
+    #        schema: v13
+    #        index:
+    #          prefix: index_
+    #          period: 24h
     loki:
-      storage:
-        bucketNames:
-          chunks: loki-chunks
-          ruler: loki-ruler
-          admin: loki-admin
-        type: s3
-        s3:
-          endpoint: "${MINIO_ENDPOINT}"
-          region: us-east-1
-          #secretAccessKey: "${MINIO_SECRET_ACCESS_KEY}"
-          #accessKeyId": "${MINIO_ACCESS_KEY_ID}"
-        object_store:
-          type: s3
-          s3:
-            secret_access_key: "${MINIO_SECRET_ACCESS_KEY}"
-            access_key_id": "${MINIO_ACCESS_KEY_ID}"
       schemaConfig:
         configs:
           - from: "2024-04-01"
@@ -50,6 +60,17 @@ spec:
             index:
               prefix: index_
               period: 24h
+      ingester:
+        chunks_encoding: snappy
+      querier:
+        max_concurrent: 4
+      pattern_ingester:
+        enabled: true
+      limits_config:
+        allow_structured_metadata: true
+        volume_enabled: true
+    minio:
+      enabled: true
     gateway:
       enabled: false
     ingress:
@@ -60,7 +81,7 @@ spec:
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
         external-dns/is-public: "true"
         hajimari.io/enable: "true"
-        hajimari.io/icon: "mdi:notebook"
+        hajimari.io/icon: "mdi:snake"
         nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
       hosts:
       - "loki.${SECRET_DOMAIN}"
@@ -83,11 +104,14 @@ spec:
         hosts:
         - "loki.${SECRET_DOMAIN}"
     write:
+      replicas: 2
       persistence:
         storageClass: freenas-iscsi-csi
     read:
+      replicas: 2
       persistence:
         storageClass: freenas-iscsi-csi
     backend:
+      replicas: 3
       persistence:
         storageClass: freenas-iscsi-csi
