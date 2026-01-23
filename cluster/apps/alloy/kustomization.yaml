@@ -5,6 +5,7 @@ resources:
   - helmrelease.yaml
 configMapGenerator:
   - name: alloy-config
+    namespace: alloy
     files:
       - config.alloy
     options:
