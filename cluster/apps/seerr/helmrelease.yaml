@@ -53,6 +53,9 @@ spec:
     persistence:
       config:
         existingClaim: seerr-config
+        globalMounts:
+          - path: /app/config
+            readOnly: false
     defaultPodOptions:
       securityContext:
         runAsNonRoot: true
