@@ -66,6 +66,6 @@ spec:
         ports:
           primary:
             enabled: true
-            port: 80
+            port: 5055
             protocol: TCP
-            targetPort: 80
+            targetPort: 5055
