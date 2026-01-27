@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
   - cilium
   - cluster-issuers
+  - csi-driver-nfs
   - democratic-csi
