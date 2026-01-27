@@ -42,10 +42,5 @@ spec:
         existingClaim: jellyfin-config
       media:
         enabled: true
-        type: nfs
-        volumeSpec:
-          nfs:
-            server: 192.168.86.2
-            path: /mnt/tank/media
-        mountPath: /media
-
+        type: pvc
+        existingClaim: jellyfin-media
