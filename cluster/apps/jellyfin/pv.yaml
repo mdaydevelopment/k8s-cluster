@@ -8,12 +8,14 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: ""
+  storageClassName: nfs-static
   mountOptions:
     - nfsvers=4.1
     - hard
     - noatime
-  nfs:
-    server: "${NAS_IP}"
-    path: /mnt/tank/media
-
+  csi:
+    driver: nfs.csi.k8s.io
+    volumeHandle: tank-media-pv
+    volumeAttributes:
+      server: 192.168.86.2
+      share: /mnt/tank/media

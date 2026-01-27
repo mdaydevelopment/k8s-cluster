@@ -5,6 +5,7 @@ resources:
   - app-template.yaml
   - bitnami.yaml
   - cilium.yaml
+  - csi-driver-nfs.yaml
   - democratic-csi.yaml
   - external-dns.yaml
   - emqx.yaml
