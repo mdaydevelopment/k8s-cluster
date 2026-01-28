@@ -12,7 +12,7 @@ resources:
   - home-assistant
   - homebox
   - jackett
-  - jellyfin
+  #- jellyfin
   - kapowarr
   - kube-prometheus-stack
   - kube-system

@@ -1,46 +1,81 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: jellyfin
   namespace: jellyfin
 spec:
-  interval: 1m
-  chart:
-    spec:
-      chart: jellyfin
-      version: 2.7.0
-      sourceRef:
-        kind: HelmRepository
-        name: jellyfin
-        namespace: flux-system
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
   values:
-    image:
-      repository: docker.io/jellyfin/jellyfin
+    controllers:
+      jellyfin:
+        containers:
+          app:
+            image:
+              repository: jellyfin/jellyfin
+              tag: rolling
+            env:
+              TZ: "America/Chicago"
+              JELLYFIN_PublishedServerUrl: "https://jellyfin.${SECRET_DOMAIN}"
+            securityContext:
+              allowPrivilegeEscalation: false
+              readOnlyRootFilesystem: true
+              capabilities: { drop: ["ALL"] }
+            resources:
+              requests:
+                cpu: 100m
+              limits:
+                gpu.intel.com/i915: 1
+                memory: 16Gi
+    defaultPodOptions:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+        supplementalGroups: [44]
+      #nodeSelector:
+      #  gpu.intel.com/device-id.0300-7d51.present: "true"
+    service:
+      jellyfin:
+        ports:
+          primary:
+            enabled: true
+            port: 32400
     ingress:
-      enabled: true
-      ingressClassName: "nginx"
-      annotations:
-        cert-manager.io/cluster-issuer: "letsencrypt-production"
-        external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
-        external-dns/is-public: "true"
-        hajimari.io/enable: "true"
-        hajimari.io/icon: "mdi:jellyfish"
-        nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
-      hosts:
-      - host: "jellyfin.${SECRET_DOMAIN}"
-        paths:
-        - path: /
-          pathType: Prefix
-      tls:
-      - hosts:
-        - "jellyfin.${SECRET_DOMAIN}"
-        secretName: jellyfin-tls
+      main:
+        enabled: false
     persistence:
       config:
         enabled: true
         existingClaim: jellyfin-config
-      media:
+      tank:
         enabled: true
-        type: pvc
-        existingClaim: jellyfin-media
+        type: nfs
+        server: 192.168.86.2
+        path: /mnt/tank/media
+        globalMounts:
+          - path: /mnt/tank/media
+      tmpfs:
+        type: emptyDir
+        advancedMounts:
+          jellyfin:
+            app:
+              - path: /config/Library/Application Support/Plex Media Server/Logs
+                subPath: logs
+              - path: /transcode
+                subPath: transcode
+              - path: /tmp
+                subPath: tmp
