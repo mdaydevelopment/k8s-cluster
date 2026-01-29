@@ -24,39 +24,49 @@ spec:
           app:
             image:
               repository: jellyfin/jellyfin
-              tag: rolling
+              tag: latest
             env:
               TZ: "America/Chicago"
               JELLYFIN_PublishedServerUrl: "https://jellyfin.${SECRET_DOMAIN}"
-            securityContext:
-              allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
-              capabilities: { drop: ["ALL"] }
             resources:
               requests:
                 cpu: 100m
               limits:
                 gpu.intel.com/i915: 1
                 memory: 16Gi
-    defaultPodOptions:
-      securityContext:
-        runAsNonRoot: true
-        runAsUser: 1000
-        runAsGroup: 1000
-        fsGroup: 1000
-        fsGroupChangePolicy: OnRootMismatch
-        supplementalGroups: [44]
       #nodeSelector:
       #  gpu.intel.com/device-id.0300-7d51.present: "true"
     service:
-      jellyfin:
+      main:
         ports:
           primary:
             enabled: true
-            port: 32400
+            protocol: HTTP
+            port: 8096
+          udp:
+            enabled: true
+            protocol: UDP
+            port: 7359
     ingress:
       main:
-        enabled: false
+        enabled: true
+        className: "nginx"
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+          external-dns/is-public: "true"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "mdi:jellyfish"
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+        - host: "jellyfin.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "jellyfin.${SECRET_DOMAIN}"
+          secretName: jellyfin-tls
     persistence:
       config:
         enabled: true
@@ -73,9 +83,7 @@ spec:
         advancedMounts:
           jellyfin:
             app:
-              - path: /config/Library/Application Support/Plex Media Server/Logs
-                subPath: logs
+              - path: /cache
+                subPath: cache
               - path: /transcode
                 subPath: transcode
-              - path: /tmp
-                subPath: tmp
