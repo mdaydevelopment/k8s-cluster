@@ -8,7 +8,40 @@ spec:
   interval: 1m
   chartRef:
     kind: OCIRepository
-    name: app-template
+    name: immich
     namespace: flux-system
   values:
+    immich:
+      metrics:
+        enabled: true
+      persistence:
+        library:
+          existingClaim: immich-library
+    server:
+      ingress:
+        main:
+          enabled: true
+          className: "nginx"
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-production"
+            external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
+            external-dns/is-public: "true"
+            hajimari.io/enable: "true"
+            hajimari.io/icon: "mdi:camera-iris"
+            nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+            # proxy-body-size is set to 0 to remove the body limit on file uploads
+            nginx.ingress.kubernetes.io/proxy-body-size: "0"
+          hosts:
+          - host: "immich.${SECRET_DOMAIN}"
+            paths:
+            - path: /
+              pathType: Prefix
+          tls:
+          - hosts:
+            - "immich.${SECRET_DOMAIN}"
+            secretName: immich-tls
+    machine-learning:
+      persistence:
+        cache:
+          existingClaim: immich-ml
 
