@@ -9,6 +9,7 @@ spec:
   chartRef:
     kind: OCIRepository
     name: immich
+    version: 0.10.3
     namespace: flux-system
   values:
     immich:
@@ -18,6 +19,41 @@ spec:
         library:
           existingClaim: immich-library
     server:
+      enabled: true
+      controllers:
+        main:
+          containers:
+            main:
+              image:
+                # renovate: datasource=github-releases depName=immich-app/immich
+                tag: "v2.5.2"
+              resources:
+                requests:
+                  cpu: 100m
+                  memory: 2048M
+              env:
+                # Database connection
+                DB_HOSTNAME: immich-cnpg-cluster-rw.immich.svc.cluster.local
+                DB_DATABASE_NAME:
+                  valueFrom:
+                    secretKeyRef:
+                      name: immich-cnpg-cluster-app
+                      key: dbname
+                DB_PORT:
+                  valueFrom:
+                    secretKeyRef:
+                      name: immich-cnpg-cluster-app
+                      key: port
+                DB_USERNAME:
+                  valueFrom:
+                    secretKeyRef:
+                      name: immich-cnpg-cluster-app
+                      key: username
+                DB_PASSWORD:
+                  valueFrom:
+                    secretKeyRef:
+                      name: immich-cnpg-cluster-app
+                      key: password
       ingress:
         main:
           enabled: true

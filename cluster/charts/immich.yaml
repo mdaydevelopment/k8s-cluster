@@ -6,6 +6,4 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  ref:
-    tag: 0.10.3
   url: oci://ghcr.io/immich-app/immich-charts/immich
