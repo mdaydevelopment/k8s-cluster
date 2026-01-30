@@ -14,9 +14,6 @@ spec:
     initdb:
       postInitSQL:
         - CREATE EXTENSION IF NOT EXISTS vchord CASCADE;
-  storage:
-    storageClass: freenas-iscsi-csi
-    size: 10Gi
   postgresql:
     shared_preload_libraries: # load pgvecto.rs shared library
     - "vectors.so"
