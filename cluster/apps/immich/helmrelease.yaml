@@ -9,7 +9,6 @@ spec:
   chartRef:
     kind: OCIRepository
     name: immich
-    version: 0.10.3
     namespace: flux-system
   values:
     immich:
