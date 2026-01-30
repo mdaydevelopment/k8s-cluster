@@ -12,7 +12,7 @@ resources:
   - hajimari
   - home-assistant
   - homebox
-  #- immich
+  - immich
   - jackett
   - jellyfin
   - kapowarr
