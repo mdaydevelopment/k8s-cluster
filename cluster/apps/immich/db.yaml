@@ -6,9 +6,21 @@ metadata:
   namespace: immich
 spec:
   instances: 1
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.7
   storage:
     storageClass: freenas-iscsi-csi
     size: 10Gi
+  bootstrap:
+    initdb:
+      postInitSQL:
+        - CREATE EXTENSION IF NOT EXISTS vchord CASCADE;
+  storage:
+    storageClass: freenas-iscsi-csi
+    size: 10Gi
+  postgresql:
+    shared_preload_libraries: # load pgvecto.rs shared library
+    - "vectors.so"
+
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
