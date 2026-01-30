@@ -80,3 +80,5 @@ spec:
         cache:
           existingClaim: immich-ml
 
+    valkey:
+      enabled: true
