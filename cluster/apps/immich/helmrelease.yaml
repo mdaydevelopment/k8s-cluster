@@ -65,6 +65,12 @@ spec:
             hajimari.io/icon: "mdi:camera-iris"
             # proxy-body-size is set to 0 to remove the body limit on file uploads
             nginx.ingress.kubernetes.io/proxy-body-size: "0"
+            # timeouts (avoid ingress closing the connection mid-upload / long processing)
+            nginx.ingress.kubernetes.io/proxy-connect-timeout: "75"
+            nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+            nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+            # avoid request-body buffering to disk (reduces “mysterious” disconnects when temp storage is constrained)
+            nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
           hosts:
           - host: "immich.${SECRET_DOMAIN}"
             paths:
