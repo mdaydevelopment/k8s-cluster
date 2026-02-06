@@ -23,6 +23,11 @@ spec:
       postInitApplicationSQL:
         - CREATE EXTENSION vchord CASCADE;
         - CREATE EXTENSION earthdistance CASCADE;
+
+  backup:
+    volumeSnapshot:
+      className: freenas-iscsi-delete
+      snapshotOwnerReference: self
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
