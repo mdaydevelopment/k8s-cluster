@@ -27,7 +27,7 @@ spec:
   backup:
     volumeSnapshot:
       className: freenas-iscsi-delete
-      snapshotOwnerReference: self
+      snapshotOwnerReference: backup
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
