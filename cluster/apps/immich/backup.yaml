@@ -9,3 +9,4 @@ spec:
   cluster:
     name: immich-cnpg-cluster
   method: volumeSnapshot
+  immediate: true
