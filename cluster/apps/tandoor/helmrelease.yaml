@@ -28,26 +28,26 @@ spec:
             env:
               SECRET_KEY: "${TANDOOR_SECRET_KEY}"
               DB_ENGINE: django.db.backends.postgresql
-              POSTGRES_HOST: immich-cnpg-cluster-rw.immich.svc.cluster.local
+              POSTGRES_HOST: tandoor-cnpg-cluster-rw.tandoor.svc.cluster.local
               POSTGRES_PORT:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-cnpg-cluster-app
+                    name: tandoor-cnpg-cluster-app
                     key: port
               POSTGRES_USER:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-cnpg-cluster-app
+                    name: tandoor-cnpg-cluster-app
                     key: username
               POSTGRES_PASSWORD:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-cnpg-cluster-app
+                    name: tandoor-cnpg-cluster-app
                     key: password
               POSTGRES_DB:
                 valueFrom:
                   secretKeyRef:
-                    name: immich-cnpg-cluster-app
+                    name: tandoor-cnpg-cluster-app
                     key: dbname
     service:
       app:
