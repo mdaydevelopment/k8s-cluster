@@ -30,6 +30,7 @@ resources:
   - recyclarr
   - seerr
   - sonarr
+  - tandoor
   - tautulli
   - zigbee2mqtt
   - zwave-js-ui
