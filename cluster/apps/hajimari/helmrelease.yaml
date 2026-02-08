@@ -88,6 +88,10 @@ spec:
               url: 'https://docs.google.com/spreadsheets'
             - name: Docs
               url: 'https://docs.google.com/document'
+        - group: Test
+          bookmarks:
+            - name: Debug
+              url: 'about:debugging'
     ingress:
       main:
         enabled: true
