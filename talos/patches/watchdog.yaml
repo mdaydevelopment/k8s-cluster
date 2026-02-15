@@ -1,0 +1,5 @@
+---
+apiVersion: v1alpha1
+kind: WatchdogTimerConfig
+device: /dev/watchdog0 # Path to the watchdog device.
+timeout: 3m0s # Timeout for the watchdog.
