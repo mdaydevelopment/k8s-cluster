@@ -26,7 +26,7 @@ spec:
     interval: 5m
     logLevel: debug
     provider: cloudflare
-    labelFilter: "external-dns-pihole=enable"
+    labelFilter: "external-dns-cloudflare=enable"
     env:
       - name: CF_API_EMAIL
         valueFrom:
