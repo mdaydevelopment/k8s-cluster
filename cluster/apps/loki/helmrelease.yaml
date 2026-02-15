@@ -75,6 +75,8 @@ spec:
     ingress:
       enabled: true
       ingressClassName: "nginx"
+      labels:
+          external-dns-pihole: enable
       annotations:
         cert-manager.io/cluster-issuer: "letsencrypt-production"
         external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
