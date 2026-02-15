@@ -32,8 +32,8 @@ spec:
         value: "${EXTERNAL_DNS_PIHOLE_PASSWORD}"
       - name: EXTERNAL_DNS_PIHOLE_SERVER
         value: "http://${PIHOLE_SERVER}"
-    args:
-      - "--pihole-api-version=6"
+    extraArgs:
+      - --pihole-api-version=6
     policy: sync
     regisrty: noop
     sources:
