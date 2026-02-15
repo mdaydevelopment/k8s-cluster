@@ -25,7 +25,8 @@ spec:
   values:
     interval: 5m
     logLevel: debug
-    labelFilter: "external-dns-pihole: 'enable'"
+    labelFilter:
+      external-dns-pihole: enable
     provider: pihole
     env:
       - name: EXTERNAL_DNS_PIHOLE_PASSWORD
