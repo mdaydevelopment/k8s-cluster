@@ -38,8 +38,6 @@ spec:
           external-dns-pihole: enable
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
-          external-dns/is-public: "true"
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:fire-circle"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
@@ -64,10 +62,10 @@ spec:
       ingress:
         enabled: true
         ingressClassName: "nginx"
+        labels:
+          external-dns-pihole: enable
         annotations:
           cert-manager.io/cluster-issuer: "letsencrypt-production"
-          external-dns.alpha.kubernetes.io/cloudflare-proxied: "false"
-          external-dns/is-public: "true"
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:radar"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"

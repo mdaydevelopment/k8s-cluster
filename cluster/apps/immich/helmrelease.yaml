@@ -59,10 +59,10 @@ spec:
           className: "nginx"
           labels:
             external-dns-pihole: enable
+            external-dns-cloudflare: enable
           annotations:
             cert-manager.io/cluster-issuer: "letsencrypt-production"
             external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
-            external-dns/is-public: "true"
             hajimari.io/enable: "true"
             hajimari.io/icon: "mdi:camera-iris"
             # proxy-body-size is set to 0 to remove the body limit on file uploads
