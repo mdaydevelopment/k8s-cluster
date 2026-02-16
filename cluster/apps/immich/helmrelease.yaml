@@ -54,12 +54,11 @@ spec:
                       name: immich-cnpg-cluster-app
                       key: password
       ingress:
-        main:
+        pihole:
           enabled: true
           className: "nginx"
           labels:
             external-dns-pihole: enable
-            external-dns-cloudflare: enable
           annotations:
             cert-manager.io/cluster-issuer: "letsencrypt-production"
             #external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
@@ -82,6 +81,34 @@ spec:
           - hosts:
             - "immich.${SECRET_DOMAIN}"
             secretName: immich-tls
+        cloudflare:
+          enabled: true
+          className: "nginx"
+          labels:
+            external-dns-cloudflare: enable
+          annotations:
+            cert-manager.io/cluster-issuer: "letsencrypt-production"
+            external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+            hajimari.io/enable: "true"
+            hajimari.io/icon: "mdi:camera-iris"
+            # proxy-body-size is set to 0 to remove the body limit on file uploads
+            nginx.ingress.kubernetes.io/proxy-body-size: "0"
+            # timeouts (avoid ingress closing the connection mid-upload / long processing)
+            nginx.ingress.kubernetes.io/proxy-connect-timeout: "75"
+            nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+            nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+            # avoid request-body buffering to disk (reduces “mysterious” disconnects when temp storage is constrained)
+            nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+          hosts:
+          - host: "immich.${SECRET_DOMAIN}"
+            paths:
+            - path: /
+              pathType: Prefix
+          tls:
+          - hosts:
+            - "immich.${SECRET_DOMAIN}"
+            secretName: immich-tls
+
     machine-learning:
       persistence:
         cache:
