@@ -40,6 +40,7 @@ spec:
             key: api-key
     extraArgs:
       - --cloudflare-proxied
+      - "--default-targets=ipv4.${SECRET_DOMAIN}"
     policy: sync
     sources:
       - ingress
