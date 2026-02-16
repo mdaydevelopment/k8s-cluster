@@ -17,8 +17,7 @@ spec:
           app:
             image:
               repository: ghcr.io/seerr-team/seerr
-              #tag: preview-availability-sync-fix
-              tag: sha-8fc68c3
+              tag: latest
             env:
               LOG_LEVEL: debug
               TZ: "America/Chicago"
