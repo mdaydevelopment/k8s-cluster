@@ -25,7 +25,7 @@ spec:
             main:
               image:
                 # renovate: datasource=github-releases depName=immich-app/immich
-                tag: "v2.5.2"
+                tag: "v2.6.2"
               resources:
                 requests:
                   cpu: 100m
@@ -74,13 +74,13 @@ spec:
             # avoid request-body buffering to disk (reduces “mysterious” disconnects when temp storage is constrained)
             nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
           hosts:
-          - host: "immich.${SECRET_DOMAIN}"
+          - host: "immich.${SECRET_DOMAIN_A}"
             paths:
             - path: /
               pathType: Prefix
           tls:
           - hosts:
-            - "immich.${SECRET_DOMAIN}"
+            - "immich.${SECRET_DOMAIN_A}"
             secretName: immich-tls
 
     machine-learning:
