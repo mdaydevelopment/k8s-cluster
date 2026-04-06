@@ -23,8 +23,8 @@ spec:
               - sh
               - -c
               - |
-                echo "waiting for database:3306..."
-                until nc -z database 3306; do sleep 2; done
+                echo "waiting for pricebuddy-database:3306..."
+                until nc -z pricebuddy-database 3306; do sleep 2; done
                 echo "database is reachable"
         containers:
           app:
@@ -33,13 +33,13 @@ spec:
               tag: latest
             env:
               # From upstream docker-compose.yml
-              DB_HOST: database
+              DB_HOST: pricebuddy-database
               DB_USERNAME: pricebuddy
               DB_PASSWORD: ${PRICEBUDDY_DB_PASSWORD}
               DB_DATABASE: pricebuddy
               APP_USER_EMAIL: ${PRICEBUDDY_APP_USER_EMAIL}
               APP_USER_PASSWORD: ${PRICEBUDDY_APP_USER_PASSWORD}
-              SCRAPER_BASE_URL: http://scraper:3000
+              SCRAPER_BASE_URL: http://pricebuddy-scraper:3000
               AFFILIATE_ENABLED: "true"
 
             resources:
