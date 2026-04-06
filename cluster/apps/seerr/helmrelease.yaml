@@ -42,13 +42,13 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:jellyfish-outline"
         hosts:
-        - host: "seerr.${SECRET_DOMAIN}"
+        - host: "seerr.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "seerr.${SECRET_DOMAIN}"
+          - "seerr.${SECRET_DOMAIN_A}"
           secretName: seerr-tls
     persistence:
       config:

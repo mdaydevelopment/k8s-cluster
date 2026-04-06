@@ -65,7 +65,7 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:home-assistant"
         hosts:
-        - host: &host "ha.${SECRET_DOMAIN}"
+        - host: &host "ha.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix

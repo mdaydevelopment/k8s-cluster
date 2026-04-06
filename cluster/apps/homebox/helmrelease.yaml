@@ -57,13 +57,13 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:package-variant"
         hosts:
-        - host: "homebox.${SECRET_DOMAIN}"
+        - host: "homebox.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "homebox.${SECRET_DOMAIN}"
+          - "homebox.${SECRET_DOMAIN_A}"
           secretName: homebox-tls
     persistence:
       config:

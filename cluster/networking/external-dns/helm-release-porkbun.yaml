@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: external-dns-pihole
+  name: external-dns-porkbun
   namespace: networking
 spec:
   interval: 15m
@@ -25,15 +25,17 @@ spec:
   values:
     interval: 5m
     logLevel: debug
-    provider: pihole
-    labelFilter: "external-dns-pihole=enable"
-    env:
-      - name: EXTERNAL_DNS_PIHOLE_PASSWORD
-        value: "${EXTERNAL_DNS_PIHOLE_PASSWORD}"
-      - name: EXTERNAL_DNS_PIHOLE_SERVER
-        value: "http://${PIHOLE_SERVER}"
-    extraArgs:
-      - --pihole-api-version=6
+    provider:
+      name: porkbun
+      webhook:
+        env:
+          - name: GO_LOG
+            value: "debug"
+          - name: API_KEY
+            value: "${PORKBUN_API_KEY}"
+          - name: API_SECRET
+            value: "${PORKBUN_API_SECRET}"
+    labelFilter: "external-dns-porkbun=enable"
     policy: sync
     regisrty: noop
     sources:
@@ -41,7 +43,7 @@ spec:
     txtPrefix: "k8s."
     txtOwnerId: "default"
     domainFilters:
-      - "${SECRET_DOMAIN_A}"
+      - "${SECRET_DOMAIN_B}"
     resources:
       requests:
         memory: 100Mi

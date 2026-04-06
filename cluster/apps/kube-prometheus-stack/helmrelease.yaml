@@ -42,13 +42,13 @@ spec:
           hajimari.io/icon: "mdi:fire-circle"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-        - "prometheus.${SECRET_DOMAIN}"
+        - "prometheus.${SECRET_DOMAIN_A}"
         paths:
           - /
         tls:
         - secretName: prometheus-tls
           hosts:
-          - "prometheus.${SECRET_DOMAIN}"
+          - "prometheus.${SECRET_DOMAIN_A}"
       storageSpec:
         volumeClaimTemplate:
           spec:
@@ -70,10 +70,10 @@ spec:
           hajimari.io/icon: "mdi:radar"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-        - "grafana.${SECRET_DOMAIN}"
+        - "grafana.${SECRET_DOMAIN_A}"
         paths: /
         tls:
         - hosts:
-          - "grafana.${SECRET_DOMAIN}"
+          - "grafana.${SECRET_DOMAIN_A}"
           secretName: grafana-tls
 

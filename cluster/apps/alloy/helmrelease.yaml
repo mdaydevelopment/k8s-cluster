@@ -84,9 +84,9 @@ spec:
       faroPort: 12347
       pathType: Prefix
       hosts:
-        - "alloy.${SECRET_DOMAIN}"
+        - "alloy.${SECRET_DOMAIN_A}"
       tls:
        - secretName: alloy-tls
          hosts:
-           - "alloy.${SECRET_DOMAIN}"
+           - "alloy.${SECRET_DOMAIN_A}"
 

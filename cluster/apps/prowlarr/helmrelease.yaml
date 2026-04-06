@@ -35,13 +35,13 @@ spec:
           hajimari.io/icon: "mdi:cat"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-        - host: "prowlarr.${SECRET_DOMAIN}"
+        - host: "prowlarr.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "prowlarr.${SECRET_DOMAIN}"
+          - "prowlarr.${SECRET_DOMAIN_A}"
           secretName: prowlarr-tls
     persistence:
       config:

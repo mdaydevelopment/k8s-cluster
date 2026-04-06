@@ -4,4 +4,5 @@ kind: Kustomization
 resources:
   - helm-release-cloudflare.yaml
   - helm-release-pihole.yaml
+  - helm-release-porkbun.yaml
   - secret.sops.yaml

@@ -39,7 +39,7 @@ spec:
             name: external-dns-cloud-credentials
             key: api-key
     extraArgs:
-      - "--default-targets=ipv4.${SECRET_DOMAIN}"
+      - "--default-targets=ipv4.${SECRET_DOMAIN_A}"
       - --force-default-targets
     policy: sync
     sources:
@@ -47,7 +47,7 @@ spec:
     txtPrefix: "k8s."
     txtOwnerId: "default"
     domainFilters:
-      - "${SECRET_DOMAIN}"
+      - "${SECRET_DOMAIN_A}"
     resources:
       requests:
         memory: 100Mi

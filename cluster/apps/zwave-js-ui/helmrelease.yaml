@@ -65,7 +65,7 @@ spec:
           hajimari.io/icon: "mdi:z-wave"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-          - host: &host "zwave.${SECRET_DOMAIN}"
+          - host: &host "zwave.${SECRET_DOMAIN_A}"
             paths:
               - path: /
                 service:

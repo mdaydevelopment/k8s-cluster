@@ -61,13 +61,13 @@ spec:
           hajimari.io/icon: "mdi:rss"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-        - host: "fusion.${SECRET_DOMAIN}"
+        - host: "fusion.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "fusion.${SECRET_DOMAIN}"
+          - "fusion.${SECRET_DOMAIN_A}"
           secretName: fusion-tls
     persistence:
       config:

@@ -38,13 +38,13 @@ spec:
           hajimari.io/icon: "mdi:home-circle-outline"
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
         hosts:
-          - host: "homer.${SECRET_DOMAIN}"
+          - host: "homer.${SECRET_DOMAIN_A}"
             paths:
               - path: /
                 pathType: Prefix
         tls:
           - hosts:
-              - "homer.${SECRET_DOMAIN}"
+              - "homer.${SECRET_DOMAIN_A}"
             secretName: "homer-tls"
     persistence:
       config:

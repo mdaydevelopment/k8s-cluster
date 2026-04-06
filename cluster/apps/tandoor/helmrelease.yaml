@@ -66,13 +66,13 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:chef-hat"
         hosts:
-        - host: "tandoor.${SECRET_DOMAIN}"
+        - host: "tandoor.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "tandoor.${SECRET_DOMAIN}"
+          - "tandoor.${SECRET_DOMAIN_A}"
           secretName: tandoor-tls
     persistence:
       static:

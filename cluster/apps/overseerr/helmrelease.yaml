@@ -36,13 +36,13 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:hat-fedora"
         hosts:
-        - host: "overseerr.${SECRET_DOMAIN}"
+        - host: "overseerr.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "overseerr.${SECRET_DOMAIN}"
+          - "overseerr.${SECRET_DOMAIN_A}"
           secretName: overseerr-tls
     persistence:
       config:
@@ -72,6 +72,6 @@ spec:
     hostAliases:
       - ip: "${NGINX_INGRESS_ADDR}"
         hostnames:
-          - "sonarr.${SECRET_DOMAIN}"
-          - "radarr.${SECRET_DOMAIN}"
-          - "lidarr.${SECRET_DOMAIN}"
+          - "sonarr.${SECRET_DOMAIN_A}"
+          - "radarr.${SECRET_DOMAIN_A}"
+          - "lidarr.${SECRET_DOMAIN_A}"

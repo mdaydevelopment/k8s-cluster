@@ -20,7 +20,7 @@ spec:
               tag: rolling
             env:
               TZ: "America/Chicago"
-              TAUTULLI_HTTP_BASE_URL: "https://tautulli.${SECRET_DOMAIN}"
+              TAUTULLI_HTTP_BASE_URL: "https://tautulli.${SECRET_DOMAIN_A}"
               TAUTULLI_HTTP_PORT: &port 80
             resources:
               requests:
@@ -39,13 +39,13 @@ spec:
           hajimari.io/enable: "true"
           hajimari.io/icon: "mdi:animation-play"
         hosts:
-        - host: "tautulli.${SECRET_DOMAIN}"
+        - host: "tautulli.${SECRET_DOMAIN_A}"
           paths:
           - path: /
             pathType: Prefix
         tls:
         - hosts:
-          - "tautulli.${SECRET_DOMAIN}"
+          - "tautulli.${SECRET_DOMAIN_A}"
           secretName: tautulli-tls
     persistence:
       config:
