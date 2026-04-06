@@ -1,0 +1,169 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: pricebuddy
+  namespace: pricebuddy
+spec:
+  interval: 1m
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+
+  values:
+    controllers:
+      app:
+        initContainers:
+          wait-for-mysql:
+            image:
+              repository: busybox
+              tag: "1.37"
+            command:
+              - sh
+              - -c
+              - |
+                echo "waiting for database:3306..."
+                until nc -z database 3306; do sleep 2; done
+                echo "database is reachable"
+        containers:
+          app:
+            image:
+              repository: jez500/pricebuddy
+              tag: latest
+            env:
+              # From upstream docker-compose.yml
+              DB_HOST: database
+              DB_USERNAME: pricebuddy
+              DB_PASSWORD: ${PRICEBUDDY_DB_PASSWORD}
+              DB_DATABASE: pricebuddy
+              APP_USER_EMAIL: ${PRICEBUDDY_APP_USER_EMAIL}
+              APP_USER_PASSWORD: ${PRICEBUDDY_APP_USER_PASSWORD}
+              SCRAPER_BASE_URL: http://scraper:3000
+              AFFILIATE_ENABLED: "true"
+
+            resources:
+              requests:
+                cpu: 50m
+                memory: 256Mi
+              limits:
+                memory: 1Gi
+
+      database:
+        containers:
+          database:
+            image:
+              repository: mysql
+              tag: "8.2"
+            env:
+              MYSQL_DATABASE: pricebuddy
+              MYSQL_USER: pricebuddy
+              MYSQL_PASSWORD: ${PRICEBUDDY_DB_PASSWORD}
+              MYSQL_ROOT_PASSWORD: ${PRICEBUDDY_MYSQL_ROOT_PASSWORD}
+            probes:
+              readiness:
+                enabled: true
+                custom: true
+                spec:
+                  exec:
+                    command: ["mysqladmin", "ping", "-h", "localhost"]
+                  initialDelaySeconds: 10
+                  periodSeconds: 10
+                  timeoutSeconds: 5
+                  failureThreshold: 5
+              liveness:
+                enabled: true
+                custom: true
+                spec:
+                  exec:
+                    command: ["mysqladmin", "ping", "-h", "localhost"]
+                  initialDelaySeconds: 30
+                  periodSeconds: 10
+                  timeoutSeconds: 5
+                  failureThreshold: 5
+
+            resources:
+              requests:
+                cpu: 50m
+                memory: 512Mi
+              limits:
+                memory: 2Gi
+
+      scraper:
+        containers:
+          scraper:
+            image:
+              repository: jez500/seleniumbase-scrapper
+              tag: latest
+            resources:
+              requests:
+                cpu: 100m
+                memory: 512Mi
+              limits:
+                memory: 2Gi
+
+    service:
+      main:
+        controller: app
+        ports:
+          http:
+            port: 80
+
+      database:
+        controller: database
+        ports:
+          mysql:
+            port: 3306
+
+      scraper:
+        controller: scraper
+        ports:
+          http:
+            port: 3000
+
+    ingress:
+      main:
+        enabled: true
+        className: "nginx"
+        labels:
+          external-dns-pihole: enable
+          # if you also want cloudflare here, add:
+          # external-dns-cloudflare: enable
+        annotations:
+          cert-manager.io/cluster-issuer: "letsencrypt-production"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: "mdi:currency-usd"
+          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+        hosts:
+          - host: "pricebuddy.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "pricebuddy.${SECRET_DOMAIN}"
+            secretName: pricebuddy-tls
+
+    persistence:
+      # PriceBuddy persistent storage (/app/storage)
+      storage:
+        existingClaim: pricebuddy-storage
+        globalMounts:
+          - path: /app/storage
+
+      # MySQL data (/var/lib/mysql)
+      database:
+        existingClaim: pricebuddy-database
+        advancedMounts:
+          database:
+            database:
+              - path: /var/lib/mysql
+
+      # Mount Secret as /app/.env (subPath => "env" key in Secret)
+      env-file:
+        type: secret
+        name: pricebuddy-env
+        globalMounts:
+          - path: /app/.env
+            subPath: env
+            readOnly: true

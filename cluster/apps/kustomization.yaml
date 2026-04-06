@@ -24,6 +24,7 @@ resources:
   - nzbget
   - overseerr
   - plex
+  - pricebuddy
   - prowlarr
   - qbittorrent
   - radarr
