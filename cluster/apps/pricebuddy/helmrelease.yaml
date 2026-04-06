@@ -39,7 +39,7 @@ spec:
               DB_DATABASE: pricebuddy
               APP_USER_EMAIL: ${PRICEBUDDY_APP_USER_EMAIL}
               APP_USER_PASSWORD: ${PRICEBUDDY_APP_USER_PASSWORD}
-              APP_URL: "https://pricebuddy.${SECRET_DOMAIN}"
+              APP_URL: "https://pricebuddy.${SECRET_DOMAIN_A}"
               TRUSTED_PROXIES: "*"
               SCRAPER_BASE_URL: http://pricebuddy-scraper:3000
               AFFILIATE_ENABLED: "true"
@@ -139,7 +139,7 @@ spec:
           nginx.ingress.kubernetes.io/configuration-snippet: |
             proxy_set_header X-Forwarded-Proto "https";
         hosts:
-          - host: "pricebuddy.${SECRET_DOMAIN}"
+          - host: "pricebuddy.${SECRET_DOMAIN_A}"
             paths:
               - path: /
                 pathType: Prefix
@@ -148,7 +148,7 @@ spec:
                   port: http
         tls:
           - hosts:
-              - "pricebuddy.${SECRET_DOMAIN}"
+              - "pricebuddy.${SECRET_DOMAIN_A}"
             secretName: pricebuddy-tls
 
     persistence:
