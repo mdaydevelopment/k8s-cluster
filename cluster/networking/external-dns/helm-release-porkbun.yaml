@@ -38,6 +38,8 @@ spec:
             value: "${PORKBUN_API_KEY}"
           - name: API_SECRET
             value: "${PORKBUN_API_SECRET}"
+        securityContext:
+          runAsNonRoot: false
     labelFilter: "external-dns-porkbun=enable"
     policy: sync
     registry: noop
