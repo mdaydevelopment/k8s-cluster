@@ -26,18 +26,21 @@ spec:
     interval: 5m
     logLevel: debug
     provider:
-      name: porkbun
+      name: webhook
       webhook:
+        image:
+          repository: ghcr.io/mconfalonieri/external-dns-porkbun-webhook
+          tag: v0.5.1
         env:
           - name: GO_LOG
             value: "debug"
-          - name: API_KEY
+          - name: PORKBUN_API_KEY
             value: "${PORKBUN_API_KEY}"
-          - name: API_SECRET
+          - name: PORKBUN_SECRET_API_KEY
             value: "${PORKBUN_API_SECRET}"
     labelFilter: "external-dns-porkbun=enable"
     policy: sync
-    regisrty: noop
+    registry: noop
     sources:
       - ingress
     txtPrefix: "k8s."
