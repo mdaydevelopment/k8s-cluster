@@ -56,18 +56,18 @@ spec:
               ZIGBEE2MQTT_CONFIG_MQTT_INCLUDE_DEVICE_INFORMATION: "true"
               ZIGBEE2MQTT_CONFIG_MQTT_KEEPALIVE: 60
               ZIGBEE2MQTT_CONFIG_MQTT_REJECT_UNAUTHORIZED: "true"
-              ZIGBEE2MQTT_CONFIG_MQTT_SERVER: mqtt://emqx-listeners.emqx.svc.cluster.local.
+              ZIGBEE2MQTT_CONFIG_MQTT_SERVER: mqtt://mosquitto.mosquitto.svc.cluster.local
               ZIGBEE2MQTT_CONFIG_MQTT_VERSION: 5
               ZIGBEE2MQTT_CONFIG_MQTT_USER:
                 valueFrom:
                   secretKeyRef:
-                    name: emqx-secret
-                    key: user_1_username
+                    name: mosquitto-secret
+                    key: username
               ZIGBEE2MQTT_CONFIG_MQTT_PASSWORD:
                 valueFrom:
                   secretKeyRef:
-                    name: emqx-secret
-                    key: user_1_password
+                    name: mosquitto-secret
+                    key: password
               ZIGBEE2MQTT_CONFIG_PERMIT_JOIN: "true"
               # This is going to have to change to whatever the device actually is.
               ZIGBEE2MQTT_CONFIG_SERIAL_PORT: &device /dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_9c3a01775f51ef11a4eb378ccc32aab1-if00-port0

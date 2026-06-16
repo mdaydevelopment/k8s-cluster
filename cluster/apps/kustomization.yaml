@@ -6,7 +6,7 @@ resources:
   - cnpg
   - default
   - deluge
-  - emqx/ks.yaml
+  - mosquitto
   - flux-system
   - fusion
   - hajimari

@@ -8,7 +8,6 @@ resources:
   - cnpg.yaml
   - democratic-csi.yaml
   - external-dns.yaml
-  - emqx.yaml
   - grafana.yaml
   - hajimari.yaml
   - immich.yaml
