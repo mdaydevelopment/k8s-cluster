@@ -33,7 +33,9 @@ spec:
             command:
               - /bin/sh
               - -c
-              - mosquitto_passwd -b -c /mosquitto/passwd/passwd "$MQTT_USERNAME" "$MQTT_PASSWORD"
+              - |
+                mosquitto_passwd -b -c /mosquitto/passwd/passwd "$MQTT_USERNAME" "$MQTT_PASSWORD"
+                mosquitto_passwd -b /mosquitto/passwd/passwd "$MQTT_HA_USERNAME" "$MQTT_HA_PASSWORD"
             env:
               MQTT_USERNAME:
                 valueFrom:
@@ -45,6 +47,16 @@ spec:
                   secretKeyRef:
                     name: mosquitto-secret
                     key: password
+              MQTT_HA_USERNAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: mosquitto-secret
+                    key: ha_username
+              MQTT_HA_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: mosquitto-secret
+                    key: ha_password
         containers:
           app:
             image:
