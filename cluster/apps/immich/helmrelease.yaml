@@ -90,3 +90,9 @@ spec:
 
     valkey:
       enabled: true
+      persistence:
+        data:
+          type: persistentVolumeClaim
+          size: 1Gi
+          storageClass: freenas-iscsi-csi
+          accessMode: ReadWriteOnce
