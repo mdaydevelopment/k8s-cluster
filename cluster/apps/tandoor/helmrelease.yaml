@@ -27,6 +27,8 @@ spec:
               tag: latest
             env:
               SECRET_KEY: "${TANDOOR_SECRET_KEY}"
+              ALLOWED_HOSTS: "*"
+              CSRF_TRUSTED_ORIGINS: "https://tandoor.${SECRET_DOMAIN_A}"
               DB_ENGINE: django.db.backends.postgresql
               POSTGRES_HOST: tandoor-cnpg-cluster-rw.tandoor.svc.cluster.local
               POSTGRES_PORT:
