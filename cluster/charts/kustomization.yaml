@@ -24,3 +24,4 @@ resources:
   - prometheus-community.yaml
   - seerr.yaml
   - stakater.yaml
+  - valkey-operator.yaml

@@ -33,5 +33,6 @@ resources:
   - sonarr
   - tandoor
   - tautulli
+  - valkey-operator
   - zigbee2mqtt
   - zwave-js-ui
