@@ -20,6 +20,29 @@ spec:
   values:
     controllers:
       gitea:
+        initContainers:
+          wait-for-valkey:
+            image:
+              repository: busybox
+              tag: "1.37"
+            command:
+              - sh
+              - -c
+              - |
+                until nc -z gitea-valkey.gitea.svc.cluster.local 6379; do
+                  echo "waiting for valkey..."; sleep 2
+                done
+          wait-for-db:
+            image:
+              repository: busybox
+              tag: "1.37"
+            command:
+              - sh
+              - -c
+              - |
+                until nc -z gitea-cnpg-cluster-rw.gitea.svc.cluster.local 5432; do
+                  echo "waiting for postgres..."; sleep 2
+                done
         containers:
           app:
             image:
