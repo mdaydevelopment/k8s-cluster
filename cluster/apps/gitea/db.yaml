@@ -1,0 +1,27 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: gitea-cnpg-cluster
+  namespace: gitea
+spec:
+  instances: 1
+  storage:
+    storageClass: freenas-iscsi-csi
+    size: 10Gi
+  backup:
+    volumeSnapshot:
+      className: freenas-iscsi-delete
+      snapshotOwnerReference: backup
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: gitea-cnpg-metrics
+  namespace: gitea
+spec:
+  selector:
+    matchLabels:
+      cnpg.io/cluster: gitea-cnpg-cluster
+  podMetricsEndpoints:
+    - port: metrics

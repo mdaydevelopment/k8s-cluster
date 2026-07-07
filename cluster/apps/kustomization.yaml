@@ -9,6 +9,7 @@ resources:
   - mosquitto
   - flux-system
   - fusion
+  - gitea
   - hajimari
   - home-assistant
   - homebox

@@ -1,0 +1,17 @@
+---
+apiVersion: hyperspike.io/v1
+kind: Valkey
+metadata:
+  name: gitea-valkey
+  namespace: gitea
+spec:
+  nodes: 1
+  replicas: 0
+  storage:
+    spec:
+      storageClassName: freenas-iscsi-csi
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 2Gi
