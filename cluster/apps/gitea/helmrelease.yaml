@@ -27,11 +27,6 @@ spec:
               tag: latest
             env:
               TZ: America/Chicago
-              VALKEY_PASSWORD:
-                valueFrom:
-                  secretKeyRef:
-                    name: gitea-valkey
-                    key: password
               GITEA__database__DB_TYPE: postgres
               GITEA__database__HOST: gitea-cnpg-cluster-rw.gitea.svc.cluster.local:5432
               GITEA__database__NAME:
@@ -56,11 +51,11 @@ spec:
               GITEA__service__DISABLE_REGISTRATION: "true"
               GITEA__cache__ENABLED: "true"
               GITEA__cache__ADAPTER: redis
-              GITEA__cache__HOST: "redis://:$(VALKEY_PASSWORD)@gitea-valkey.gitea.svc.cluster.local:6379/0"
+              GITEA__cache__HOST: "redis://gitea-valkey.gitea.svc.cluster.local:6379/0"
               GITEA__queue__TYPE: redis
-              GITEA__queue__CONN_STR: "redis://:$(VALKEY_PASSWORD)@gitea-valkey.gitea.svc.cluster.local:6379/1"
+              GITEA__queue__CONN_STR: "redis://gitea-valkey.gitea.svc.cluster.local:6379/1"
               GITEA__session__PROVIDER: redis
-              GITEA__session__PROVIDER_CONFIG: "redis://:$(VALKEY_PASSWORD)@gitea-valkey.gitea.svc.cluster.local:6379/2"
+              GITEA__session__PROVIDER_CONFIG: "redis://gitea-valkey.gitea.svc.cluster.local:6379/2"
     defaultPodOptions:
       securityContext:
         fsGroup: 1000
