@@ -74,11 +74,11 @@ spec:
               GITEA__service__DISABLE_REGISTRATION: "true"
               GITEA__cache__ENABLED: "true"
               GITEA__cache__ADAPTER: redis
-              GITEA__cache__HOST: "redis://gitea-valkey.gitea.svc.cluster.local:6379/0"
+              GITEA__cache__HOST: "redis+cluster://gitea-valkey.gitea.svc.cluster.local:6379"
               GITEA__queue__TYPE: redis
-              GITEA__queue__CONN_STR: "redis://gitea-valkey.gitea.svc.cluster.local:6379/1"
+              GITEA__queue__CONN_STR: "redis+cluster://gitea-valkey.gitea.svc.cluster.local:6379"
               GITEA__session__PROVIDER: redis
-              GITEA__session__PROVIDER_CONFIG: "redis://gitea-valkey.gitea.svc.cluster.local:6379/2"
+              GITEA__session__PROVIDER_CONFIG: "redis+cluster://gitea-valkey.gitea.svc.cluster.local:6379"
     defaultPodOptions:
       securityContext:
         fsGroup: 1000
