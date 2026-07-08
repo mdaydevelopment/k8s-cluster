@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gitea-config
+  namespace: gitea
+data:
+  TZ: America/Chicago
+  GITEA__security__INSTALL_LOCK: "true"
+  GITEA__server__DOMAIN: "gitea.${SECRET_DOMAIN_A}"
+  GITEA__server__ROOT_URL: "https://gitea.${SECRET_DOMAIN_A}"
+  GITEA__server__HTTP_PORT: "3000"
+  GITEA__server__DISABLE_SSH: "true"
+  GITEA__service__DISABLE_REGISTRATION: "true"
+  GITEA__database__DB_TYPE: postgres
+  GITEA__database__HOST: gitea-cnpg-cluster-rw.gitea.svc.cluster.local:5432
+  GITEA__cache__ENABLED: "true"
+  GITEA__cache__ADAPTER: redis
+  GITEA__cache__HOST: "redis://gitea-valkey.gitea.svc.cluster.local:6379"
+  GITEA__queue__TYPE: redis
+  GITEA__queue__CONN_STR: "redis://gitea-valkey.gitea.svc.cluster.local:6379"
+  GITEA__session__PROVIDER: redis
+  GITEA__session__PROVIDER_CONFIG: "redis://gitea-valkey.gitea.svc.cluster.local:6379"

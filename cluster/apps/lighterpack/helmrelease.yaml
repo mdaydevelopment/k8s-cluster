@@ -1,0 +1,45 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: lighterpack
+  namespace: lighterpack
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: lighterpack
+    namespace: flux-system
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    config:
+      deployUrl: "https://lighterpack.${SECRET_DOMAIN_A}"
+      publicUrl: "https://lighterpack.${SECRET_DOMAIN_A}"
+    mongodb:
+      persistence:
+        storageClass: freenas-iscsi-csi
+    ingress:
+      enabled: true
+      className: nginx
+      labels:
+        external-dns-pihole: enable
+      annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-production"
+        hajimari.io/enable: "true"
+        hajimari.io/icon: "mdi:backpack"
+        nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16"
+      hosts:
+        - host: "lighterpack.${SECRET_DOMAIN_A}"
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - "lighterpack.${SECRET_DOMAIN_A}"
+          secretName: lighterpack-tls

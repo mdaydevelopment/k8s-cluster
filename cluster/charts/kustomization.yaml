@@ -23,5 +23,6 @@ resources:
   - pajikos.yaml
   - prometheus-community.yaml
   - seerr.yaml
+  - lighterpack.yaml
   - stakater.yaml
   - valkey-operator.yaml

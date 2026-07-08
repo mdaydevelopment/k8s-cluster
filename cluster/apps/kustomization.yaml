@@ -20,6 +20,7 @@ resources:
   - kube-prometheus-stack
   - kube-system
   - lidarr
+  - lighterpack
   - loki
   - node-feature-discovery
   - nzbget
