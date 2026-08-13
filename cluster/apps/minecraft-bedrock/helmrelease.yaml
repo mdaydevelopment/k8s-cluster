@@ -56,7 +56,7 @@ spec:
               DIFFICULTY: normal
               MAX_PLAYERS: "10"
               # xbox live auth — do not disable.
-              ONLINE_MODE: "TRUE"
+              ONLINE_MODE: "true"
               ALLOW_LIST: "true"
               ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
               # operator/superuser permissions — gamertag[:xuid], comma-separated
