@@ -60,7 +60,7 @@ spec:
               ALLOW_LIST: "true"
               ALLOW_LIST_USERS: "${MINECRAFT_ALLOW_LIST_USERS}"
               # operator/superuser permissions — gamertag[:xuid], comma-separated
-              OPS: "${MINECRAFT_OPS}"
+              OPS: ${quote}${MINECRAFT_OPS}${quote}
             securityContext:
               allowPrivilegeEscalation: false
               capabilities: { drop: ["ALL"] }
