@@ -7,9 +7,9 @@ metadata:
   labels:
     kustomize.toolkit.fluxcd.io/prune: disabled
 spec:
-  storageClassName: freenas-nfs-csi
+  storageClassName: freenas-iscsi-csi
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 20Gi
