@@ -4,7 +4,6 @@ sonarr:
     base_url: "https://sonarr.${SECRET_DOMAIN_A}"
     api_key: "${SONARR_API_KEY}"
     delete_old_custom_formats: true
-    replace_existing_custom_formats: true
     include:
       - template: sonarr-quality-definition-series
       - template: sonarr-v4-quality-profile-web-1080p
@@ -48,7 +47,6 @@ radarr:
     base_url: "https://radarr.${SECRET_DOMAIN_A}"
     api_key: "${RADARR_API_KEY}"
     delete_old_custom_formats: true
-    replace_existing_custom_formats: true
     quality_profiles:
       - name: SQP-1 (2160p)
     include:
