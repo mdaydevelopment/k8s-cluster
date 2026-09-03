@@ -22,7 +22,7 @@ resources:
   - lidarr
   - lighterpack
   - loki
-  - minecraft-bedrock
+  #- minecraft-bedrock
   - node-feature-discovery
   - nzbget
   - overseerr
