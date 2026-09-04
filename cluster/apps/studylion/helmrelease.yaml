@@ -61,8 +61,10 @@ spec:
             image: *image
             command: ["python", "scripts/start_registry.py", "--conf", "/etc/lionbot/bot.conf"]
             # The registry binds to 127.0.0.1 (bot.conf APPIPC), which a
-            # tcpSocket probe can't reach (it dials the pod IP), so probe
-            # from inside the container instead.
+            # tcpSocket probe can't reach (it dials the pod IP). Connecting
+            # and hanging up makes the registry log an EOFError on every
+            # probe, so check /proc/net/tcp for a LISTEN socket on port 5000
+            # (0x1388) instead of opening a connection.
             probes:
               liveness:
                 enabled: true
@@ -72,7 +74,7 @@ spec:
                     command: &regprobe
                       - python
                       - -c
-                      - "import socket; socket.create_connection(('127.0.0.1', 5000), timeout=2).close()"
+                      - "import sys; sys.exit(0 if any(l.split()[1].endswith(':1388') and l.split()[3] == '0A' for l in open('/proc/net/tcp').readlines()[1:]) else 1)"
                   initialDelaySeconds: 10
                   periodSeconds: 30
               readiness:
