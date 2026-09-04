@@ -34,6 +34,7 @@ resources:
   - recyclarr
   - seerr
   - sonarr
+  - studylion
   - tandoor
   - tautulli
   - valkey-operator

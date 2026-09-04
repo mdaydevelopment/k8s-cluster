@@ -1,0 +1,146 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: studylion
+  namespace: studylion
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: app-template
+    namespace: flux-system
+  install:
+    remediation:
+      retries: -1
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    # One image serves every process; the container command picks the process.
+    # Registry (TCP 127.0.0.1:5000) and GUI (unix socket in /run/lionbot) are
+    # loopback-only, so all three run in the same pod.
+    controllers:
+      studylion:
+        annotations:
+          reloader.stakater.com/auto: "true"
+        initContainers:
+          init-db:
+            image: &image
+              repository: ghcr.io/mdaydevelopment/studylion
+              tag: latest
+              pullPolicy: Always
+            command: ["python", "scripts/init_db.py", "--conf", "/etc/lionbot/bot.conf"]
+            env: &dbenv
+              # K8s expands $(VAR) from vars defined earlier in the list;
+              # app-template emits map keys sorted, so DB_* precede LIONBOT_*.
+              DB_HOST:
+                valueFrom:
+                  secretKeyRef:
+                    name: studylion-cnpg-cluster-app
+                    key: host
+              DB_NAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: studylion-cnpg-cluster-app
+                    key: dbname
+              DB_PASSWORD:
+                valueFrom:
+                  secretKeyRef:
+                    name: studylion-cnpg-cluster-app
+                    key: password
+              DB_USER:
+                valueFrom:
+                  secretKeyRef:
+                    name: studylion-cnpg-cluster-app
+                    key: username
+              LIONBOT__DATA__ARGS: "host=$(DB_HOST) port=5432 dbname=$(DB_NAME) user=$(DB_USER) password=$(DB_PASSWORD)"
+        containers:
+          registry:
+            image: *image
+            command: ["python", "scripts/start_registry.py", "--conf", "/etc/lionbot/bot.conf"]
+            # The registry binds to 127.0.0.1 (bot.conf APPIPC), which a
+            # tcpSocket probe can't reach (it dials the pod IP), so probe
+            # from inside the container instead.
+            probes:
+              liveness:
+                enabled: true
+                custom: true
+                spec:
+                  exec:
+                    command: &regprobe
+                      - python
+                      - -c
+                      - "import socket; socket.create_connection(('127.0.0.1', 5000), timeout=2).close()"
+                  initialDelaySeconds: 10
+                  periodSeconds: 30
+              readiness:
+                enabled: true
+                custom: true
+                spec:
+                  exec:
+                    command: *regprobe
+                  initialDelaySeconds: 5
+                  periodSeconds: 10
+              startup:
+                enabled: false
+            resources:
+              requests:
+                cpu: 10m
+                memory: 64Mi
+              limits:
+                memory: 256Mi
+          gui:
+            image: *image
+            command: ["python", "scripts/start_gui.py", "--conf", "/etc/lionbot/bot.conf"]
+            # gui.conf process_count = 2 PIL workers.
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
+            resources:
+              requests:
+                cpu: 50m
+                memory: 256Mi
+              limits:
+                memory: 1Gi
+          app:
+            image: *image
+            command: ["python", "scripts/start_leo.py", "--conf", "/etc/lionbot/bot.conf", "--shard", "0"]
+            envFrom:
+              - secretRef:
+                  name: studylion-secret
+            env:
+              <<: *dbenv
+              TZ: America/Chicago
+            probes:
+              liveness:
+                enabled: false
+              readiness:
+                enabled: false
+              startup:
+                enabled: false
+            resources:
+              requests:
+                cpu: 100m
+                memory: 512Mi
+              limits:
+                memory: 2Gi
+    defaultPodOptions:
+      # Image runs as uid/gid 1000 (lionbot).
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        runAsNonRoot: true
+        fsGroup: 1000
+        fsGroupChangePolicy: OnRootMismatch
+    persistence:
+      # Shared socket dir between the bot and the GUI renderer.
+      run:
+        type: emptyDir
+        globalMounts:
+          - path: /run/lionbot

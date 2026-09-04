@@ -1,0 +1,13 @@
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: studylion-db-backup
+  namespace: studylion
+spec:
+  schedule: "0 0 0 * * *"
+  backupOwnerReference: self
+  cluster:
+    name: studylion-cnpg-cluster
+  method: volumeSnapshot
+  immediate: true
